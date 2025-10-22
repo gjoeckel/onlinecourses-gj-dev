@@ -1,0 +1,342 @@
+/*
+ * Admin Styles
+ * Only admin page styles should remain here.
+ */
+
+/* Example admin-only style: */
+.admin-home {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Add more admin-specific styles as needed */
+
+/*
+ * Admin Page Styles
+ * Extracted from admin/home.css for admin/index.php
+ * Maintains WCAG compliance and accessibility features
+ */
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+:root {
+    --primary-color: #183768;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --text-color: #333;
+    --background-color: #f5f6fa;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --border-color: #dcdde1;
+    --hover-color: #ffd700;
+    --header-text-color: #F4C10C;
+}
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Calibri, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    color: #333;
+    min-height: 101vh;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+}
+
+/* ==========================================================================
+   Status Page Styles (used by admin/index.php)
+   ========================================================================== */
+
+body.status-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+}
+
+/* ==========================================================================
+   Main Container Structure
+   ========================================================================== */
+
+.main-container {
+    width: 650px;
+    margin: 2rem auto;
+    padding: 50px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Row Container Styles
+   ========================================================================== */
+
+/* Row 1: Heading Container */
+.heading-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.heading-container h1 {
+    margin: 0;
+}
+
+/* Row 2: Label Container (empty for admin page) */
+.label-container {
+    /* Empty - no content needed for admin page */
+    height: 40px;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Row 3: Buttons Container */
+.buttons-container {
+    margin-bottom: 2rem;
+}
+
+/* Row 4: Message Container */
+.message-container {
+    text-align: center;
+}
+
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
+
+.button {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    color: #fff;
+    background-color: #183768;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 2px solid #183768;
+    font-size: 1rem;
+    outline: none;
+    height: 45px;
+    margin-right: 0;
+    cursor: pointer;
+}
+
+a#reports-btn {
+    background-color: #183768;
+    color: #ffffff;
+    border: 2px solid #183768;
+}
+
+a#settings-btn {
+    background-color: #666666;
+    color: #ffffff;
+    border: 2px solid #666666;
+}
+
+button#refresh-data-button {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    color: #333333;
+    background-color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 2px solid #333333;
+    font-size: 1rem;
+    outline: none;
+    height: 45px;
+    margin-right: 0;
+    cursor: pointer;
+}
+
+button#logout-btn,
+button.login-btn {
+    background-color: #ffffff;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.button.login-btn:focus-visible:not(:disabled),
+.button.login-btn:hover:not(:disabled),
+.button.login-btn:active:not(:disabled),
+.button#reports-btn:focus-visible:not(:disabled),
+.button#reports-btn:hover:not(:disabled),
+.button#reports-btn:active:not(:disabled),
+.button#settings-btn:focus-visible:not(:disabled),
+.button#settings-btn:hover:not(:disabled),
+.button#settings-btn:active:not(:disabled),
+.button#logout-btn:focus-visible:not(:disabled),
+.button#logout-btn:hover:not(:disabled),
+.button#logout-btn:active:not(:disabled),
+button#refresh-data-button:focus-visible:not(:disabled),
+button#refresh-data-button:hover:not(:disabled),
+button#refresh-data-button:active:not(:disabled) {
+    font-weight: bold;
+    outline: 3px solid #FFD700;
+    outline-offset: 2px;
+    background-color: #356DD0;
+    border: 2px solid #356DD0;
+    color: #fff;
+}
+
+/* ==========================================================================
+   Admin Button Row Styles
+   ========================================================================== */
+
+.admin-btn-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.admin-btn-row .button,
+.admin-btn-row .secondary-button {
+    min-width: 120px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Message Display Styles
+   ========================================================================== */
+
+#message-display {
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-weight: bold;
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#message-display.error-message {
+    background-color: #fee;
+    color: #c00;
+    border: 1px solid #fcc;
+}
+
+#message-display.success-message {
+    background-color: #e6f4ea;
+    color: #0f9d58;
+    border: 1px solid #0f9d58;
+}
+
+#message-display.warning-message {
+    background-color: #fff3e0;
+    color: #f57c00;
+    border: 1px solid #ffcc02;
+}
+
+#message-display.info-message {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #2196f3;
+}
+
+#message-display:not(.error-message):not(.success-message):not(.warning-message):not(.info-message) {
+    background-color: #f5f6fa;
+    color: #333;
+    border: 1px solid #dcdde1;
+}
+
+.error-message {
+    color: #d93025;
+    background-color: #fce8e6;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.success-message {
+    color: #0f9d58;
+    background-color: #e6f4ea;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.warning-message {
+    color: #f57c00;
+    background-color: #fff3e0;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #ffcc02;
+}
+
+.info-message {
+    color: #1976d2;
+    background-color: #e3f2fd;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #2196f3;
+}
+
+.visually-hidden-but-space {
+    visibility: hidden;
+    min-height: 2.5rem;
+    margin: 0;
+    padding: 0.75rem;
+    background: transparent !important;
+    border: none !important;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Admin Page Message Display Positioning
+   ========================================================================== */
+
+body.status-page .container.status-container #message-display {
+    margin-top: 3.5em;
+}
+
+/* ==========================================================================
+   High Contrast Mode Support
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #000;
+        --secondary-color: #222;
+        --accent-color: #0000EE;
+        --text-color: #000;
+        --background-color: #fff;
+        --border-color: #000;
+    }
+
+    .button {
+        border: 2px solid #000;
+    }
+}
+
+.link:hover {
+    background-color: #356DD0;
+    color: #fff;
+    border: 2px solid #356DD0;
+}
+
+.secondary-button:hover {
+    background-color: #356DD0;
+    color: #fff;
+    border: 2px solid #356DD0;
+}

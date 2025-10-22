@@ -1,0 +1,52 @@
+{
+    "enterprises": {
+        "ccc": {
+            "base_url": "https://webaim.org/training/online/clients-enterprise",
+            "parent_folder": "",
+            "dashboard_pattern": "{base_url}/dashboard.php?org={password}",
+            "dashboard_org_pattern": "{base_url}/dashboard.php?org={password}",
+            "admin_pattern": "{base_url}/admin/index.php?auth=1",
+            "login_pattern": "{base_url}/login.php"
+        },
+        "csu": {
+            "base_url": "https://webaim.org/training/online/clients-enterprise",
+            "parent_folder": "",
+            "dashboard_pattern": "{base_url}/dashboard.php?org={password}",
+            "dashboard_org_pattern": "{base_url}/dashboard.php?org={password}",
+            "admin_pattern": "{base_url}/admin/index.php?auth=1",
+            "login_pattern": "{base_url}/login.php"
+        },
+        "astho": {
+            "base_url": "https://webaim.org/training/online/clients-enterprise",
+            "parent_folder": "",
+            "dashboard_pattern": "{base_url}/dashboard.php?org={password}",
+            "dashboard_org_pattern": "{base_url}/dashboard.php?org={password}",
+            "admin_pattern": "{base_url}/admin/index.php?auth=1",
+            "login_pattern": "{base_url}/login.php"
+        }
+    },
+    "metadata": {
+        "supported_environments": [
+            "local",
+            "production"
+        ],
+        "url_patterns": [
+            "dashboard",
+            "dashboard_org",
+            "admin",
+            "login"
+        ],
+        "version": "1.0",
+        "clean_urls_enabled": false
+    },
+    "environments": {
+        "production": {
+            "base_url": null,
+            "parent_folder": "",
+            "dashboard_pattern": "{base_url}/dashboard.php?org={password}",
+            "dashboard_org_pattern": "{base_url}/dashboard.php?org={password}",
+            "admin_pattern": "{base_url}/admin/index.php",
+            "login_pattern": "{base_url}/login.php"
+        }
+    }
+}

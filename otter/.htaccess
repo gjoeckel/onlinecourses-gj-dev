@@ -1,0 +1,94 @@
+# Apache Configuration for Otter Application
+# This file configures Apache to properly serve the PHP application
+# Located at: /onlinecourses/otter/
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Set default index file
+DirectoryIndex index.php
+
+# Allow access to all files in this directory
+<Files "*">
+    Require all granted
+</Files>
+
+# Allow access to PHP files
+<Files "*.php">
+    Require all granted
+</Files>
+
+# Allow access to static assets
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg)$">
+    Require all granted
+</FilesMatch>
+
+# Allow access to JSON files (for configuration)
+<Files "*.json">
+    Require all granted
+</Files>
+
+# Allow access to config files
+<Files "*.config">
+    Require all granted
+</Files>
+
+# Prevent access to sensitive files
+<Files ".htaccess">
+    Require all denied
+</Files>
+
+<Files ".gitignore">
+    Require all denied
+</Files>
+
+<Files "*.md">
+    Require all denied
+</Files>
+
+# Prevent access to backup files
+<Files "*.backup">
+    Require all denied
+</Files>
+
+# Prevent access to log files
+<Files "*.log">
+    Require all denied
+</Files>
+
+# Prevent access to test files in production
+<Files "server_test.php">
+    Require all denied
+</Files>
+
+# Set proper MIME types
+AddType application/json .json
+AddType text/css .css
+AddType application/javascript .js
+AddType image/svg+xml .svg
+
+# Enable compression for better performance
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# Set cache headers for static assets
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/ico "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule> 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Debug Test</title>
+</head>
+<body>
+    <h1>API Debug Test</h1>
+    <div id="result"></div>
+    
+    <script type="module">
+        import { fetchEnterpriseData } from './lib/dashboard-link-utils.js';
+        
+        async function testAPI() {
+            const resultDiv = document.getElementById('result');
+            try {
+                console.log('Current location:', window.location.href);
+                const data = await fetchEnterpriseData();
+                resultDiv.innerHTML = '<p style="color: green;">✅ API call successful!</p><pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            } catch (error) {
+                resultDiv.innerHTML = '<p style="color: red;">❌ API call failed: ' + error.message + '</p>';
+                console.error('API test error:', error);
+            }
+        }
+        
+        testAPI();
+    </script>
+</body>
+</html> 

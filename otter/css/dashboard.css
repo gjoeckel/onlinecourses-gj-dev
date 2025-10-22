@@ -1,0 +1,779 @@
+/* 
+ * Dashboard Styles
+ * Central location for all dashboard-related styles
+ * Maintains WCAG compliance and accessibility features
+ * Consolidated from organizations.css for better organization
+ */
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+:root {
+    --primary-color: #183768; /* CCCblue */
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --text-color: #333;
+    --background-color: #f5f6fa;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --border-color: #dcdde1;
+    --hover-color: #ffd700; /* Yellow for hover states */
+    --header-text-color: #F4C10C;
+}
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Calibri, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    color: #333;
+    min-height: 101vh;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+}
+
+h2 {
+    color: #34495e;
+    margin-top: 30px;
+}
+
+/* ==========================================================================
+   Dashboard Header Styles
+   ========================================================================== */
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #183768;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.dashboard-header h1 {
+    color: #F4C10C;
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+}
+
+.dashboard-header p {
+    color: white;
+    font-size: 1.25rem;
+    margin: 0;
+    opacity: 0.9;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.dashboard-header .last-updated {
+    color: white;
+    font-size: 1.25rem;
+    margin: 0;
+    opacity: 0.8;
+    text-align: center;
+    margin-top: 0.25rem
+}
+
+.dashboard-header nav {
+    /* Flexbox keeps this right-aligned and vertically centered */
+}
+
+/* Remove old header/nav centering and absolute positioning styles */
+header {
+    background: #183768;
+    padding: 1rem;
+    /* Remove flex, column, align-items, position */
+}
+
+header h1 {
+    /* Remove absolute, left, transform, z-index */
+    color: #F4C10C;
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+}
+
+header p {
+    color: white;
+    font-size: 1.25rem;
+    margin: 0;
+    opacity: 0.9;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0;
+}
+
+/* ==========================================================================
+   Main Content Layout
+   ========================================================================== */
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem 0 1rem;
+    margin-top: 115px; /* Account for fixed header height */
+}
+
+/* Add spacing between sections (tables) */
+section {
+    margin-bottom: 30px;
+}
+
+/* ==========================================================================
+   Organization Select Styles
+   ========================================================================== */
+
+.organization-select {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.organization-select form {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.organization-select label {
+    font-weight: bold;
+    min-width: 150px;
+}
+
+.organization-select select {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    min-width: 200px;
+}
+
+/* ==========================================================================
+   Data Group Styles
+   ========================================================================== */
+
+.data-group {
+    margin-bottom: 2rem;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.data-group h2 {
+    padding: 1rem;
+    margin: 0;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* ==========================================================================
+   Table Styles
+   ========================================================================== */
+
+.table-responsive {
+    overflow-x: auto;
+    margin: 0 1px 30px 1px; /* Added bottom margin for spacing between tables */
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Base table styles */
+.table-responsive table {
+    width: 100%;
+    border-collapse: collapse;
+    /* margin: 20px 0; */ /* Removed margin here, added to .table-responsive */
+    background: #fff;
+    table-layout: fixed; /* Use fixed layout for consistent columns */
+}
+
+/* General caption styles */
+.table-responsive caption { 
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    padding: 12px;
+    text-align: center;
+    border-radius: 4px 4px 0 0;
+    /* cursor: pointer; */ /* REMOVE - Caption no longer interactive */
+    -webkit-user-select: none;
+    user-select: none;
+    position: relative;
+}
+
+/* ==========================================================================
+   Table Toggle Button Styles
+   ========================================================================== */
+
+.table-toggle-button {
+    /* Make button an invisible container */
+    background-color: transparent;
+    color: transparent;
+    font-size: 0; 
+    padding: 0;
+    border-radius: 50%; 
+    cursor: pointer;
+    position: absolute; /* Position within caption */
+    right: 30px;        /* Match old arrow position */
+    top: 50%;           /* Match old arrow position */
+    transform: translateY(-50%); /* Match old arrow position */
+    border: none;
+    width: 27px;  /* Match old arrow size */
+    height: 27px; /* Match old arrow size */
+    vertical-align: middle; 
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.table-toggle-button:focus,
+.table-toggle-button:focus-visible,
+.table-toggle-button:hover,
+.table-toggle-button:active {
+    outline: none;
+}
+
+/* Style the ::after pseudo-element as the visible button */
+.table-toggle-button::after {
+    content: "►";
+    position: absolute;
+    top: 0;   
+    left: 0;  
+    width: 100%; 
+    height: 100%;
+    background: white;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color); 
+    font-size: 16px;
+    line-height: 1; 
+    padding-left: 2px; 
+}
+
+.table-toggle-button:focus-visible::after,
+.table-toggle-button:hover::after,
+.table-toggle-button:active::after {
+    border-color: #F4C10C;
+}
+
+/* Arrow state when expanded */
+.table-toggle-button[aria-expanded="true"]::after {
+    content: "▼";
+    padding-left: 0; 
+}
+
+/* ==========================================================================
+   Table Row and Cell Styles
+   ========================================================================== */
+
+/* General row striping */
+.table-responsive tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-responsive tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* General TH styles */
+.table-responsive th {
+    background-color: #f5f6fa; /* Light background for headers */
+    font-weight: bold;       /* Make header text bold */
+    font-size: 1.25rem;      /* Slightly larger font size */
+    /* Padding, border, and text-align are handled by ID-specific rules below */
+}
+
+/* ==========================================================================
+   Table Styles - ID Specific
+   ========================================================================== */
+
+/* --- Enrollment Summary --- */
+/* Apply center alignment, padding, and border to all TH and TD */
+#enrollment-summary th,
+#enrollment-summary td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    /* These will override any specific .text-left/right/center classes */
+}
+
+/* --- Enrolled Participants --- */
+/* Apply center alignment, padding, and border to all TH and TD */
+#enrolled-participants th,
+#enrolled-participants td {
+    padding: 12px; /* Using 12px padding consistently */
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Apply new width percentages - UPDATED PROPORTIONALLY - REVISED */
+#enrolled-participants th:nth-child(1) { width: 14%; } /* Days to Close */
+#enrolled-participants th:nth-child(2) { width: 9%; }  /* Cohort */
+#enrolled-participants th:nth-child(3) { width: 7%; }  /* Year */
+#enrolled-participants th:nth-child(4) { width: 9%; }  /* First - Updated */
+#enrolled-participants th:nth-child(5) { width: 14%; } /* Last */
+#enrolled-participants th:nth-child(6) { width: 27%; min-width: 200px; } /* Email */
+#enrolled-participants th:nth-child(7) { width: 12%; } /* Completed - Updated */
+#enrolled-participants th:nth-child(8) { width: 8%; }  /* Earned - Updated */
+
+/* --- Alignment Overrides for Specific Columns --- */
+/* Apply left alignment to First, Last, Email columns (TH and TD) */
+#enrolled-participants th:nth-child(4),
+#enrolled-participants td:nth-child(4) {
+    text-align: left;
+}
+#enrolled-participants th:nth-child(5),
+#enrolled-participants td:nth-child(5) {
+    text-align: left;
+}
+#enrolled-participants th:nth-child(6),
+#enrolled-participants td:nth-child(6) {
+    text-align: left;
+}
+
+/* --- Invited Participants --- */
+/* Apply center alignment, padding, and border to all TH and TD */
+#invited-participants th,
+#invited-participants td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* --- Apply New Percentage Widths --- */
+#invited-participants th:nth-child(1) { width: 14%; } /* Invited */
+#invited-participants th:nth-child(2) { width: 9%; }  /* Cohort */
+#invited-participants th:nth-child(3) { width: 9%; }  /* Year */
+#invited-participants th:nth-child(4) { width: 14%; } /* First */
+#invited-participants th:nth-child(5) { width: 16%; } /* Last */
+#invited-participants th:nth-child(6) { width: 38%; } /* Email */
+
+/* --- Alignment Overrides for Specific Columns --- */
+/* Apply left alignment to First, Last, Email columns (TH and TD) */
+#invited-participants th:nth-child(4),
+#invited-participants td:nth-child(4) {
+    text-align: left;
+}
+#invited-participants th:nth-child(5),
+#invited-participants td:nth-child(5) {
+    text-align: left;
+}
+#invited-participants th:nth-child(6),
+#invited-participants td:nth-child(6) {
+    text-align: left;
+}
+
+/* ==========================================================================
+   Table Visibility Control
+   ========================================================================== */
+
+/* Default table body to hidden */
+.table-responsive tbody {
+    display: none;
+}
+
+/* Class to make tbody visible (toggled by JS) */
+.table-responsive tbody.visible {
+    display: table-row-group;
+}
+
+/* ==========================================================================
+   Global Toggle Controls
+   ========================================================================== */
+
+#global-toggle-controls {
+    border: 1px solid var(--primary-color); 
+    border-radius: 4px;
+    padding: 15px 20px; /* Revert right padding */
+    margin-bottom: 25px; 
+    font-size: 1.25rem;
+    text-align: center; 
+    position: relative; 
+}
+
+#global-toggle-controls p {
+    margin: 0;
+    line-height: 1.6; 
+    color: #333333;
+    font-size: 1.2rem;
+}
+
+/* --- Close Button Style --- */
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem; /* Make X larger */
+    line-height: 1;
+    padding: 2px 5px;
+    cursor: pointer;
+    color: #888; /* Grey color for X */
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus-visible {
+    color: #333; /* Darken on hover/focus */
+    background-color: #eee; /* Slight background */
+    border-radius: 3px;
+    /* Outline handled by global *:focus or add specific outline: none; if needed */
+}
+
+#toggle-all-button {
+    /* Make button an invisible container for the ::after element */
+    background-color: transparent;
+    color: transparent;
+    font-size: 0; /* Hide any accidental text */
+    padding: 0;
+    border-radius: 50%; /* Match the ::after shape */
+    cursor: pointer;
+    position: relative; 
+    border: none;
+    width: 36px;  /* Double size */
+    height: 36px; /* Double size */
+    vertical-align: text-bottom; /* Try aligning with bottom of text */
+    margin: 0 15px 0 9px; /* Adjusted margin: T=0, R=15, B=0, L=9 (Shifted left) */
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#toggle-all-button:focus,
+#toggle-all-button:focus-visible,
+#toggle-all-button:hover,
+#toggle-all-button:active {
+    outline: none;
+}
+
+/* Style the ::after pseudo-element as the visible button */
+#toggle-all-button::after {
+    content: "►";
+    position: absolute;
+    top: 0;   /* Position over the button */
+    left: 0;  /* Position over the button */
+    width: 100%; /* Fill the button */
+    height: 100%;/* Fill the button */
+    background: white;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color); /* Add blue border */
+    display: flex; /* Use flex to center content */
+    align-items: center;
+    justify-content: center;
+    color: #183768; /* Arrow color */
+    font-size: 24px; /* Double font size */
+    line-height: 1; 
+    padding-left: 4px; /* Double padding for right arrow */
+}
+
+#toggle-all-button:focus-visible::after,
+#toggle-all-button:hover::after,
+#toggle-all-button:active::after {
+    border-color: #F4C10C;
+}
+
+/* Arrow state when expanded */
+#toggle-all-button[aria-expanded="true"]::after {
+    content: "▼";
+    padding-left: 0; /* Reset padding for down arrow */
+}
+
+/* ==========================================================================
+   Certificate Styles
+   ========================================================================== */
+
+#certificates-earned th,
+#certificates-earned td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#certificates-earned th:nth-child(1) { width: 14%; } /* Cohort */
+#certificates-earned th:nth-child(2) { width: 9%; }  /* Year */
+#certificates-earned th:nth-child(3) { width: 18%; } /* First */
+#certificates-earned th:nth-child(4) { width: 18%; } /* Last */
+#certificates-earned th:nth-child(5) { width: 41%; } /* Email */
+
+#certificates-earned th:nth-child(3),
+#certificates-earned td:nth-child(3) {
+    text-align: left;
+}
+
+#certificates-earned th:nth-child(4),
+#certificates-earned td:nth-child(4) {
+    text-align: left;
+}
+
+#certificates-earned th:nth-child(5),
+#certificates-earned td:nth-child(5) {
+    text-align: left;
+}
+
+.certificates-earned {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+.certificates-earned th,
+.certificates-earned td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.certificates-earned th:nth-child(1) { width: 14%; }
+.certificates-earned th:nth-child(2) { width: 9%; }
+.certificates-earned th:nth-child(3) { width: 18%; }
+.certificates-earned th:nth-child(4) { width: 18%; }
+.certificates-earned th:nth-child(5) { width: 41%; }
+
+.certificates-earned th:nth-child(3),
+.certificates-earned td:nth-child(3) {
+    text-align: left;
+}
+
+.certificates-earned th:nth-child(4),
+.certificates-earned td:nth-child(4) {
+    text-align: left;
+}
+
+.certificates-earned th:nth-child(5),
+.certificates-earned td:nth-child(5) {
+    text-align: left;
+}
+
+/* ==========================================================================
+   Button and Link Styles
+   ========================================================================== */
+
+.button {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    color: #183768;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    background: white;
+    outline: none;
+    height: 35px;
+    margin-right: 1rem;
+}
+
+.button:hover,
+.button:focus-visible {
+    background: #f0f0f0;
+    outline: 3px solid #F4C10C;
+    outline-offset: 2px;
+}
+
+.link {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    color: #183768;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    background: white;
+    outline: none;
+    height: 35px;
+    margin-right: 1rem;
+}
+
+.link:hover,
+.link:focus-visible {
+    background: #f0f0f0;
+    outline: 3px solid #F4C10C;
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Error and Message Styles
+   ========================================================================== */
+
+.error-message {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #fff3f3;
+    border: 1px solid #e74c3c;
+    border-radius: 4px;
+    color: #e74c3c;
+}
+
+.loading-message {
+    color: #336600;
+    background-color: #e6fce8;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 50px;
+    font-size: 1.1em;
+    text-align: center;
+    border: 1px solid #336600;
+}
+
+.loading-message.organization {
+    top: 360px;
+}
+
+.url-error {
+    color: #bf1712;
+    background-color: #fce8e6;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 50px;
+    font-size: 1.1em;
+    text-align: center;
+    border: 1px solid #bf1712;
+}
+
+/* ==========================================================================
+   Accessibility Features
+   ========================================================================== */
+
+/* Skip link for keyboard navigation */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #163868;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    top: 0;
+    clip: auto;
+    width: auto;
+    height: auto;
+    overflow: visible;
+}
+
+/* Focus styles for keyboard navigation */
+*:focus {
+    outline: 3px solid #4299e1;
+    outline-offset: 2px;
+}
+
+/* Screen reader only class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+/* Responsive table */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #000;
+        --secondary-color: #222;
+        --accent-color: #0000EE;
+        --text-color: #000;
+        --background-color: #fff;
+        --border-color: #000;
+    }
+
+    .button {
+        border: 2px solid #000;
+    }
+
+    table th {
+        background-color: #fff;
+        border: 2px solid #000;
+    }
+
+    table td {
+        border: 1px solid #000;
+    }
+}
+
+/* ==========================================================================
+   Additional Utility Styles
+   ========================================================================== */
+
+p {
+    margin: 20px 0;
+    color: #666;
+}
+
+.section-content {
+    padding: 15px 0;
+    display: none;
+}
+
+#toggle-passwords-button::after {
+    content: "►";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #183768;
+    font-size: 16px;
+    line-height: 1;
+    padding-left: 2px;
+} 

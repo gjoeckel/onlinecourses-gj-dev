@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groups Filter and Display Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .hidden { display: none; }
+        .groups-search-widget { margin: 20px 0; }
+        .groups-data-display-wrapper { margin: 20px 0; }
+        .groups-data-display-container { border: 1px solid #ccc; padding: 10px; }
+        .groups-data-display-options { display: flex; gap: 20px; }
+        .message-container { margin-top: 10px; }
+        .date-range-status { padding: 5px; background-color: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>Groups Filter and Display Test</h1>
+    
+    <div class="test-section">
+        <h2>Test Results</h2>
+        <div id="test-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Groups Search Widget</h2>
+        <div id="groups-search-widget" class="groups-search-widget">
+            <form id="groups-search-form" autocomplete="off" class="groups-search-form">
+                <div class="groups-search-input-container">
+                    <label for="groups-search-input" class="groups-search-label">Groups Filter</label>
+                    <input id="groups-search-input" name="groups-search-input" type="text" list="groups-search-datalist" aria-label="Groups Filter" class="groups-search-input" data-table-id="groups-data" />
+                    <datalist id="groups-search-datalist"></datalist>
+                </div>
+                <div class="groups-search-buttons">
+                    <button type="submit" id="groups-search-find" class="btn action-btn" disabled>Filter</button>
+                    <button type="button" id="groups-search-clear" class="btn clear-btn" disabled>Clear</button>
+                    <button type="button" id="groups-search-print" class="btn action-btn">Print</button>
+                </div>
+            </form>
+            <div class="groups-data-display-wrapper">
+                <label for="groups-data-display" class="groups-data-display">Districts Data Display</label>
+                <div class="groups-data-display-container">
+                    <div class="groups-data-display-options">
+                        <label class="groups-data-display-label">
+                            <input type="radio" name="groups-data-display" value="all" class="groups-data-display-radio" checked> display all rows
+                        </label>
+                        <label class="groups-data-display-label">
+                            <input type="radio" name="groups-data-display" value="no-values" class="groups-data-display-radio"> display all rows with no values
+                        </label>
+                        <label class="groups-data-display-label">
+                            <input type="radio" name="groups-data-display" value="hide-empty" class="groups-data-display-radio"> hide all rows with no values
+                        </label>
+                    </div>
+                    <div class="message-container">
+                        <div id="groups-data-display-message" class="date-range-status" aria-live="polite"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Groups Data Table</h2>
+        <div class="table-responsive">
+            <table class="groups-data" id="groups-data" aria-label="Districts Data">
+                <caption>
+                    Districts Data
+                    <button type="button" id="groups-toggle-btn" class="table-toggle-button" aria-expanded="false" aria-label="Show data rows"></button>
+                </caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Registrations</th>
+                        <th scope="col">Enrollments</th>
+                        <th scope="col">Certificates</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="group">District A</td>
+                        <td>10</td>
+                        <td>8</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td class="group">District B</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td class="group">District C</td>
+                        <td>15</td>
+                        <td>12</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td class="group">District D</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import the modules we want to test
+        import FilterStateManager from '../reports/js/filter-state-manager.js';
+        import { initializeDataDisplayOptions } from '../reports/js/data-display-options.js';
+        import { populateDatalistFromTable } from '../reports/js/datalist-utils.js';
+        import { updateSearchButtonsState, filterTableRows, clearTableFilter } from '../reports/js/search-utils.js';
+
+        // Test results container
+        const testResults = document.getElementById('test-results');
+        
+        function logTest(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = type;
+            div.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            testResults.appendChild(div);
+        }
+
+        // Test 1: Check if FilterStateManager is working
+        logTest('Starting Groups Filter and Display tests...', 'info');
+        
+        try {
+            // Initialize FilterStateManager for groups
+            FilterStateManager.updateState({ displayMode: 'all' }, 'groups');
+            logTest('✓ FilterStateManager initialized for groups', 'success');
+        } catch (error) {
+            logTest(`✗ FilterStateManager initialization failed: ${error.message}`, 'error');
+        }
+
+        // Test 2: Check if data display options can be initialized
+        try {
+            initializeDataDisplayOptions();
+            logTest('✓ Data display options initialized', 'success');
+        } catch (error) {
+            logTest(`✗ Data display options initialization failed: ${error.message}`, 'error');
+        }
+
+        // Test 3: Check if datalist population works
+        try {
+            populateDatalistFromTable('groups-data', 'groups-search-datalist');
+            logTest('✓ Datalist populated from table', 'success');
+        } catch (error) {
+            logTest(`✗ Datalist population failed: ${error.message}`, 'error');
+        }
+
+        // Test 4: Test filter functionality
+        try {
+            const hasMatches = filterTableRows('groups-data', 'district a', 'group');
+            logTest(`✓ Filter functionality test: ${hasMatches ? 'matches found' : 'no matches'}`, 'success');
+        } catch (error) {
+            logTest(`✗ Filter functionality failed: ${error.message}`, 'error');
+        }
+
+        // Test 5: Test display mode changes
+        try {
+            const radioButtons = document.querySelectorAll('input[name="groups-data-display"]');
+            radioButtons.forEach(radio => {
+                if (radio.value === 'hide-empty') {
+                    radio.checked = true;
+                    radio.dispatchEvent(new Event('change'));
+                    logTest('✓ Display mode change to hide-empty triggered', 'success');
+                }
+            });
+        } catch (error) {
+            logTest(`✗ Display mode change failed: ${error.message}`, 'error');
+        }
+
+        // Test 6: Test FilterStateManager state management
+        try {
+            const state = FilterStateManager.getState('groups');
+            logTest(`✓ FilterStateManager state retrieved: displayMode=${state.displayMode}, isDataDisplayDisabled=${state.isDataDisplayDisabled}`, 'success');
+        } catch (error) {
+            logTest(`✗ FilterStateManager state retrieval failed: ${error.message}`, 'error');
+        }
+
+        // Test 7: Test search filter integration
+        try {
+            FilterStateManager.setSearchFilter('district a', 'groups');
+            logTest('✓ Search filter set in FilterStateManager', 'success');
+        } catch (error) {
+            logTest(`✗ Search filter setting failed: ${error.message}`, 'error');
+        }
+
+        // Test 8: Test clearing filter
+        try {
+            clearTableFilter('groups-data');
+            FilterStateManager.setSearchFilter(null, 'groups');
+            logTest('✓ Filter cleared successfully', 'success');
+        } catch (error) {
+            logTest(`✗ Filter clearing failed: ${error.message}`, 'error');
+        }
+
+        logTest('All tests completed!', 'info');
+    </script>
+</body>
+</html> 

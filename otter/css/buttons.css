@@ -1,0 +1,146 @@
+/* buttons.css
+   Standardized button styles for the application */
+
+/* Base button styles - Only for buttons that should use the new styling system */
+button:not(.table-toggle-button) {
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    outline-offset: 2px;
+}
+
+/* Universal button base class - Add .btn to any element for button styling */
+.btn {
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+/* Action Button - Primary action button (e.g., Filter, Apply, Find) */
+.action-btn {
+    background-color: #336600;
+    color: #fff;
+    border: 2px solid #336600;
+}
+
+/* Secondary Button - Secondary action button */
+.secondary-button {
+    background: #fff;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+/* Mini Button - Smaller button variant (maintains 40px height) */
+.mini-button {
+    font-size: 0.9rem;
+}
+
+/* Link styled as button */
+.link {
+    border: 2px solid #ffffff;
+    background-color: #ffffff;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Print Button */
+.print-button {
+    background: #336600;
+    color: #fff;
+    margin: 0.5rem 0;
+}
+
+/* Clear Button - Secondary action button for clearing/resetting */
+.clear-btn {
+    background: #fff;
+    color: #333333;
+    border: 2px solid #333333 !important;
+}
+
+/* Back Button - Secondary action button for navigation back */
+.back-btn {
+    background: #fff;
+    color: var(--primary-color);
+    border: 2px solid #ffffff !important;
+}
+
+/* Standardized hover/focus states for buttons and links */
+.btn:hover:not(:disabled),
+.btn:focus:not(:disabled),
+.btn:focus-visible:not(:disabled),
+.btn:active:not(:disabled),
+button:not(.table-toggle-button):hover:not(:disabled),
+button:not(.table-toggle-button):focus:not(:disabled),
+button:not(.table-toggle-button):focus-visible:not(:disabled),
+button:not(.table-toggle-button):active:not(:disabled) {
+    font-weight: bold;
+    outline: 3px solid #FFD700;
+    outline-offset: 2px;
+    background-color: #356DD0;
+    border: 2px solid #356DD0 !important;
+    color: #fff;
+}
+
+/* Standardized disabled states for buttons */
+.btn:disabled,
+button:not(.table-toggle-button):disabled {
+    background: #ffffff !important;
+    color: #777777 !important;
+    border: 2px solid #777777 !important;
+    cursor: not-allowed;
+    font-weight: bold;
+}
+
+
+
+/* Specific button width adjustments */
+#clear-dates-button,
+#apply-range-button {
+    width: auto;
+    min-width: 90px;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+}
+
+#edit-date-range.button {
+    font-weight: bold;
+    background-color: #336600;
+    border: 2px solid #336600;
+    color: #ffffff;
+    width: auto;
+    min-width: 140px;
+    max-width: 220px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+#edit-date-range:disabled {
+    font-weight: bold;
+    background: #ffffff !important;
+    color: #666666 !important;
+    border: 2px solid #ffffff !important;
+    cursor: not-allowed;
+} 

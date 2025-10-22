@@ -1,0 +1,9 @@
+{
+    "target_folder": "otter",
+    "server_base_path": "/var/websites/webaim/htdocs/onlinecourses",
+    "description": "Deployment configuration for new location - moved from training/online/otterCam to onlinecourses/otter",
+    "version": "1.1",
+    "last_updated": "2025-07-09",
+    "old_path": "/var/websites/webaim/htdocs/training/online/otterCam",
+    "new_path": "/var/websites/webaim/htdocs/onlinecourses/otter"
+} 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print URL Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Simulate print styles */
+        .dashboard-link {
+            display: none !important;
+        }
+        .print-url {
+            display: inline !important;
+            font-size: 0.7rem !important;
+            word-break: break-all !important;
+            color: #000 !important;
+            font-family: monospace !important;
+        }
+        
+        /* Regular display styles */
+        .dashboard-link {
+            display: inline;
+            color: blue;
+            text-decoration: underline;
+        }
+        .print-url {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Print URL Test</h1>
+    <p>This test shows how the print view should display full URLs instead of organization names.</p>
+    
+    <table border="1" style="width: 100%;">
+        <thead>
+            <tr>
+                <th>Organization</th>
+                <th>Password</th>
+                <th>Dashboard Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Bakersfield Community College</td>
+                <td>1234</td>
+                <td>
+                    <a href="../dashboard.php?org=1234" class="dashboard-link">Bakersfield CC</a>
+                    <span class="print-url">../dashboard.php?org=1234</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Chico Community College</td>
+                <td>5678</td>
+                <td>
+                    <a href="../dashboard.php?org=5678" class="dashboard-link">Chico CC</a>
+                    <span class="print-url">../dashboard.php?org=5678</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Fresno Community College</td>
+                <td>9012</td>
+                <td>
+                    <a href="../dashboard.php?org=9012" class="dashboard-link">Fresno CC</a>
+                    <span class="print-url">../dashboard.php?org=9012</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <p><strong>Expected behavior:</strong></p>
+    <ul>
+        <li><strong>Screen view:</strong> Shows abbreviated organization names (e.g., "Bakersfield CC")</li>
+        <li><strong>Print view:</strong> Shows full URLs (e.g., "../dashboard.php?org=1234")</li>
+    </ul>
+    
+    <p><strong>Test:</strong> Press Ctrl+P to see the print preview and verify that full URLs are shown instead of organization names.</p>
+</body>
+</html> 

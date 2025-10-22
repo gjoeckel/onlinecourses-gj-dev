@@ -1,0 +1,87 @@
+/* reports-messaging.css
+   Reports-specific messaging styles (shared styles now in messages.css) */
+
+/* Reports-specific message types not covered by shared messages.css */
+.status-message {
+    font-size: 1rem;
+    color: #183768;
+    background: #f5f6fa;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+}
+.active-range-display {
+    display: block;
+    margin: 0.5rem auto 0 auto;
+    font-weight: bold;
+    color: #336600;
+    text-align: center;
+}
+.message-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.message-row > div {
+    flex: 1 1 0;
+}
+.message-enter-dates {
+    background-color: #f4f4f4;
+    border: 1px solid #b0b0b0;
+    color: #555;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    text-align: center;
+    font-weight: normal;
+}
+.message-enter-dates .date-value {
+    font-weight: bold;
+    color: #555;
+}
+
+
+.message-dynamic {
+    width: fit-content;
+    max-width: calc(100vw - 40px);
+    padding: 1rem 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    min-height: var(--message-min-height);
+    box-sizing: border-box;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.message-dynamic.error-message {
+    background-color: #fff3f3;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+}
+
+.message-dynamic.success-message {
+    background-color: #eafaf1;
+    border: 1px solid #336600;
+    color: #336600;
+}
+
+.message-dynamic.info-message {
+    background-color: #e8f4fd;
+    border: 1px solid #3498db;
+    color: #183768;
+}
+
+.message-dynamic.warning-message {
+    background-color: #fff8e1;
+    border: 1px solid #f39c12;
+    color: #b26a00;
+}
+
+.message-dynamic:not(.error-message):not(.success-message):not(.info-message):not(.warning-message) {
+    background-color: #f5f6fa;
+    color: #333;
+    border: 1px solid #dcdde1;
+} 

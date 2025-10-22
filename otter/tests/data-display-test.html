@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display Options Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .radio-group { margin: 10px 0; }
+        .radio-group label { margin-right: 15px; }
+        .test-results { background-color: #f9f9f9; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Data Display Options Test</h1>
+    
+    <div class="test-section">
+        <h2>Test Data</h2>
+        <p>This test uses sample organization data to verify the filtering logic:</p>
+        <ul>
+            <li><strong>Organization A:</strong> 10 registrations, 5 enrollments, 3 certificates</li>
+            <li><strong>Organization B:</strong> 0 registrations, 0 enrollments, 0 certificates</li>
+            <li><strong>Organization C:</strong> 5 registrations, 0 enrollments, 0 certificates</li>
+            <li><strong>Organization D:</strong> 0 registrations, 8 enrollments, 0 certificates</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Data Display Options</h2>
+        <div class="radio-group">
+            <label>
+                <input type="radio" name="organization-data-display" value="all" checked> show all rows
+            </label>
+            <label>
+                <input type="radio" name="organization-data-display" value="no-values"> show all rows with no values
+            </label>
+            <label>
+                <input type="radio" name="organization-data-display" value="hide-empty"> hide rows with no values
+            </label>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Organizations Table</h2>
+        <table id="organization-data">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Registrations</th>
+                    <th>Enrollments</th>
+                    <th>Certificates</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="4">Select a display option to view data</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Results</h2>
+        <div id="test-results" class="test-results">
+            <p><strong>Expected Behavior:</strong></p>
+            <ul>
+                <li><strong>show all rows:</strong> Display all 4 organizations</li>
+                <li><strong>show all rows with no values:</strong> Display only Organization B (all zeros)</li>
+                <li><strong>hide rows with no values:</strong> Display Organizations A, C, D (at least one non-zero value)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="module">
+        import { filterTableData, updateTableWithFilteredData } from '../reports/js/data-display-utility.js';
+
+        // Sample test data
+        const testData = [
+            { organization: 'Organization A', registrations: 10, enrollments: 5, certificates: 3 },
+            { organization: 'Organization B', registrations: 0, enrollments: 0, certificates: 0 },
+            { organization: 'Organization C', registrations: 5, enrollments: 0, certificates: 0 },
+            { organization: 'Organization D', registrations: 0, enrollments: 8, certificates: 0 }
+        ];
+
+        // Function to format organization name
+        function formatOrganizationName(row) {
+            return row.organization;
+        }
+
+        // Function to update table based on selected mode
+        function updateTable() {
+            const selectedMode = document.querySelector('input[name="organization-data-display"]:checked').value;
+            console.log('Selected mode:', selectedMode);
+            
+            updateTableWithFilteredData(
+                'organization-data',
+                testData,
+                selectedMode,
+                'organization',
+                ['registrations', 'enrollments', 'certificates'],
+                formatOrganizationName,
+                'No organizations available'
+            );
+        }
+
+        // Add event listeners to radio buttons
+        document.querySelectorAll('input[name="organization-data-display"]').forEach(radio => {
+            radio.addEventListener('change', updateTable);
+        });
+
+        // Initialize with default mode
+        updateTable();
+
+        // Test the filterTableData function directly
+        console.log('Testing filterTableData function:');
+        console.log('All rows:', filterTableData(testData, 'all'));
+        console.log('No values only:', filterTableData(testData, 'no-values'));
+        console.log('Hide empty:', filterTableData(testData, 'hide-empty'));
+    </script>
+</body>
+</html> 

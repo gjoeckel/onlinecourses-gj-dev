@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear vs None Space Reservation Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            border: 1px solid #ccc;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 4px;
+        }
+        .test-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .test-description {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .test-result {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .success {
+            background-color: #eafaf1;
+            border: 1px solid #336600;
+            color: #336600;
+        }
+        .error {
+            background-color: #fff3f3;
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+        }
+        .info {
+            background-color: #e8f4fd;
+            border: 1px solid #3498db;
+            color: #183768;
+        }
+        .demo-message {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px dashed #ccc;
+            background-color: #f9f9f9;
+        }
+        button {
+            background: #336600;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #2d5a00;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+        label {
+            margin-right: 15px;
+        }
+        #message-display {
+            display: inline-block;
+            padding: 1rem 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            min-height: 3.25rem;
+            margin: 1rem auto 0 auto;
+            border: 1px solid transparent;
+            background: #f5f6fa;
+            color: #333;
+            box-sizing: border-box;
+            white-space: nowrap;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+        }
+        #message-display.success-message {
+            background-color: #eafaf1;
+            border: 1px solid #336600;
+            color: #336600;
+        }
+        #message-display.error-message {
+            background-color: #fff3f3;
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+        }
+        .visually-hidden-but-space {
+            visibility: hidden;
+            min-height: 3.25rem;
+            margin: 0;
+            padding: 0.75rem;
+            background: transparent !important;
+            border: none !important;
+            box-sizing: border-box;
+        }
+        .date-range-status {
+            padding: 0.75rem;
+            margin: 0;
+            border-radius: 4px;
+            font-weight: bold;
+            background-color: #f5f6fa;
+            color: #333;
+            border: 1px solid #dcdde1;
+            text-align: center;
+            min-height: 3.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        .date-range-status.success-message {
+            background-color: #eafaf1;
+            color: #336600;
+            border: 1px solid #336600;
+        }
+        .date-range-status.error-message {
+            background-color: #fff3f3;
+            color: #e74c3c;
+            border: 1px solid #e74c3c;
+        }
+        .height-display {
+            font-family: monospace;
+            background: #f0f0f0;
+            padding: 5px;
+            border-radius: 3px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clear vs None Space Reservation Test</h1>
+    
+    <div class="test-section">
+        <div class="test-title">Issue: Space Reservation Difference</div>
+        <div class="test-description">
+            When Clear button is clicked, the message is dismissed and exact space is reserved.
+            When "None" preset is selected, which should trigger the EXACT same function as Clear,
+            the reserved space height is slightly less than the actual message element.
+        </div>
+        <div class="test-result info">
+            <strong>Root Cause:</strong> The "None" preset was calling updateActiveRangeMessage() 
+            in a setTimeout, which was overriding the clearMessageDisplay() call and causing 
+            inconsistent CSS class application.
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">Test Controls</div>
+        <div class="demo-message">
+            <div>
+                <label><input type="radio" name="date-preset" value="none" checked> None</label>
+                <label><input type="radio" name="date-preset" value="today"> Today</label>
+                <label><input type="radio" name="date-preset" value="past-month"> Past Month</label>
+            </div>
+            <div style="margin-top: 10px;">
+                <input type="text" id="start-date" placeholder="MM-DD-YY" style="margin-right: 10px;">
+                <input type="text" id="end-date" placeholder="MM-DD-YY" style="margin-right: 10px;">
+                <button id="apply-range-button" disabled>Apply</button>
+                <button id="clear-dates-button" disabled>Clear</button>
+            </div>
+        </div>
+        
+        <div id="message-display" class="date-range-status visually-hidden-but-space" role="status" aria-live="polite">
+            <strong>Active Date Range:</strong> <span id="active-range-values">No date range selected</span>
+        </div>
+        
+        <div class="height-display" id="height-info">
+            Current height: <span id="current-height">--</span>px
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">Test Results</div>
+        <div class="test-result info">
+            <strong>Test Steps:</strong><br>
+            1. Set some dates (e.g., "01-01-24" to "01-31-24")<br>
+            2. Click "Clear" button - note the height<br>
+            3. Set dates again<br>
+            4. Select "None" preset - note the height<br>
+            5. Heights should now be identical
+        </div>
+        <div id="test-results"></div>
+    </div>
+
+    <script>
+        // Simulate the fixed behavior
+        const startInput = document.getElementById('start-date');
+        const endInput = document.getElementById('end-date');
+        const messageDisplay = document.getElementById('message-display');
+        const clearBtn = document.getElementById('clear-dates-button');
+        const applyBtn = document.getElementById('apply-range-button');
+        const presetRadios = document.querySelectorAll('input[name="date-preset"]');
+        const heightInfo = document.getElementById('height-info');
+        const currentHeight = document.getElementById('current-height');
+        const testResults = document.getElementById('test-results');
+
+        let clearHeight = null;
+        let noneHeight = null;
+
+        function updateHeight() {
+            const height = messageDisplay.offsetHeight;
+            currentHeight.textContent = height;
+            return height;
+        }
+
+        function clearMessageDisplay() {
+            messageDisplay.className = 'date-range-status visually-hidden-but-space';
+            messageDisplay.innerHTML = '<strong>Active Date Range:</strong> <span id="active-range-values">No date range selected</span>';
+            messageDisplay.setAttribute('aria-hidden', 'true');
+            messageDisplay.setAttribute('aria-live', 'polite');
+        }
+
+        function updateActiveRangeMessage() {
+            const startVal = startInput.value;
+            const endVal = endInput.value;
+            
+            if (startVal && endVal) {
+                messageDisplay.classList.remove('visually-hidden-but-space');
+                messageDisplay.removeAttribute('aria-hidden');
+                messageDisplay.className = 'date-range-status success-message';
+                messageDisplay.innerHTML = `<strong>Active Date Range:</strong> <span id="active-range-values">${startVal} to ${endVal}</span>`;
+            } else {
+                clearMessageDisplay();
+            }
+        }
+
+        function updateButtonStates() {
+            const startVal = startInput.value;
+            const endVal = endInput.value;
+            applyBtn.disabled = !startVal || !endVal;
+            clearBtn.disabled = !startVal && !endVal;
+        }
+
+        // Clear button handler
+        clearBtn.addEventListener('click', function() {
+            clearMessageDisplay();
+            startInput.value = '';
+            endInput.value = '';
+            updateButtonStates();
+            
+            // Select "None" preset
+            presetRadios.forEach(radio => {
+                radio.checked = (radio.value === 'none');
+            });
+            
+            clearHeight = updateHeight();
+            testResults.innerHTML += `<div class="test-result success">✅ Clear button height: ${clearHeight}px</div>`;
+        });
+
+        // Preset radio handlers
+        presetRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'none') {
+                    // Use the same logic as Clear button
+                    clearMessageDisplay();
+                    startInput.value = '';
+                    endInput.value = '';
+                    updateButtonStates();
+                    
+                    // FIXED: Don't call updateActiveRangeMessage for "none" preset
+                    // This was the bug - it was overriding the clearMessageDisplay() call
+                    
+                    noneHeight = updateHeight();
+                    testResults.innerHTML += `<div class="test-result success">✅ None preset height: ${noneHeight}px</div>`;
+                    
+                    if (clearHeight !== null) {
+                        if (clearHeight === noneHeight) {
+                            testResults.innerHTML += `<div class="test-result success">✅ Heights match! Clear: ${clearHeight}px, None: ${noneHeight}px</div>`;
+                        } else {
+                            testResults.innerHTML += `<div class="test-result error">❌ Heights don't match! Clear: ${clearHeight}px, None: ${noneHeight}px</div>`;
+                        }
+                    }
+                } else {
+                    // For other presets, call updateActiveRangeMessage
+                    if (this.value === 'today') {
+                        startInput.value = '01-15-24';
+                        endInput.value = '01-15-24';
+                    } else if (this.value === 'past-month') {
+                        startInput.value = '12-01-23';
+                        endInput.value = '12-31-23';
+                    }
+                    updateActiveRangeMessage();
+                    updateButtonStates();
+                }
+            });
+        });
+
+        // Input handlers
+        startInput.addEventListener('input', updateButtonStates);
+        endInput.addEventListener('input', updateButtonStates);
+
+        // Initial setup
+        updateHeight();
+        testResults.innerHTML = '<div class="test-result info">Ready to test. Set some dates and try Clear vs None preset.</div>';
+    </script>
+</body>
+</html> 

@@ -1,0 +1,355 @@
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-family: Calibri, Arial, sans-serif;
+  }
+  nav, .no-print, .print-button, .district-search-print, .organization-search-print { display: none !important; }
+
+  /* Certificates Table */
+  #certificate-data {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    page-break-inside: auto;
+  }
+  #certificate-data caption {
+    color: #222 !important;
+    font-size: 14pt;
+    font-weight: bold;
+    margin: 0 0 5px 0 !important;
+  }
+  #certificate-data th, #certificate-data td {
+    font-size: 11pt !important;
+    border: 1px solid #333 !important;
+    color: #000 !important;
+    padding: 4px;
+  }
+  #certificate-data th {
+    background-color: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    text-align: center;
+  }
+  #certificate-data td:nth-child(3), #certificate-data td:nth-child(4), #certificate-data td:nth-child(5), #certificate-data td:nth-child(6) {
+    text-align: left;
+  }
+  #certificate-data td {
+    font-size: 0.85rem;
+  }
+
+  /* Registrants Table */
+  #registrants-data {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    page-break-inside: auto;
+  }
+  #registrants-data caption {
+    color: #222 !important;
+    font-size: 14pt;
+    font-weight: bold;
+    margin: 0 0 5px 0 !important;
+  }
+  #registrants-data th, #registrants-data td {
+    font-size: 11pt !important;
+    border: 1px solid #333 !important;
+    color: #000 !important;
+    padding: 4px;
+  }
+  #registrants-data th {
+    background-color: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    text-align: center;
+  }
+  #registrants-data td:nth-child(3), #registrants-data td:nth-child(4), #registrants-data td:nth-child(5), #registrants-data td:nth-child(6) {
+    text-align: left;
+  }
+  #registrants-data td {
+    font-size: 0.85rem;
+  }
+
+  /* Enrollees Table */
+  #enrollees-data {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    page-break-inside: auto;
+  }
+  #enrollees-data caption {
+    color: #222 !important;
+    font-size: 14pt;
+    font-weight: bold;
+    margin: 0 0 5px 0 !important;
+  }
+  #enrollees-data th, #enrollees-data td {
+    font-size: 11pt !important;
+    border: 1px solid #333 !important;
+    color: #000 !important;
+    padding: 4px;
+  }
+  #enrollees-data th {
+    background-color: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    text-align: center;
+  }
+  #enrollees-data td:nth-child(3), #enrollees-data td:nth-child(4), #enrollees-data td:nth-child(5), #enrollees-data td:nth-child(6) {
+    text-align: left;
+  }
+  #enrollees-data td {
+    font-size: 0.85rem;
+  }
+
+
+
+  /* Organizations Table */
+  .organization-data {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+  }
+  .organization-data caption {
+    color: #222 !important;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .organization-data th, .organization-data td {
+    font-size: 11pt !important;
+    border: 1px solid #333 !important;
+    color: #000 !important;
+    padding: 4px;
+  }
+  .organization-data th {
+    background-color: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    text-align: center;
+  }
+  .organization-data td:first-child {
+    text-align: right;
+  }
+  .organization-data td:not(:first-child) {
+    text-align: center;
+  }
+  .organization-data th:nth-child(1), .organization-data td:nth-child(1) { width: 40%; }
+  .organization-data th:nth-child(2), .organization-data td:nth-child(2) { width: 20%; }
+  .organization-data th:nth-child(3), .organization-data td:nth-child(3) { width: 20%; }
+  .organization-data th:nth-child(4), .organization-data td:nth-child(4) { width: 20%; }
+
+  /* Districts Table */
+  .district-data {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+  }
+  .district-data caption {
+    color: #222 !important;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .district-data th, .district-data td {
+    font-size: 11pt !important;
+    border: 1px solid #333 !important;
+    color: #000 !important;
+    padding: 4px;
+  }
+  .district-data th {
+    background-color: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    text-align: center;
+  }
+  .district-data td:first-child {
+    text-align: right;
+  }
+  .district-data td:not(:first-child) {
+    text-align: center;
+  }
+  .district-data th:nth-child(1), .district-data td:nth-child(1) { width: 40%; }
+  .district-data th:nth-child(2), .district-data td:nth-child(2) { width: 20%; }
+  .district-data th:nth-child(3), .district-data td:nth-child(3) { width: 20%; }
+  .district-data th:nth-child(4), .district-data td:nth-child(4) { width: 20%; }
+
+  /* Settings Dashboard Table */
+  #dashboard-table {
+    width: 50% !important;
+    border-collapse: collapse !important;
+    margin: 20px auto !important;
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    table-layout: fixed !important;
+  }
+  #dashboard-caption {
+    color: #222 !important;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  #dashboard-table th, #dashboard-table td {
+    font-size: 11pt !important;
+    border: 1px solid #333 !important;
+    color: #000 !important;
+    padding: 8px 10px !important;
+    word-break: break-word !important;
+  }
+  #dashboard-table th {
+    background-color: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  /* Column widths to match HTML view */
+  #dashboard-table th.org-name-col, #dashboard-table td.org-name-col {
+    width: 80% !important;
+    text-align: center !important;
+  }
+  #dashboard-table td.org-name-col {
+    width: 80% !important;
+    text-align: right !important;
+  }
+  #dashboard-table th.password-col, #dashboard-table td.password-col {
+    width: 20% !important;
+    text-align: center !important;
+  }
+  #dashboard-table th.direct-link-col, #dashboard-table td.direct-link-col {
+    display: none !important;
+  }
+
+  /* Print-specific link handling */
+  #dashboard-table .dashboard-link {
+    display: none !important;
+  }
+  #dashboard-table .print-url {
+    display: inline !important;
+    font-size: 0.7rem !important;
+    word-break: break-all !important;
+    color: #000 !important;
+    font-family: monospace !important;
+  }
+
+  header, .admin-home > h2, #passwordForm {
+    display: none !important;
+  }
+
+  /* Common Print Settings */
+  @page {
+    size: landscape;
+    margin: 0.25in;
+  }
+  .table-toggle-button {
+    display: none !important;
+  }
+
+  .change-passwords-section {
+    display: none !important;
+  }
+
+  .table-container {
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    position: static !important;
+    box-shadow: none !important;
+    background: none !important;
+    border: none !important;
+  }
+
+  /* Fix table-responsive container for print */
+  .table-responsive {
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Ensure main element doesn't cause spacing issues */
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .container.admin-home {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+    background: none !important;
+    border: none !important;
+  }
+
+  .table-controls,
+  #dashboard-print-btn {
+    display: none !important;
+  }
+
+  /* General table styles for any remaining tables */
+  table:not(#dashboard-table):not(.organization-data):not(.district-data):not(.groups-data):not(#certificate-data):not(#registrants-data):not(#enrollees-data) {
+    width: 100% !important;
+    margin: 0 !important;
+    border: 1px solid #ccc !important;
+    table-layout: fixed !important;
+  }
+
+  table:not(#dashboard-table):not(.organization-data):not(.district-data):not(.groups-data):not(#certificate-data):not(#registrants-data):not(#enrollees-data) th,
+  table:not(#dashboard-table):not(.organization-data):not(.district-data):not(.groups-data):not(#certificate-data):not(#registrants-data):not(#enrollees-data) td {
+    padding: 8px 10px !important;
+    font-size: 12pt !important;
+    border: 1px solid #ccc !important;
+    word-break: break-word !important;
+  }
+
+  /* Groups Data Table - matching Organizations table structure */
+  .groups-data {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+  }
+  .groups-data caption {
+    color: #222 !important;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .groups-data th, .groups-data td {
+    font-size: 11pt !important;
+    border: 1px solid #333 !important;
+    color: #000 !important;
+    padding: 4px;
+  }
+  .groups-data th {
+    background-color: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    text-align: center;
+  }
+  .groups-data td:first-child {
+    text-align: right;
+  }
+  .groups-data td:not(:first-child) {
+    text-align: center;
+  }
+  .groups-data th:nth-child(1), .groups-data td:nth-child(1) { width: 31% !important; }
+  .groups-data th:nth-child(2), .groups-data td:nth-child(2) { width: 23% !important; }
+  .groups-data th:nth-child(3), .groups-data td:nth-child(3) { width: 23% !important; }
+  .groups-data th:nth-child(4), .groups-data td:nth-child(4) { width: 23% !important; }
+}

@@ -1,0 +1,46 @@
+Google Sheets to Database Import Script
+=====================================
+
+Master includes loaded. Available variables: Array
+(
+    [db_file_path] => /var/websites/webaim/htdocs/onlinecourses/includes/db.php
+    [master_includes_path] => /var/websites/webaim/master_includes/onlinecourses_common.php
+    [dbhost] => webaim.cksrc9aw1l51.us-east-2.rds.amazonaws.com
+    [dbuser] => onlinecourses
+    [dbname] => onlinecourses
+    [dbpass] => 1ggA@SB4
+    [CANVAS_API_TOKEN] => 4398~LkYtnehaXJf4R7cR3TcQXEP3BLUF8KWQuCyzLHJaDhvNxNJmUT4nruykaMuVFLFX
+    [CANVAS_API_URL] => https://usucourses.instructure.com/api/v1
+)
+
+Database variables found: HOST=webaim.cksrc9aw1l51.us-east-2.rds.amazonaws.com, USER=onlinecourses, NAME=onlinecourses
+Database connection established successfully using master_includes
+ Starting import for enterprise: csu
+Mode: LIVE IMPORT
+============================================================
+Enterprise ID: 2
+API Key: AIzaSyDd9D...
+
+--- Processing REGISTRANTS Sheet ---
+Fetched 638 rows from registrants sheet
+Row 1: skipped - header_row
+Row 2: skipped - duplicate_email
+Row 3: skipped - duplicate_email
+Row 4: skipped - duplicate_email
+Row 5: skipped - duplicate_email
+
+--- Processing SUBMISSIONS Sheet ---
+Fetched 1135 rows from submissions sheet
+Row 1: skipped - header_row
+Row 2: skipped - duplicate_email
+Row 3: skipped - duplicate_email
+Row 4: skipped - duplicate_email
+Row 5: skipped - duplicate_email
+
+============================================================
+IMPORT SUMMARY
+============================================================
+Total rows processed: 1773
+Successful imports: 0
+Skipped duplicates: 1715
+Errors: 0

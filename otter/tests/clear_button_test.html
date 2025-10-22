@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Button Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .test-result { margin: 10px 0; padding: 10px; }
+        .pass { background-color: #d4edda; color: #155724; }
+        .fail { background-color: #f8d7da; color: #721c24; }
+        button { padding: 10px 20px; margin: 5px; }
+        button:disabled { opacity: 0.6; cursor: not-allowed; }
+        input { padding: 8px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Clear Button Functionality Test</h1>
+    
+    <div class="test-section">
+        <h2>Test Setup</h2>
+        <p>This test verifies that the Clear button is enabled when either Start OR End date has a value.</p>
+        
+        <label for="start-date">Start Date:</label>
+        <input type="text" id="start-date" placeholder="MM-DD-YY">
+        
+        <label for="end-date">End Date:</label>
+        <input type="text" id="end-date" placeholder="MM-DD-YY">
+        
+        <br><br>
+        <button id="apply-range-button" class="primary-button" disabled>Apply</button>
+        <button id="clear-dates-button" class="secondary-button" disabled>Clear</button>
+        
+        <div id="test-results"></div>
+    </div>
+
+    <script>
+        const startInput = document.getElementById('start-date');
+        const endInput = document.getElementById('end-date');
+        const applyBtn = document.getElementById('apply-range-button');
+        const clearBtn = document.getElementById('clear-dates-button');
+        const testResults = document.getElementById('test-results');
+
+        function updateButtonStates() {
+            const startVal = startInput ? startInput.value : '';
+            const endVal = endInput ? endInput.value : '';
+            const isReset = (val) => !val || val === 'MM-DD-YY';
+            
+            // Update Apply button state
+            if (applyBtn) applyBtn.disabled = isReset(startVal) || isReset(endVal);
+            
+            // Update Clear button state - enable when either start OR end has a value
+            if (clearBtn) {
+                const shouldDisable = !startVal && !endVal;
+                clearBtn.disabled = shouldDisable;
+                console.log('Clear button state - startVal:', startVal, 'endVal:', endVal, 'disabled:', shouldDisable);
+            }
+        }
+
+        function runTest(testName, startValue, endValue, expectedClearDisabled) {
+            startInput.value = startValue;
+            endInput.value = endValue;
+            updateButtonStates();
+            
+            const actualClearDisabled = clearBtn.disabled;
+            const passed = actualClearDisabled === expectedClearDisabled;
+            
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `test-result ${passed ? 'pass' : 'fail'}`;
+            resultDiv.innerHTML = `
+                <strong>${testName}:</strong> ${passed ? 'PASS' : 'FAIL'}<br>
+                Start: "${startValue}", End: "${endValue}"<br>
+                Expected Clear disabled: ${expectedClearDisabled}, Actual: ${actualClearDisabled}
+            `;
+            testResults.appendChild(resultDiv);
+            
+            return passed;
+        }
+
+        // Add event listeners
+        startInput.addEventListener('input', updateButtonStates);
+        endInput.addEventListener('input', updateButtonStates);
+
+        // Clear button click handler
+        clearBtn.addEventListener('click', function() {
+            startInput.value = '';
+            endInput.value = '';
+            updateButtonStates();
+        });
+
+        // Run tests after page load
+        window.addEventListener('load', function() {
+            console.log('Running Clear button tests...');
+            
+            let allPassed = true;
+            
+            // Test 1: Both empty - Clear should be disabled
+            allPassed &= runTest('Both Empty', '', '', true);
+            
+            // Test 2: Start has value, End empty - Clear should be enabled
+            allPassed &= runTest('Start Only', '01-01-25', '', false);
+            
+            // Test 3: Start empty, End has value - Clear should be enabled
+            allPassed &= runTest('End Only', '', '12-31-25', false);
+            
+            // Test 4: Both have values - Clear should be enabled
+            allPassed &= runTest('Both Values', '01-01-25', '12-31-25', false);
+            
+            // Test 5: Start has value, End has placeholder - Clear should be enabled
+            allPassed &= runTest('Start + Placeholder', '01-01-25', 'MM-DD-YY', false);
+            
+            // Test 6: Start has placeholder, End has value - Clear should be enabled
+            allPassed &= runTest('Placeholder + End', 'MM-DD-YY', '12-31-25', false);
+            
+            // Test 7: Both have placeholders - Clear should be disabled
+            allPassed &= runTest('Both Placeholders', 'MM-DD-YY', 'MM-DD-YY', true);
+            
+            // Test 8: Simulate preset range selection (Today)
+            allPassed &= runTest('Preset Today', '07-01-25', '07-01-25', false);
+            
+            // Test 9: Simulate preset range selection (Past Month)
+            allPassed &= runTest('Preset Past Month', '06-01-25', '06-30-25', false);
+            
+            const summaryDiv = document.createElement('div');
+            summaryDiv.className = `test-result ${allPassed ? 'pass' : 'fail'}`;
+            summaryDiv.innerHTML = `<strong>Overall Result:</strong> ${allPassed ? 'ALL TESTS PASSED' : 'SOME TESTS FAILED'}`;
+            testResults.appendChild(summaryDiv);
+            
+            console.log('Clear button tests completed. All passed:', allPassed);
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,58 @@
+:root {
+  --message-min-height: 3.25rem;
+}
+
+#message-display {
+    display: inline-block;
+    padding: 1rem 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    min-height: var(--message-min-height); /* 52px for vertical consistency */
+    margin: 1rem auto 0 auto;
+    border: 1px solid transparent;
+    background: #f5f6fa;
+    color: #333;
+    box-sizing: border-box;
+    white-space: nowrap; /* Prevent wrapping */
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+#message-display.success-message {
+    background-color: #eafaf1;
+    border: 1px solid #336600;
+    color: #336600;
+}
+
+#message-display.error-message {
+    background-color: #fff3f3;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+}
+
+#message-display.info-message {
+    background-color: #e8f4fd;
+    border: 1px solid #3498db;
+    color: #183768;
+}
+
+#message-display.warning-message {
+    background-color: #fff8e1;
+    border: 1px solid #f39c12;
+    color: #b26a00;
+}
+
+.center-message {
+    text-align: center;
+}
+
+.visually-hidden-but-space {
+    visibility: hidden;
+    min-height: var(--message-min-height);
+    margin: 0;
+    padding: 0.75rem;
+    background: transparent !important;
+    border: none !important;
+    box-sizing: border-box;
+} 

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display Messaging Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        .date-range-status {
+            padding: 0.75rem;
+            margin: 0.5rem 0 0 0;
+            border-radius: 4px;
+            font-weight: bold;
+            background-color: transparent;
+            color: #333;
+            border: 1px solid transparent;
+            text-align: center;
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        .date-range-status.error-message {
+            background-color: #e74c3c;
+            color: white;
+            border: 1px solid #c0392b;
+        }
+        .date-range-status.success-message {
+            background-color: #27ae60;
+            color: white;
+            border: 1px solid #27ae60;
+        }
+        .date-range-status.info-message {
+            color: #1976d2;
+            background-color: #e3f2fd;
+            border: 1px solid #2196f3;
+        }
+        .date-range-status.warning-message {
+            background-color: #f39c12;
+            color: white;
+            border: 1px solid #e67e22;
+        }
+        .visually-hidden-but-space {
+            visibility: hidden;
+            min-height: 3rem;
+            margin: 0;
+            padding: 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            background-color: #f5f6fa;
+            color: #333;
+            border: 1px solid #dcdde1;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        .radio-group { margin: 10px 0; }
+        .radio-group label { margin-right: 15px; }
+        .test-results { background-color: #f9f9f9; padding: 10px; margin: 10px 0; }
+        button { margin: 5px; padding: 8px 16px; }
+    </style>
+</head>
+<body>
+    <h1>Data Display Messaging Test</h1>
+    
+    <div class="test-section">
+        <h2>Organization Data Display</h2>
+        <div class="radio-group">
+            <label><input type="radio" name="org-display" value="all" checked> display all rows</label>
+            <label><input type="radio" name="org-display" value="no-values"> display all rows with no values</label>
+            <label><input type="radio" name="org-display" value="hide-empty"> hide all rows with no values</label>
+        </div>
+        <div class="message-container">
+            <div id="organization-data-display-message" class="date-range-status" aria-live="polite"></div>
+        </div>
+        <div class="test-results">
+            <h3>Test Results:</h3>
+            <div id="org-test-results"></div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Groups Data Display</h2>
+        <div class="radio-group">
+            <label><input type="radio" name="groups-display" value="all" checked> display all rows</label>
+            <label><input type="radio" name="groups-display" value="no-values"> display all rows with no values</label>
+            <label><input type="radio" name="groups-display" value="hide-empty"> hide all rows with no values</label>
+        </div>
+        <div class="message-container">
+            <div id="groups-data-display-message" class="date-range-status" aria-live="polite"></div>
+        </div>
+        <div class="test-results">
+            <h3>Test Results:</h3>
+            <div id="groups-test-results"></div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Manual Test Controls</h2>
+        <button onclick="testShowMessage('organization', 'info')">Show Info Message (Org)</button>
+        <button onclick="testShowMessage('organization', 'warning')">Show Warning Message (Org)</button>
+        <button onclick="testShowMessage('organization', 'error')">Show Error Message (Org)</button>
+        <button onclick="testShowMessage('organization', 'success')">Show Success Message (Org)</button>
+        <button onclick="testClearMessage('organization')">Clear Message (Org)</button>
+        <br><br>
+        <button onclick="testShowMessage('groups', 'info')">Show Info Message (Groups)</button>
+        <button onclick="testShowMessage('groups', 'warning')">Show Warning Message (Groups)</button>
+        <button onclick="testShowMessage('groups', 'error')">Show Error Message (Groups)</button>
+        <button onclick="testShowMessage('groups', 'success')">Show Success Message (Groups)</button>
+        <button onclick="testClearMessage('groups')">Clear Message (Groups)</button>
+    </div>
+
+    <script type="module">
+        // Import the messaging functions
+        import { showDataDisplayMessage, clearDataDisplayMessage } from './data-display-utility.js';
+        
+        // Make functions available globally for testing
+        window.testShowMessage = function(tableType, type) {
+            const messages = {
+                info: 'This is an info message for testing.',
+                warning: 'This is a warning message for testing.',
+                error: 'This is an error message for testing.',
+                success: 'This is a success message for testing.'
+            };
+            
+            showDataDisplayMessage(tableType, messages[type], type);
+            updateTestResults(tableType, `Showed ${type} message: "${messages[type]}"`);
+        };
+        
+        window.testClearMessage = function(tableType) {
+            clearDataDisplayMessage(tableType);
+            updateTestResults(tableType, 'Message cleared');
+        };
+        
+        function updateTestResults(tableType, action) {
+            const resultsDiv = document.getElementById(`${tableType}-test-results`);
+            const timestamp = new Date().toLocaleTimeString();
+            resultsDiv.innerHTML += `<div>[${timestamp}] ${action}</div>`;
+        }
+        
+        // Test radio button changes
+        document.querySelectorAll('input[name="org-display"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const mode = this.value;
+                if (mode === 'no-values') {
+                    showDataDisplayMessage('organization', 'No rows with all zero values for this range.', 'info');
+                } else if (mode === 'hide-empty') {
+                    showDataDisplayMessage('organization', 'No rows with data for this range.', 'info');
+                } else {
+                    clearDataDisplayMessage('organization');
+                }
+                updateTestResults('org', `Display mode changed to: ${mode}`);
+            });
+        });
+        
+        document.querySelectorAll('input[name="groups-display"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const mode = this.value;
+                if (mode === 'no-values') {
+                    showDataDisplayMessage('groups', 'No rows with all zero values for this range.', 'info');
+                } else if (mode === 'hide-empty') {
+                    showDataDisplayMessage('groups', 'No rows with data for this range.', 'info');
+                } else {
+                    clearDataDisplayMessage('groups');
+                }
+                updateTestResults('groups', `Display mode changed to: ${mode}`);
+            });
+        });
+        
+        console.log('Data Display Messaging Test loaded successfully');
+    </script>
+</body>
+</html> 

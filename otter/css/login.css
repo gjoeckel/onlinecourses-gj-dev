@@ -1,0 +1,256 @@
+/* 
+ * Login Page Styles
+ * Extracted from admin/home.css for login.php
+ * Maintains WCAG compliance and accessibility features
+ */
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+:root {
+    --primary-color: #183768;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --text-color: #333;
+    --background-color: #f5f6fa;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --border-color: #dcdde1;
+    --hover-color: #ffd700;
+    --header-text-color: #F4C10C;
+}
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Calibri, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    color: #333;
+    min-height: 101vh;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+}
+
+/* ==========================================================================
+   Status Page Styles (used by login.php)
+   ========================================================================== */
+
+body.status-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+}
+
+/* ==========================================================================
+   Main Container Structure
+   ========================================================================== */
+
+.main-container {
+    width: 650px;
+    margin: 2rem auto;
+    padding: 50px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Row Container Styles
+   ========================================================================== */
+
+/* Row 1: Heading Container */
+.heading-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.heading-container h1 {
+    margin: 0;
+}
+
+/* Row 2: Label Container */
+.label-container {
+    margin-bottom: 0.75rem;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label-container label {
+    font-size: 1.25rem;
+    color: #333;
+    display: block;
+    margin: 0 0 0 -25px;
+    width: 300px;
+    text-align: left;
+}
+
+/* Row 3: Buttons Container */
+.buttons-container {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons-container form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Row 4: Message Container */
+.message-container {
+    text-align: center;
+}
+
+/* ==========================================================================
+   Form and Input Styles
+   ========================================================================== */
+
+label {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+button:focus,
+a:focus {
+    outline: 2px solid #FFD700;
+    outline-offset: 1px;
+    border-color: #FFD700;
+}
+
+input:hover,
+select:hover,
+button:hover,
+a:hover {
+    outline: 2px solid #FFD700;
+    outline-offset: 1px;
+    border-color: #FFD700;
+}
+
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
+
+button {
+    padding: 12px;
+    background-color: #163868;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0d2447;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    color: #fff;
+    background-color: #183768;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 2px solid #183768;
+    font-size: 1rem;
+    outline: none;
+    height: 45px;
+    margin-right: 0;
+    cursor: pointer;
+}
+
+button.login-btn {
+    background-color: #ffffff;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.button.login-btn:focus-visible:not(:disabled),
+.button.login-btn:hover:not(:disabled),
+.button.login-btn:active:not(:disabled) {
+    font-weight: bold;
+    outline: 3px solid #FFD700;
+    outline-offset: 2px;
+    background-color: #356DD0;
+    border: 2px solid #356DD0;
+    color: #fff;
+}
+
+/* ==========================================================================
+   Form Specific Styles
+   ========================================================================== */
+
+form[method="post"] #message-display {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.login-password-input {
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Login form layout - updated for new container structure */
+.login-password-input {
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 45px;
+}
+
+/* ==========================================================================
+   High Contrast Mode Support
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #000;
+        --secondary-color: #222;
+        --accent-color: #0000EE;
+        --text-color: #000;
+        --background-color: #fff;
+        --border-color: #000;
+    }
+
+    .button {
+        border: 2px solid #000;
+    }
+}
+
+.link:hover {
+    background-color: #356DD0;
+    color: #fff;
+    border: 2px solid #356DD0;
+} 

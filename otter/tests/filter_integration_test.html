@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Integration Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+        .warning { color: orange; }
+        button { margin: 5px; padding: 5px 10px; }
+        input[type="radio"] { margin: 5px; }
+        input[type="text"] { margin: 5px; padding: 5px; }
+        table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .hidden { display: none; }
+        #organization-data-display-message { margin: 10px 0; padding: 10px; border-radius: 4px; }
+        .info-message { background-color: #e3f2fd; color: #1976d2; }
+        .warning-message { background-color: #fff3e0; color: #f57c00; }
+    </style>
+</head>
+<body>
+    <h1>Filter Integration Test</h1>
+    
+    <div class="test-section">
+        <h2>Organization Search</h2>
+        <form id="organization-search-form">
+            <input type="text" id="organization-search-input" placeholder="Search organizations..." data-table-id="organization-data">
+            <button type="submit" id="organization-search-find">Find</button>
+            <button type="button" id="organization-search-clear">Clear</button>
+        </form>
+    </div>
+
+    <div class="test-section">
+        <h2>Data Display Controls</h2>
+        <div>
+            <input type="radio" name="organization-data-display" value="all" id="all" checked>
+            <label for="all">All</label>
+        </div>
+        <div>
+            <input type="radio" name="organization-data-display" value="no-values" id="no-values">
+            <label for="no-values">No Values</label>
+        </div>
+        <div>
+            <input type="radio" name="organization-data-display" value="hide-empty" id="hide-empty">
+            <label for="hide-empty">Hide Empty</label>
+        </div>
+        <div id="organization-data-display-message" class="info-message"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Data Table</h2>
+        <table id="organization-data">
+            <thead>
+                <tr>
+                    <th class="organization">Organization</th>
+                    <th>Registrations</th>
+                    <th>Enrollments</th>
+                    <th>Certificates</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="organization">Test Organization 1</td>
+                    <td>10</td>
+                    <td>8</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td class="organization">Test Organization 2</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td class="organization">Test Organization 3</td>
+                    <td>15</td>
+                    <td>12</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td class="organization">Single Row Test</td>
+                    <td>5</td>
+                    <td>3</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="test-section">
+        <h2>Integration Tests</h2>
+        <button onclick="testFilterToSingleRow()">Test Filter to Single Row</button>
+        <button onclick="testClearFilter()">Test Clear Filter</button>
+        <button onclick="testDataDisplayDisabled()">Test Data Display Disabled</button>
+        <button onclick="testStateRestoration()">Test State Restoration</button>
+        <button onclick="testConflictPrevention()">Test Conflict Prevention</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Results</h2>
+        <div id="test-results"></div>
+    </div>
+
+    <script type="module">
+        import FilterStateManager from '../reports/js/filter-state-manager.js';
+        import { filterTableRows, clearTableFilter } from '../reports/js/search-utils.js';
+        
+        window.FilterStateManager = FilterStateManager;
+        window.filterTableRows = filterTableRows;
+        window.clearTableFilter = clearTableFilter;
+        
+        function logTest(message, type = 'info') {
+            const results = document.getElementById('test-results');
+            const div = document.createElement('div');
+            div.className = type;
+            div.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            results.appendChild(div);
+        }
+        
+        // Initialize the form handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('organization-search-form');
+            const clearBtn = document.getElementById('organization-search-clear');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const input = document.getElementById('organization-search-input');
+                const value = input.value.trim().toLowerCase();
+                
+                if (value) {
+                    const hasMatches = filterTableRows('organization-data', value, 'organization');
+                    if (hasMatches) {
+                        FilterStateManager.setSearchFilter(value);
+                        logTest(`Filter applied: "${value}"`, 'success');
+                    } else {
+                        logTest(`No matches found for: "${value}"`, 'warning');
+                    }
+                }
+            });
+            
+            clearBtn.addEventListener('click', function() {
+                const input = document.getElementById('organization-search-input');
+                input.value = '';
+                clearTableFilter('organization-data');
+                FilterStateManager.setSearchFilter(null);
+                logTest('Filter cleared', 'success');
+            });
+            
+            // Initialize data display controls
+            const radios = document.querySelectorAll('input[name="organization-data-display"]');
+            radios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (FilterStateManager.setDisplayMode(this.value)) {
+                        logTest(`Display mode changed to: ${this.value}`, 'success');
+                    } else {
+                        logTest(`Display mode change blocked: ${this.value}`, 'warning');
+                    }
+                });
+            });
+            
+            logTest('Integration test initialized', 'info');
+        });
+        
+        window.testFilterToSingleRow = function() {
+            logTest('Testing filter to single row...', 'info');
+            
+            // Apply filter to get single row
+            const hasMatches = filterTableRows('organization-data', 'single row test', 'organization');
+            if (hasMatches) {
+                FilterStateManager.setSearchFilter('single row test');
+                
+                // Check if data display is disabled
+                const state = FilterStateManager.getState();
+                if (state.isDataDisplayDisabled) {
+                    logTest('Data display correctly disabled when filtered to single row', 'success');
+                } else {
+                    logTest('Data display should be disabled but is not', 'error');
+                }
+            } else {
+                logTest('Failed to filter to single row', 'error');
+            }
+        };
+        
+        window.testClearFilter = function() {
+            logTest('Testing filter clear...', 'info');
+            
+            // Clear the filter
+            clearTableFilter('organization-data');
+            FilterStateManager.setSearchFilter(null);
+            
+            // Check if data display is enabled
+            const state = FilterStateManager.getState();
+            if (!state.isDataDisplayDisabled) {
+                logTest('Data display correctly enabled when filter cleared', 'success');
+            } else {
+                logTest('Data display should be enabled but is not', 'error');
+            }
+        };
+        
+        window.testDataDisplayDisabled = function() {
+            logTest('Testing data display disabled state...', 'info');
+            
+            // Try to change display mode when disabled
+            const radios = document.querySelectorAll('input[name="organization-data-display"]');
+            const allDisabled = Array.from(radios).every(radio => radio.disabled);
+            
+            if (allDisabled) {
+                logTest('All data display controls are disabled', 'success');
+                
+                // Try to change mode programmatically
+                const result = FilterStateManager.setDisplayMode('hide-empty');
+                if (!result) {
+                    logTest('Display mode change correctly blocked when disabled', 'success');
+                } else {
+                    logTest('Display mode change should be blocked but was allowed', 'error');
+                }
+            } else {
+                logTest('Data display controls should be disabled but are not', 'error');
+            }
+        };
+        
+        window.testStateRestoration = function() {
+            logTest('Testing state restoration...', 'info');
+            
+            // Set a display mode
+            FilterStateManager.setDisplayMode('hide-empty');
+            const originalMode = FilterStateManager.getState().displayMode;
+            
+            // Apply filter to disable data display
+            filterTableRows('organization-data', 'single row test', 'organization');
+            FilterStateManager.setSearchFilter('single row test');
+            
+            // Clear filter to restore state
+            clearTableFilter('organization-data');
+            FilterStateManager.setSearchFilter(null);
+            
+            // Check if original mode was restored
+            const restoredMode = FilterStateManager.getState().displayMode;
+            if (restoredMode === originalMode) {
+                logTest('Display mode correctly restored after filter clear', 'success');
+            } else {
+                logTest(`Display mode not restored correctly. Expected: ${originalMode}, Got: ${restoredMode}`, 'error');
+            }
+        };
+        
+        window.testConflictPrevention = function() {
+            logTest('Testing conflict prevention...', 'info');
+            
+            // Apply filter
+            filterTableRows('organization-data', 'test organization 1', 'organization');
+            FilterStateManager.setSearchFilter('test organization 1');
+            
+            // Try to change display mode while filter is active
+            const result = FilterStateManager.setDisplayMode('no-values');
+            if (!result) {
+                logTest('Conflict prevention working: display mode change blocked while filter active', 'success');
+            } else {
+                logTest('Conflict prevention failed: display mode change allowed while filter active', 'error');
+            }
+            
+            // Clear filter
+            clearTableFilter('organization-data');
+            FilterStateManager.setSearchFilter(null);
+            
+            // Try to change display mode after filter cleared
+            const result2 = FilterStateManager.setDisplayMode('no-values');
+            if (result2) {
+                logTest('Display mode change allowed after filter cleared', 'success');
+            } else {
+                logTest('Display mode change should be allowed after filter cleared', 'error');
+            }
+        };
+    </script>
+</body>
+</html> 

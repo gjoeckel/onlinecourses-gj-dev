@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter State Manager Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+        button { margin: 5px; padding: 5px 10px; }
+        input[type="radio"] { margin: 5px; }
+        #message { margin: 10px 0; padding: 10px; border-radius: 4px; }
+        .info-message { background-color: #e3f2fd; color: #1976d2; }
+        .warning-message { background-color: #fff3e0; color: #f57c00; }
+    </style>
+</head>
+<body>
+    <h1>Filter State Manager Test</h1>
+    
+    <div class="test-section">
+        <h2>Data Display Controls</h2>
+        <div>
+            <input type="radio" name="organization-data-display" value="all" id="all" checked>
+            <label for="all">All</label>
+        </div>
+        <div>
+            <input type="radio" name="organization-data-display" value="no-values" id="no-values">
+            <label for="no-values">No Values</label>
+        </div>
+        <div>
+            <input type="radio" name="organization-data-display" value="hide-empty" id="hide-empty">
+            <label for="hide-empty">Hide Empty</label>
+        </div>
+        <div id="organization-data-display-message" class="info-message"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Controls</h2>
+        <button onclick="testDisableControls()">Disable Data Display</button>
+        <button onclick="testEnableControls()">Enable Data Display</button>
+        <button onclick="testSetDisplayMode()">Set Display Mode</button>
+        <button onclick="testStateValidation()">Test State Validation</button>
+        <button onclick="testMessageHandling()">Test Message Handling</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Results</h2>
+        <div id="test-results"></div>
+    </div>
+
+    <script type="module">
+        import FilterStateManager from '../reports/js/filter-state-manager.js';
+        
+        window.FilterStateManager = FilterStateManager;
+        
+        function logTest(message, type = 'info') {
+            const results = document.getElementById('test-results');
+            const div = document.createElement('div');
+            div.className = type;
+            div.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            results.appendChild(div);
+        }
+        
+        window.testDisableControls = function() {
+            try {
+                FilterStateManager.disableDataDisplayControls();
+                logTest('Data display controls disabled successfully', 'success');
+                
+                // Check if controls are actually disabled
+                const radios = document.querySelectorAll('input[name="organization-data-display"]');
+                const allDisabled = Array.from(radios).every(radio => radio.disabled);
+                const allUnchecked = Array.from(radios).every(radio => !radio.checked);
+                
+                if (allDisabled && allUnchecked) {
+                    logTest('All radio buttons are disabled and unchecked', 'success');
+                } else {
+                    logTest('Radio buttons not properly disabled', 'error');
+                }
+            } catch (error) {
+                logTest(`Error disabling controls: ${error.message}`, 'error');
+            }
+        };
+        
+        window.testEnableControls = function() {
+            try {
+                FilterStateManager.enableDataDisplayControls();
+                logTest('Data display controls enabled successfully', 'success');
+                
+                // Check if controls are actually enabled
+                const radios = document.querySelectorAll('input[name="organization-data-display"]');
+                const allEnabled = Array.from(radios).every(radio => !radio.disabled);
+                
+                if (allEnabled) {
+                    logTest('All radio buttons are enabled', 'success');
+                } else {
+                    logTest('Radio buttons not properly enabled', 'error');
+                }
+            } catch (error) {
+                logTest(`Error enabling controls: ${error.message}`, 'error');
+            }
+        };
+        
+        window.testSetDisplayMode = function() {
+            try {
+                // Test setting a valid mode
+                const result = FilterStateManager.setDisplayMode('hide-empty');
+                if (result) {
+                    logTest('Display mode set to hide-empty successfully', 'success');
+                } else {
+                    logTest('Failed to set display mode', 'error');
+                }
+                
+                // Test setting an invalid mode
+                const invalidResult = FilterStateManager.setDisplayMode('invalid-mode');
+                if (!invalidResult) {
+                    logTest('Correctly rejected invalid display mode', 'success');
+                } else {
+                    logTest('Should have rejected invalid display mode', 'error');
+                }
+            } catch (error) {
+                logTest(`Error setting display mode: ${error.message}`, 'error');
+            }
+        };
+        
+        window.testStateValidation = function() {
+            try {
+                const isValid = FilterStateManager.validateState();
+                logTest(`State validation result: ${isValid}`, isValid ? 'success' : 'error');
+                
+                const state = FilterStateManager.getState();
+                logTest(`Current state: ${JSON.stringify(state)}`, 'info');
+            } catch (error) {
+                logTest(`Error validating state: ${error.message}`, 'error');
+            }
+        };
+        
+        window.testMessageHandling = function() {
+            try {
+                // Test setting a message
+                FilterStateManager.setMessage('Test message from state manager');
+                logTest('Message set successfully', 'success');
+                
+                // Test getting the message
+                const message = FilterStateManager.getCurrentMessage();
+                logTest(`Retrieved message: ${message}`, 'info');
+                
+                // Test clearing the message
+                FilterStateManager.setMessage('');
+                const clearedMessage = FilterStateManager.getCurrentMessage();
+                logTest(`Message cleared: ${clearedMessage === '' ? 'Yes' : 'No'}`, 'info');
+            } catch (error) {
+                logTest(`Error handling messages: ${error.message}`, 'error');
+            }
+        };
+        
+        // Initialize test
+        logTest('Filter State Manager test page loaded', 'info');
+        logTest('Testing initial state...', 'info');
+        window.testStateValidation();
+    </script>
+</body>
+</html> 

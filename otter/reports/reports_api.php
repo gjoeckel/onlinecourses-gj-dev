@@ -1,0 +1,436 @@
+<?php
+/**
+ * reports_api.php - Database-based Reports API
+ * 
+ * PURPOSE: This file serves as an EXTERNAL API endpoint that returns JSON data
+ * to browser-based JavaScript requests. It pulls data directly from the database
+ * instead of Google Sheets.
+ * 
+ * KEY CHARACTERISTICS:
+ * - Sets JSON Content-Type header for browser consumption
+ * - Uses output buffering (ob_start/ob_clean) for clean JSON output
+ * - Always outputs JSON and exits (never returns data to calling PHP)
+ * - Called by: reports/js/reports-data.js for AJAX data requests
+ * - Uses direct database connection for all data operations
+ */
+
+// reports_api.php - Database-based reporting API
+require_once __DIR__ . '/../lib/output_buffer.php';
+startJsonResponse();
+
+// Start session first
+require_once __DIR__ . '/../lib/session.php';
+initializeSession();
+
+// Load enterprise configuration
+require_once __DIR__ . '/../lib/unified_enterprise_config.php';
+
+// Initialize enterprise and environment from single source of truth
+$context = UnifiedEnterpriseConfig::initializeFromRequest();
+
+// Fallback: If enterprise detection failed, try to detect from session
+if ($context['enterprise_code'] === false) {
+    // Start session if not already started
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+    // Check if we have admin authentication in session
+    if (isset($_SESSION['admin_authenticated']) && $_SESSION['admin_authenticated']) {
+        if (isset($_SESSION['enterprise_code'])) {
+            $context['enterprise_code'] = $_SESSION['enterprise_code'];
+            $context['environment'] = $_SESSION['environment'] ?? 'production';
+            $context['error'] = null;
+        }
+    }
+}
+
+// Get enterprise code
+$enterprise_code = $context['enterprise_code'] ?? false;
+error_log("Reports API Debug - Detected enterprise_code: " . ($enterprise_code ?: 'FALSE'));
+
+// Validate enterprise configuration
+if (!in_array($enterprise_code, ['csu', 'ccc', 'demo', 'astho'])) {
+    error_log("Reports API Debug - Invalid enterprise_code: " . ($enterprise_code ?: 'FALSE'));
+    sendJsonError();
+}
+
+// Initialize database connection using the existing system
+$master_includes_path = '/var/websites/webaim/master_includes/onlinecourses_common.php';
+$db_file_path = '/var/websites/webaim/htdocs/onlinecourses/includes/db.php';
+
+if (!file_exists($master_includes_path) || !file_exists($db_file_path)) {
+    sendJsonError();
+}
+
+require_once $master_includes_path;
+require_once $db_file_path;
+
+try {
+    $db = new db($dbhost, $dbuser, $dbpass, $dbname);
+} catch (Exception $e) {
+    sendJsonError();
+}
+
+// Get enterprise ID from database
+$db->query("SELECT id FROM enterprises WHERE name = ?", strtoupper($enterprise_code));
+$enterprise = $db->fetchArray();
+if (!$enterprise) {
+    error_log("Reports API Debug - Enterprise not found: " . strtoupper($enterprise_code));
+    sendJsonError();
+}
+$enterprise_id = $enterprise['id'];
+error_log("Reports API Debug - Enterprise: " . strtoupper($enterprise_code) . ", ID: " . $enterprise_id);
+
+// Get date range
+$start = isset($_REQUEST['start_date']) ? trim($_REQUEST['start_date']) : '';
+$end = isset($_REQUEST['end_date']) ? trim($_REQUEST['end_date']) : '';
+
+// Validate date format (MM-DD-YY)
+if (!preg_match('/^\d{2}-\d{2}-\d{2}$/', $start) || !preg_match('/^\d{2}-\d{2}-\d{2}$/', $end)) {
+    sendJsonError();
+}
+
+// Convert dates to database format for comparison
+$startDate = DateTime::createFromFormat('m-d-y', $start);
+$endDate = DateTime::createFromFormat('m-d-y', $end);
+
+if (!$startDate || !$endDate) {
+    sendJsonError();
+}
+
+$startFormatted = $startDate->format('Y-m-d');
+$endFormatted = $endDate->format('Y-m-d');
+
+// Helper function to check if a date is in range
+function isDateInRange($dateString, $startFormatted, $endFormatted) {
+    if (empty($dateString) || $dateString === '0000-00-00') {
+        return false;
+    }
+    
+    $date = DateTime::createFromFormat('Y-m-d H:i:s', $dateString);
+    if (!$date) {
+        $date = DateTime::createFromFormat('Y-m-d', $dateString);
+    }
+    if (!$date) {
+        return false;
+    }
+    
+    $start = DateTime::createFromFormat('Y-m-d', $startFormatted);
+    $end = DateTime::createFromFormat('Y-m-d', $endFormatted);
+    
+    return $date >= $start && $date <= $end;
+}
+
+// Helper function to convert database row to array format expected by frontend
+function convertDbRowToArray($row) {
+    return [
+        $row['id'] ?? '',
+        $row['status'] ?? '',
+        $row['certificate'] ?? '',
+        $row['created_at'] ?? '',
+        $row['earnerdate'] ?? '',
+        $row['email'] ?? '',
+        $row['name'] ?? '',
+        $row['role'] ?? '',
+        $row['organization'] ?? '',
+        $row['college'] ?? '',
+        $row['cohort'] ?? ''
+    ];
+}
+
+// Get all registrations for the enterprise
+// For CCC, prefer organization name query since most data is there
+if (strtoupper($enterprise_code) === 'CCC') {
+    // For CCC, try organization name first since most data is there
+    $orgName = strtoupper($enterprise_code);
+    $db->query("
+        SELECT r.*, r.organization as org_name 
+        FROM registrations r 
+        WHERE r.organization = ? AND r.deletion_status = 'active'
+        ORDER BY r.created_at DESC
+    ", $orgName);
+    $allRegistrations = $db->fetchAll();
+    error_log("Reports API Debug - CCC organization query found " . count($allRegistrations) . " registrations");
+    
+    // If no data found by organization name, try by enterprise_id as fallback
+    if (empty($allRegistrations)) {
+        $db->query("
+            SELECT r.*, o.name as org_name 
+            FROM registrations r 
+            LEFT JOIN organizations o ON r.organization_id = o.id 
+            WHERE r.enterprise_id = ? AND r.deletion_status = 'active'
+            ORDER BY r.created_at DESC
+        ", $enterprise_id);
+        $allRegistrations = $db->fetchAll();
+    }
+} else {
+    // For other enterprises, try enterprise_id first
+    $db->query("
+        SELECT r.*, o.name as org_name 
+        FROM registrations r 
+        LEFT JOIN organizations o ON r.organization_id = o.id 
+        WHERE r.enterprise_id = ? AND r.deletion_status = 'active'
+        ORDER BY r.created_at DESC
+    ", $enterprise_id);
+    $allRegistrations = $db->fetchAll();
+
+    // If no data found by enterprise_id, try by organization name
+    if (empty($allRegistrations)) {
+        $orgName = strtoupper($enterprise_code);
+        $db->query("
+            SELECT r.*, r.organization as org_name 
+            FROM registrations r 
+            WHERE r.organization = ? AND r.deletion_status = 'active'
+            ORDER BY r.created_at DESC
+        ", $orgName);
+        $allRegistrations = $db->fetchAll();
+    }
+}
+
+// Process data for date range
+$invitations = [];
+$registrations = [];
+$enrollments = [];
+$certificates = [];
+$submissions = [];
+
+foreach ($allRegistrations as $row) {
+    $createdDate = $row['created_at'] ?? '';
+    $earnerDate = $row['earnerdate'] ?? '';
+    
+    // Convert to array format
+    $rowArray = convertDbRowToArray($row);
+    
+    // Check if created date is in range (for invitations/registrations)
+    if (isDateInRange($createdDate, $startFormatted, $endFormatted)) {
+        $invitations[] = $rowArray;
+        $registrations[] = $rowArray;
+    }
+    
+    // Check if enrolled (use created date if earner date is empty)
+    if ($row['enrolled'] == 1) {
+        $enrollmentDate = !empty($earnerDate) ? $earnerDate : $createdDate;
+        if (isDateInRange($enrollmentDate, $startFormatted, $endFormatted)) {
+            $enrollments[] = $rowArray;
+        }
+    }
+    
+    // Check if certificate (use created date if earner date is empty)
+    if ($row['certificate'] == 1) {
+        $certificateDate = !empty($earnerDate) ? $earnerDate : $createdDate;
+        if (isDateInRange($certificateDate, $startFormatted, $endFormatted)) {
+            $certificates[] = $rowArray;
+        }
+    }
+    
+    // All submissions (use created date if earner date is empty)
+    $submissionDate = !empty($earnerDate) ? $earnerDate : $createdDate;
+    if (isDateInRange($submissionDate, $startFormatted, $endFormatted)) {
+        $submissions[] = $rowArray;
+    }
+}
+
+// Build response
+$response = [
+    'invitations' => $invitations,
+    'registrations' => $registrations,
+    'enrollments' => $enrollments,
+    'certificates' => $certificates,
+    'submissions' => $submissions
+];
+
+// Add organization data if requested
+if (isset($_REQUEST['organization_data'])) {
+    $organizationData = [];
+    
+    // Special handling for ASTHO - it doesn't have organizations in the database
+    if (strtoupper($enterprise_code) === 'ASTHO') {
+        error_log("Reports API Debug - ASTHO detected, using email domain grouping");
+        
+        // Group ASTHO users by email domain
+        $emailDomains = [];
+        foreach ($allRegistrations as $row) {
+            $email = $row['email'] ?? '';
+            if (empty($email)) continue;
+            
+            $domain = substr(strrchr($email, '@'), 1);
+            if (empty($domain)) continue;
+            
+            if (!isset($emailDomains[$domain])) {
+                $emailDomains[$domain] = [
+                    'domain' => $domain,
+                    'registrations' => 0,
+                    'enrollments' => 0,
+                    'certificates' => 0
+                ];
+            }
+            
+            $createdDate = $row['created_at'] ?? '';
+            $earnerDate = $row['earnerdate'] ?? '';
+            
+            if (isDateInRange($createdDate, $startFormatted, $endFormatted)) {
+                $emailDomains[$domain]['registrations']++;
+            }
+            
+            if ($row['enrolled'] == 1) {
+                $enrollmentDate = !empty($earnerDate) ? $earnerDate : $createdDate;
+                if (isDateInRange($enrollmentDate, $startFormatted, $endFormatted)) {
+                    $emailDomains[$domain]['enrollments']++;
+                }
+            }
+            
+            if ($row['certificate'] == 1) {
+                $certificateDate = !empty($earnerDate) ? $earnerDate : $createdDate;
+                if (isDateInRange($certificateDate, $startFormatted, $endFormatted)) {
+                    $emailDomains[$domain]['certificates']++;
+                }
+            }
+        }
+        
+        // Convert to organization data format
+        foreach ($emailDomains as $domainData) {
+            // Use a cleaner display name for ASTHO
+            $displayName = ($domainData['domain'] === 'astho.org') ? 'ASTHO' : $domainData['domain'];
+            
+            $organizationData[] = [
+                'organization' => $displayName,
+                'registrations' => $domainData['registrations'],
+                'enrollments' => $domainData['enrollments'],
+                'certificates' => $domainData['certificates']
+            ];
+        }
+        
+        error_log("Reports API Debug - ASTHO organization data: " . json_encode($organizationData));
+        
+    } else {
+        // Standard organization handling for CCC/CSU
+        $db->query("SELECT * FROM organizations WHERE enterprise_id = ? ORDER BY name", $enterprise_id);
+        $organizations = $db->fetchAll();
+        
+        error_log("Reports API Debug - Found " . count($organizations) . " organizations for enterprise " . $enterprise_code . " (ID: " . $enterprise_id . ")");
+        error_log("Reports API Debug - Organizations: " . json_encode(array_column($organizations, 'name')));
+        
+        foreach ($organizations as $org) {
+            $orgName = $org['name'];
+            
+            // Skip organizations with "District" in their name for CCC
+            // These are displayed in the Districts Data section instead
+            error_log("Filter check: enterprise_code=" . $enterprise_code . ", orgName=" . $orgName . ", contains District=" . (strpos($orgName, 'District') !== false ? 'YES' : 'NO'));
+            if (strtoupper($enterprise_code) === 'CCC' && strpos($orgName, 'District') !== false) {
+                error_log("Skipping district: " . $orgName);
+                continue;
+            }
+            
+            // Count registrations for this organization in date range
+            $regCount = 0;
+            $enrCount = 0;
+            $certCount = 0;
+            
+            foreach ($allRegistrations as $row) {
+                // For CCC/CSU, match by college field (campus name)
+                if ($row['college'] === $orgName) {
+                    $createdDate = $row['created_at'] ?? '';
+                    $earnerDate = $row['earnerdate'] ?? '';
+                    
+                    if (isDateInRange($createdDate, $startFormatted, $endFormatted)) {
+                        $regCount++;
+                    }
+                    
+                    if ($row['enrolled'] == 1) {
+                        $enrollmentDate = !empty($earnerDate) ? $earnerDate : $createdDate;
+                        if (isDateInRange($enrollmentDate, $startFormatted, $endFormatted)) {
+                            $enrCount++;
+                        }
+                    }
+                    
+                    if ($row['certificate'] == 1) {
+                        $certificateDate = !empty($earnerDate) ? $earnerDate : $createdDate;
+                        if (isDateInRange($certificateDate, $startFormatted, $endFormatted)) {
+                            $certCount++;
+                        }
+                    }
+                }
+            }
+            
+            $organizationData[] = [
+                'organization' => $orgName,
+                'registrations' => $regCount,
+                'enrollments' => $enrCount,
+                'certificates' => $certCount
+            ];
+        }
+    }
+    
+    $response['organization_data'] = $organizationData;
+}
+
+// Groups Data Table Operations (only for enterprises that support groups)
+if (isset($_REQUEST['groups_data'])) {
+    // Check if groups are supported for this enterprise
+    $groupsFile = __DIR__ . "/../config/groups/{$enterprise_code}.json";
+    
+    if (file_exists($groupsFile)) {
+        $groupsMap = json_decode(file_get_contents($groupsFile), true);
+        
+        $groupsData = [];
+        
+        // Build a college-to-group lookup
+        $collegeToGroup = [];
+        foreach ($groupsMap as $group => $colleges) {
+            foreach ($colleges as $college) {
+                $collegeToGroup[$college] = $group;
+            }
+        }
+        
+        // Process each group (district)
+        foreach ($groupsMap as $group => $colleges) {
+            $regCount = 0;
+            $enrCount = 0;
+            $certCount = 0;
+            
+            // Find all registrations for colleges in this district
+            foreach ($allRegistrations as $row) {
+                $college = $row['college'] ?? '';
+                
+                // Check if this registration belongs to a college in this district
+                if (in_array($college, $colleges)) {
+                    $createdDate = $row['created_at'] ?? '';
+                    $earnerDate = $row['earnerdate'] ?? '';
+                    
+                    // Check if registration is in date range
+                    if (isDateInRange($createdDate, $startFormatted, $endFormatted)) {
+                        $regCount++;
+                    }
+                    
+                    // Check if enrollment is in date range
+                    if ($row['enrolled'] == 1) {
+                        $enrollmentDate = !empty($earnerDate) ? $earnerDate : $createdDate;
+                        if (isDateInRange($enrollmentDate, $startFormatted, $endFormatted)) {
+                            $enrCount++;
+                        }
+                    }
+                    
+                    // Check if certificate is in date range
+                    if ($row['certificate'] == 1) {
+                        $certificateDate = !empty($earnerDate) ? $earnerDate : $createdDate;
+                        if (isDateInRange($certificateDate, $startFormatted, $endFormatted)) {
+                            $certCount++;
+                        }
+                    }
+                }
+            }
+            
+            $groupsData[] = [
+                'group' => $group,
+                'registrations' => $regCount,
+                'enrollments' => $enrCount,
+                'certificates' => $certCount
+            ];
+        }
+        
+        $response['groups_data'] = $groupsData;
+    }
+}
+
+sendJsonResponse($response);

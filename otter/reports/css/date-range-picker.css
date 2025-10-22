@@ -1,0 +1,363 @@
+/* date-range-picker.css
+   Styles for the date range picker UI and presets. */
+
+.date-picker-container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin: 0 auto 2rem auto;
+    width: 800px;
+    position: relative;
+    z-index: 10;
+}
+
+.date-picker-container.expanded {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.date-picker-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.date-picker-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #34495e;
+}
+
+.date-picker-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    padding: 10px 50px 30px 60px;
+    position: relative;
+}
+
+.date-picker-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.date-picker-group label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.accessible-date-range-picker {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+.date-format-hint {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 0.25rem;
+}
+
+.date-picker-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.date-picker-actions-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.date-picker-heading {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.date-picker-presets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1rem auto 1.5rem auto;
+    padding: 0;
+    width: 85%;
+}
+
+.date-picker-presets-legend {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333333;
+    display: table;
+}
+
+
+.date-picker-presets-options {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: .5rem 0 .5rem 0;
+}
+
+.date-picker-presets-label {
+    font-size: 1rem;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.date-picker-presets-label-compact {
+    font-size: 0.95rem;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.date-picker-presets-radio {
+    margin-right: 0.5em;
+    accent-color: var(--primary-color);
+}
+
+.date-picker-presets-radio:focus,
+.date-picker-presets-radio:focus-visible {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+}
+
+/* Add border to fieldset.date-picker-presets without covering legend */
+fieldset.date-picker-presets {
+    border: 1.75px solid #666666;
+    border-radius: 4px;
+    padding: 1.2em 1em 1em 1em;
+    margin-bottom: 1.5rem;
+    position: relative;
+    background: #fff;
+}
+
+/* Ensure the legend visually sits above the border */
+fieldset.date-picker-presets legend {
+    float: unset;
+    width: auto;
+    padding: 0 0.5em;
+    margin-left: 1em;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.date-picker-heading {
+    background-color: #333333;
+    color: white;
+    font-size: 1.25rem;
+    padding: 12px;
+    text-align: center;
+    border-radius: 4px 4px 0 0;
+    user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+
+.date-picker-presets-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.date-picker-presets-label-compact {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.date-picker-presets-radio {
+    color: #222222;
+}
+
+.date-picker-presets-radio:focus,
+.date-picker-presets-radio:focus-visible,
+.date-picker-presets-radio:hover,
+.date-picker-presets-radio:active {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--focus-color), 0 0 0 8px white;
+    border-radius: 50%;
+    border: 2px solid var(--focus-color);
+    background: #f0f8ff;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"] {
+    color: #333333;
+    width: 100%;
+    padding: 10px;
+    border: 1.75px solid #333333;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+input#organization-search-input,
+input#district-search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1.75px solid #666666;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* Fix Clear and Apply button widths */
+#clear-dates-button,
+#apply-range-button {
+    width: auto;
+    min-width: 90px;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+}
+
+#apply-range-button {
+    background-color: #336600;
+    color: #fff;
+    border: none;
+}
+
+/* Ensure Apply button has same hover/focus styles as Clear button */
+#apply-range-button:focus-visible:not(:disabled),
+#apply-range-button:hover:not(:disabled),
+#apply-range-button:active:not(:disabled) {
+    font-weight: bold;
+    outline: 3px solid #FFD700;
+    outline-offset: 2px;
+    background-color: #356DD0;
+    border: 2px solid #356DD0;
+    color: #fff;
+    padding: 0.5rem 1rem;
+}
+
+/* Left-aligned fieldset variant - replicates Preset Ranges but with left-aligned legend */
+.data-display-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 1rem auto 1.5rem auto;
+    padding: 0;
+    width: 85%;
+}
+
+.data-display-options-legend {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    color: #333333;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.data-display-options-options {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+.data-display-options-label {
+    font-size: 1rem;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.data-display-options-radio {
+    margin-right: 0.5em;
+    accent-color: var(--primary-color);
+}
+
+.data-display-options-radio:focus,
+.data-display-options-radio:focus-visible {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+}
+
+/* Left-aligned fieldset with unbroken border and legend inside */
+fieldset.data-display-options {
+    display: flex;
+    align-items: center;
+    border: 1.75px solid #666666;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+    margin-bottom: 1.5rem;
+    background: #fff;
+    gap: 1.5rem;
+}
+fieldset.data-display-options legend {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    background: none;
+    position: static;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.data-display-options-options {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin: 0;
+}
+.data-display-options-label {
+    font-size: 1rem;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+.data-display-options-radio {
+    margin-right: 0.25em;
+    accent-color: #183768;
+}
+
+.data-display-options-radio:focus,
+.data-display-options-radio:focus-visible,
+.data-display-options-radio:hover,
+.data-display-options-radio:active {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--focus-color), 0 0 0 8px white;
+    border-radius: 50%;
+    border: 2px solid var(--focus-color);
+    background: #f0f8ff;
+}
+
+#clear-dates-button:disabled,
+#apply-range-button:disabled {
+    font-weight: bold;
+    background: #ffffff !important;
+    color: #333333 !important;
+    border: 2px solid var(--primary-color) !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+

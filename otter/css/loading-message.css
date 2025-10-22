@@ -1,0 +1,34 @@
+/* loading-message.css */
+.loading-message {
+  position: fixed;
+  top: 1.5em;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  min-width: 220px;
+  max-width: 90vw;
+  padding: 1em 2em;
+  border-radius: 6px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  outline: none;
+}
+.loading-message.success-message {
+  background: #e6f9ec;
+  color: #14532d;
+  border: 2px solid #22c55e;
+}
+.loading-message.error-message {
+  background: #fbeaea;
+  color: #991b1b;
+  border: 2px solid #ef4444;
+}
+.loading-message.organization {
+  top: 360px;
+}
+.loading-message.success-message.organization,
+.loading-message.organization.success-message {
+  top: 360px;
+} 

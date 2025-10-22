@@ -1,0 +1,140 @@
+{
+  "Allan Hancock Joint CCD": ["Allan Hancock College"],
+  "Antelope Valley CCD": ["Antelope Valley College"],
+  "Barstow CCD": ["Barstow College"],
+  "Butte-Glenn CCD": ["Butte College"],
+  "Cabrillo CCD": ["Cabrillo College"],
+  "CalBright CCD": ["CalBright College"],
+  "Cerritos CCD": ["Cerritos College"],
+  "Chabot-Las Positas CCD": ["Chabot College", "Las Positas College"],
+  "Chaffey CCD": ["Chaffey College"],
+  "Citrus CCD": ["Citrus College"],
+  "Coast CCD": [
+    "Coastline Community College",
+    "Golden West College",
+    "Orange Coast College"
+  ],
+  "Compton CCD": ["Compton College"],
+  "Contra Costa CCD": [
+    "Contra Costa College",
+    "Diablo Valley College",
+    "Los Medanos College"
+  ],
+  "Copper Mountain CCD": ["Copper Mountain College"],
+  "Desert CCD": ["College of the Desert"],
+  "El Camino CCD": ["El Camino College"],
+  "Feather River CCD": ["Feather River College"],
+  "Foothill-De Anza CCD": ["De Anza College", "Foothill College"],
+  "Gavilan CCD": ["Gavilan College"],
+  "Glendale CCD": ["Glendale College"],
+  "Grossmont-Cuyamaca CCD": ["Cuyamaca College", "Grossmont College"],
+  "Hartnell Joint CCD": ["Hartnell College"],
+  "Imperial Valley CCD": ["Imperial Valley College"],
+  "Kern CCD": [
+    "Bakersfield College",
+    "Cerro Coso Community College",
+    "Porterville College"
+  ],
+  "Lake Tahoe CCD": ["Lake Tahoe Community College"],
+  "Lassen CCD": ["Lassen College"],
+  "Long Beach CCD": ["Long Beach City College - Liberal Arts"],
+  "Los Angeles CCD": [
+    "East Los Angeles College",
+    "Los Angeles City College",
+    "Los Angeles Harbor College",
+    "Los Angeles Mission College",
+    "Los Angeles Pierce College",
+    "Los Angeles Southwest College",
+    "Los Angeles Trade-Tech College",
+    "Los Angeles Valley College",
+    "West Los Angeles College"
+  ],
+  "Los Rios CCD": [
+    "American River College",
+    "Cosumnes River College",
+    "Folsom Lake College",
+    "Sacramento City College"
+  ],
+  "Marin CCD": ["College of Marin"],
+  "Mendocino-Lake CCD": ["Mendocino College"],
+  "Merced CCD": ["Merced College"],
+  "MiraCosta CCD": ["MiraCosta College"],
+  "Monterey Peninsula CCD": ["Monterey Peninsula College"],
+  "Mt. San Antonio CCD": ["Mt. San Antonio College"],
+  "Mt. San Jacinto CCD": ["Mt. San Jacinto College"],
+  "Napa Valley CCD": ["Napa Valley College"],
+  "North Orange County CCD": ["Cypress College", "Fullerton College"],
+  "Ohlone CCD": ["Ohlone College"],
+  "Palo Verde CCD": ["Palo Verde College"],
+  "Palomar CCD": ["Palomar College"],
+  "Pasadena Area CCD": ["Pasadena City College"],
+  "Peralta CCD": [
+    "Berkeley City College",
+    "College of Alameda",
+    "Laney College",
+    "Merritt College"
+  ],
+  "Rancho Santiago CCD": ["Santa Ana College", "Santiago Canyon College"],
+  "Redwoods CCD": ["College of the Redwoods"],
+  "Rio Hondo CCD": ["Rio Hondo College"],
+  "Riverside CCD": [
+    "Moreno Valley College",
+    "Norco College",
+    "Riverside City College"
+  ],
+  "San Bernardino CCD": [
+    "Crafton Hills College",
+    "San Bernardino Valley College"
+  ],
+  "San Diego CCD": [
+    "San Diego City College",
+    "San Diego Continuing Education",
+    "San Diego Mesa College",
+    "San Diego Miramar College"
+  ],
+  "San Francisco CCD": ["City College of San Francisco"],
+  "San Joaquin Delta CCD": ["San Joaquin Delta College"],
+  "San Jose-Evergreen CCD": [
+    "Evergreen Valley College",
+    "San Jose City College"
+  ],
+  "San Luis Obispo County CCD": ["Cuesta College"],
+  "San Mateo County CCD": [
+    "Canada College",
+    "College of San Mateo",
+    "Skyline College"
+  ],
+  "Santa Barbara CCD": ["Santa Barbara City College"],
+  "Santa Clarita CCD": ["College of the Canyons"],
+  "Santa Monica CCD": ["Santa Monica College"],
+  "Sequoias CCD": ["College of the Sequioas"],
+  "Shasta-Tehama-Trinity Joint CCD": ["Shasta College"],
+  "Sierra Joint CCD": ["Sierra College"],
+  "Siskiyou Joint CCD": ["College of the Siskiyous"],
+  "Solano CCD": ["Solano Community College"],
+  "Sonoma County JCD": ["Santa Rosa Junior College"],
+  "South Orange County CCD": [
+    "Irvine Valley College",
+    "Saddleback College"
+  ],
+  "Southwestern CCD": ["Southwestern College"],
+  "State Center CCD": [
+    "Clovis Community College",
+    "Fresno City College",
+    "Reedley College"
+  ],
+  "Ventura County CCD": [
+    "Moorpark College",
+    "Oxnard College",
+    "Ventura College"
+  ],
+  "Victor Valley CCD": ["Victor Valley College"],
+  "West Hills CCD": [
+    "West Hills College Coalinga",
+    "West Hills College Lemoore"
+  ],
+  "West Kern CCD": ["Taft College"],
+  "West Valley-Mission CCD": ["Mission College", "West Valley College"],
+  "Yosemite CCD": ["Columbia College", "Modesto Junior College"],
+  "Yuba CCD": ["Woodland Community College", "Yuba College"]
+} 

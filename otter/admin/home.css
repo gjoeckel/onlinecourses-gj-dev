@@ -1,0 +1,1352 @@
+/*
+ * Dashboard Styles
+ * Central location for all dashboard-related styles
+ * Maintains WCAG compliance and accessibility features
+ */
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+:root {
+    --primary-color: #183768;
+    /* CCCblue */
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --text-color: #333;
+    --background-color: #f5f6fa;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --border-color: #dcdde1;
+    --hover-color: #ffd700;
+    /* Yellow for hover states */
+    --header-text-color: #F4C10C;
+}
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Calibri, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    color: #333;
+    min-height: 101vh;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+}
+
+h2 {
+    color: #34495e;
+    margin-top: 30px;
+}
+
+/* Header Styles */
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #183768;
+    padding: 1rem;
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.dashboard-header h1 {
+    color: #F4C10C;
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+}
+
+.dashboard-header p {
+    color: white;
+    font-size: 1.25rem;
+    margin: 0;
+    opacity: 0.9;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.dashboard-header nav {
+    /* Flexbox keeps this right-aligned and vertically centered */
+}
+
+/* Remove old header/nav centering and absolute positioning styles */
+header {
+    background: #183768;
+    padding: 1rem;
+    /* Remove flex, column, align-items, position */
+}
+
+header h1 {
+    /* Remove absolute, left, transform, z-index */
+    color: #F4C10C;
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+}
+
+header p {
+    color: white;
+    font-size: 1.25rem;
+    margin: 0;
+    opacity: 0.9;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0;
+}
+
+/* Main content */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Add spacing between sections (tables) */
+section {
+    margin-bottom: 30px;
+}
+
+/* Organization select */
+.organization-select {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.organization-select form {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.organization-select label {
+    font-weight: bold;
+    min-width: 150px;
+}
+
+.organization-select select {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    min-width: 200px;
+}
+
+/* Data groups */
+.data-group {
+    margin-bottom: 2rem;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.data-group h2 {
+    padding: 1rem;
+    margin: 0;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Table styles */
+.table-responsive {
+    overflow-x: auto;
+    margin: 0 1px 30px 1px;
+    /* Added bottom margin for spacing between tables */
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Base table styles */
+.table-responsive table {
+    width: 100%;
+    border-collapse: collapse;
+    /* margin: 20px 0; */
+    /* Removed margin here, added to .table-responsive */
+    background: #fff;
+    table-layout: fixed;
+    /* Use fixed layout for consistent columns */
+}
+
+/* General caption styles */
+.table-responsive caption {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    padding: 12px;
+    text-align: center;
+    border-radius: 4px 4px 0 0;
+    /* cursor: pointer; */
+    /* REMOVE - Caption no longer interactive */
+    -webkit-user-select: none;
+    user-select: none;
+    position: relative;
+}
+
+/* General caption hover/focus - REMOVE */
+/*
+.table-responsive caption:hover,
+.table-responsive caption:focus-visible {
+    outline: 3px solid #F4C10C;
+    outline-offset: -3px;
+}
+*/
+
+/* General caption arrow - REMOVE */
+/*
+.table-responsive caption::after {
+    content: "►";
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 27px;
+    height: 27px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #183768;
+    font-size: 16px;
+    padding-left: 2px;
+    transition: transform 0.2s;
+}
+*/
+
+/* General caption arrow expanded state - REMOVE */
+/*
+.table-responsive caption[aria-expanded="true"]::after {
+    content: "▼";
+    padding-left: 0;
+}
+*/
+
+/* --- New Table Toggle Button Styles --- */
+.table-toggle-button {
+    /* Make button an invisible container */
+    background-color: transparent;
+    color: transparent;
+    font-size: 0;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    /* Position within caption */
+    right: 30px;
+    /* Match old arrow position */
+    top: 50%;
+    /* Match old arrow position */
+    transform: translateY(-50%);
+    /* Match old arrow position */
+    border: none;
+    width: 27px;
+    /* Match old arrow size */
+    height: 27px;
+    /* Match old arrow size */
+    vertical-align: middle;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Disable the generic blue outline */
+.table-toggle-button:focus,
+.table-toggle-button:focus-visible,
+.table-toggle-button:hover,
+.table-toggle-button:active {
+    outline: 3px solid #F4C10C;
+    outline-offset: 2px;
+}
+
+/* Style the ::after pseudo-element as the visible button */
+.table-toggle-button::after {
+    content: "►";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    /* Use 2px border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #183768;
+    font-size: 16px;
+    /* Match old arrow font size */
+    line-height: 1;
+    padding-left: 2px;
+    transition: transform 0.2s;
+}
+
+/* Hover/focus style for the border */
+.table-toggle-button:hover::after,
+.table-toggle-button:focus-visible::after {
+    border-color: #F4C10C;
+    /* Change border to yellow */
+}
+
+/* Arrow state when expanded */
+.table-toggle-button[aria-expanded="true"]::after {
+    content: "▼";
+    padding-left: 0;
+}
+
+/* --- Hide Count in Caption --- */
+.caption-count {
+    display: none;
+}
+
+/* General TH and TD styles - REMOVED */
+/*
+.table-responsive th,
+.table-responsive td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+*/
+
+/* General TH styles - REMOVED */
+/*
+.table-responsive th {
+    background-color: #f5f6fa;
+    font-weight: bold;
+    font-size: 1.25rem;
+    border-top: none;
+}
+*/
+
+/* General row striping */
+.table-responsive tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-responsive tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* --- Add back General TH styles --- */
+.table-responsive th {
+    background-color: #f5f6fa;
+    /* Light background for headers */
+    font-weight: bold;
+    /* Make header text bold */
+    font-size: 1.25rem;
+    /* Slightly larger font size */
+    /* Padding, border, and text-align are handled by ID-specific rules below */
+}
+
+/* Center align all table headers using IDs - REMOVED */
+/*
+#enrollment-summary th,
+#enrolled-participants th,
+#invited-participants th {
+    text-align: center;
+}
+*/
+
+/* ==========================================================================
+   Table Styles - ID Specific
+   ========================================================================== */
+
+/* --- Enrollment Summary --- */
+/* Apply center alignment, padding, and border to all TH and TD */
+#enrollment-summary th,
+#enrollment-summary td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    /* These will override any specific .text-left/right/center classes */
+}
+
+/* TH and TD styles REMOVED - Styles now applied above */
+/*
+#enrollment-summary th:nth-child(1) { min-width: 100px; }
+#enrollment-summary th:nth-child(2) { min-width: 80px; }
+#enrollment-summary th:nth-child(3),
+#enrollment-summary th:nth-child(4),
+#enrollment-summary th:nth-child(5) { min-width: 120px; }
+
+#enrollment-summary .text-left   { text-align: left; }
+#enrollment-summary .text-center { text-align: center; }
+#enrollment-summary .text-right  { text-align: right; }
+*/
+
+
+/* --- Enrolled Participants --- */
+/* Apply center alignment, padding, and border to all TH and TD */
+#enrolled-participants th,
+#enrolled-participants td {
+    padding: 12px;
+    /* Using 12px padding consistently */
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* TH and TD styles REMOVED - Styles now applied above */
+/*
+#enrolled-participants th:nth-child(1) { width: 17%; }
+#enrolled-participants th:nth-child(2) { width: 10%; }
+#enrolled-participants th:nth-child(3) { width: 9%; }
+#enrolled-participants th:nth-child(4) { width: 10%; }
+#enrolled-participants th:nth-child(5) { width: 11%; }
+#enrolled-participants th:nth-child(6) { width: 28%; min-width: 200px; }
+#enrolled-participants th:nth-child(7) { width: 14%; }
+#enrolled-participants th:nth-child(8) { width: 10%; }
+
+#enrolled-participants td {
+    padding: 8px;
+}
+*/
+
+/* Apply new width percentages - UPDATED PROPORTIONALLY - REVISED */
+#enrolled-participants th:nth-child(1) {
+    width: 14%;
+}
+
+/* Days to Close */
+#enrolled-participants th:nth-child(2) {
+    width: 9%;
+}
+
+/* Cohort */
+#enrolled-participants th:nth-child(3) {
+    width: 7%;
+}
+
+/* Year */
+#enrolled-participants th:nth-child(4) {
+    width: 9%;
+}
+
+/* First - Updated */
+#enrolled-participants th:nth-child(5) {
+    width: 14%;
+}
+
+/* Last */
+#enrolled-participants th:nth-child(6) {
+    width: 27%;
+    min-width: 200px;
+}
+
+/* Email */
+#enrolled-participants th:nth-child(7) {
+    width: 12%;
+}
+
+/* Completed - Updated */
+#enrolled-participants th:nth-child(8) {
+    width: 8%;
+}
+
+/* Earned - Updated */
+
+/* --- Alignment Overrides for Specific Columns --- */
+/* Apply left alignment to First, Last, Email columns (TH and TD) */
+#enrolled-participants th:nth-child(4),
+#enrolled-participants td:nth-child(4) {
+    text-align: left;
+}
+
+#enrolled-participants th:nth-child(5),
+#enrolled-participants td:nth-child(5) {
+    text-align: left;
+}
+
+#enrolled-participants th:nth-child(6),
+#enrolled-participants td:nth-child(6) {
+    text-align: left;
+}
+
+
+/* --- Invited Participants --- */
+/* Apply center alignment, padding, and border to all TH and TD */
+#invited-participants th,
+#invited-participants td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* TH and TD styles REMOVED - Styles now applied above */
+/* --- Min-Width Rules REMOVED --- */
+/*
+#invited-participants th:nth-child(1) { min-width: 120px; }
+#invited-participants th:nth-child(2) { min-width: 100px; }
+#invited-participants th:nth-child(3) { min-width: 80px; }
+#invited-participants th:nth-child(4),
+#invited-participants th:nth-child(5) { min-width: 150px; }
+#invited-participants th:nth-child(6) { min-width: 250px; }
+*/
+
+/* --- Apply New Percentage Widths --- */
+#invited-participants th:nth-child(1) {
+    width: 14%;
+}
+
+/* Invited */
+#invited-participants th:nth-child(2) {
+    width: 9%;
+}
+
+/* Cohort */
+#invited-participants th:nth-child(3) {
+    width: 9%;
+}
+
+/* Year */
+#invited-participants th:nth-child(4) {
+    width: 14%;
+}
+
+/* First */
+#invited-participants th:nth-child(5) {
+    width: 16%;
+}
+
+/* Last */
+#invited-participants th:nth-child(6) {
+    width: 38%;
+}
+
+/* Email */
+
+/* --- Alignment Overrides for Specific Columns --- */
+/* Apply left alignment to First, Last, Email columns (TH and TD) */
+#invited-participants th:nth-child(4),
+#invited-participants td:nth-child(4) {
+    text-align: left;
+}
+
+#invited-participants th:nth-child(5),
+#invited-participants td:nth-child(5) {
+    text-align: left;
+}
+
+#invited-participants th:nth-child(6),
+#invited-participants td:nth-child(6) {
+    text-align: left;
+}
+
+/* ==========================================================================
+   Visibility & Other Styles
+   ========================================================================== */
+
+/* Default table body to hidden */
+.table-responsive tbody {
+    display: none;
+}
+
+/* Class to make tbody visible (toggled by JS) */
+.table-responsive tbody.visible {
+    display: table-row-group;
+}
+
+/* Message display styles (from reports-messaging.css) */
+.error-message {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #fff3f3;
+    border: 1px solid #e74c3c;
+    border-radius: 4px;
+    color: #e74c3c;
+}
+
+.success-message {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #eafaf1;
+    border: 1px solid #336600;
+    border-radius: 4px;
+    color: #336600;
+}
+
+#message-display {
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-weight: bold;
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#message-display.error-message {
+    background-color: #fee;
+    color: #c00;
+    border: 1px solid #fcc;
+}
+
+
+#message-display:not(.error-message):not(.success-message) {
+    background-color: #f5f6fa;
+    color: #333;
+    border: 1px solid #dcdde1;
+}
+
+.visually-hidden-but-space {
+    visibility: hidden;
+    min-height: 2.5em;
+    margin: 0;
+    padding: 0;
+}
+
+/* Logout button */
+.button {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    color: #fff;
+    background-color: #183768;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 2px solid #183768;
+    font-size: 1rem;
+    outline: none;
+    height: 45px;
+    margin-right: 0;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+a#reports-btn {
+    background-color: #183768;
+    color: #ffffff;
+    border: 2px solid #183768;
+}
+
+a#settings-btn {
+    background-color: #666666;
+    color: #ffffff;
+    border: 2px solid #666666;
+}
+
+button#refresh-data-button {
+    background-color: #ffffff;
+    color: #333333;
+    border: 2px solid #333333;
+    font-weight: bold;
+}
+
+button#logout-btn,
+button.login-btn {
+    background-color: #ffffff;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.button.login-btn:focus-visible:not(:disabled),
+.button.login-btn:hover:not(:disabled),
+.button.login-btn:active:not(:disabled),
+.button#reports-btn:focus-visible:not(:disabled),
+.button#reports-btn:hover:not(:disabled),
+.button#reports-btn:active:not(:disabled),
+.button#settings-btn:focus-visible:not(:disabled),
+.button#settings-btn:hover:not(:disabled),
+.button#settings-btn:active:not(:disabled),
+.button#logout-btn:focus-visible:not(:disabled),
+.button#logout-btn:hover:not(:disabled),
+.button#logout-btn:active:not(:disabled),
+.button#refresh-data-button:focus-visible:not(:disabled),
+.button#refresh-data-button:hover:not(:disabled),
+.button#refresh-data-button:active:not(:disabled) {
+    font-weight: bold;
+    outline: 3px solid #FFD700;
+    outline-offset: 2px;
+    background-color: #356DD0;
+    border: 2px solid #356DD0;
+    color: #fff;
+}
+
+
+/* Admin index.php button row styles */
+.admin-btn-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 4rem 0 0 0;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.admin-btn-row .button,
+.admin-btn-row .secondary-button {
+    min-width: 120px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Login Form Styles */
+body.login-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+}
+
+.container.login-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px 20px 100px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #163868;
+    margin-bottom: 30px;
+}
+
+.login-container .form-group {
+    margin-bottom: 20px;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333333;
+}
+
+.login-container select,
+.login-container input {
+    font-size: 1rem;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #163868;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-container button:hover {
+    background-color: #0d2447;
+}
+
+.login-container .error {
+    color: #d93025;
+    background-color: #fce8e6;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.loading-message.organization {
+    top: 360px;
+}
+
+.url-error {
+    color: #bf1712;
+    background-color: #fce8e6;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 50px;
+    font-size: 1.1em;
+    text-align: center;
+    border: 1px solid #bf1712;
+}
+
+body.status-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+}
+
+.container.status-container {
+    max-width: 615px;
+    margin: 2rem auto;
+    padding: 2rem;
+    padding-bottom: 50px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.status-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.url-error {
+    color: #bf1712;
+    background-color: #fce8e6;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 50px;
+    font-size: 1.1em;
+    text-align: center;
+    border: 1px solid #bf1712;
+}
+
+.loading-message {
+    color: #336600;
+    background-color: #e6fce8;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 50px;
+    font-size: 1.1em;
+    text-align: center;
+    border: 1px solid #336600;
+}
+
+
+label {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+
+input:focus,
+select:focus,
+button:focus,
+a:focus {
+    outline: 2px solid #FFD700;
+    outline-offset: 1px;
+    border-color: #FFD700;
+}
+
+input:hover,
+select:hover,
+button:hover,
+a:hover {
+    outline: 2px solid #FFD700;
+    outline-offset: 1px;
+    border-color: #FFD700;
+}
+
+button {
+    padding: 12px;
+    background-color: #163868;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0d2447;
+}
+
+.error {
+    color: #d93025;
+    background-color: #fce8e6;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.success {
+    color: #0f9d58;
+    background-color: #e6f4ea;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* Login form specific styles */
+form[method="post"] {
+    margin-top: 1em;
+}
+
+form[method="post"] #message-display {
+    margin: 1rem 0 20px 0;
+    text-align: center;
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+p {
+    margin: 20px 0;
+    color: #666;
+}
+
+/* Table collapse state */
+tbody.collapsed {
+    display: table-row-group;
+}
+
+tbody.collapsed tr {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Ensure the table header is always visible */
+thead tr {
+    display: table-row !important;
+    background-color: #f5f6fa;
+}
+
+/* Row styling */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Cell styles */
+th {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Add transition for smoother collapse/expand */
+tbody tr {
+    transition: opacity 0.2s ease-out;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #000;
+        --secondary-color: #222;
+        --accent-color: #0000EE;
+        --text-color: #000;
+        --background-color: #fff;
+        --border-color: #000;
+    }
+
+    .button {
+        border: 2px solid #000;
+    }
+
+    table th {
+        background-color: #fff;
+        border: 2px solid #000;
+    }
+
+    table td {
+        border: 1px solid #000;
+    }
+}
+
+/* Column width adjustments */
+/* Enrollment Summary table */
+.enrollment-summary {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.enrollment-summary th:nth-child(1) {
+    /* Cohort */
+    min-width: 100px;
+}
+
+.enrollment-summary th:nth-child(2) {
+    /* Year */
+    min-width: 80px;
+}
+
+.enrollment-summary th:nth-child(3),
+/* Enrollments */
+.enrollment-summary th:nth-child(4),
+/* Completed */
+.enrollment-summary th:nth-child(5) {
+    /* Certificates */
+    min-width: 120px;
+}
+
+/* Enrolled Participants table */
+.enrolled-participants {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.enrolled-participants th,
+.enrolled-participants td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.enrolled-participants th:nth-child(1) {
+    /* Days to Close */
+    width: 17%;
+}
+
+.enrolled-participants th:nth-child(2) {
+    /* Cohort */
+    width: 10%;
+}
+
+.enrolled-participants th:nth-child(3) {
+    /* Year */
+    width: 9%;
+}
+
+.enrolled-participants th:nth-child(4) {
+    /* First */
+    width: 10%;
+}
+
+.enrolled-participants th:nth-child(5) {
+    /* Last */
+    width: 11%;
+}
+
+.enrolled-participants th:nth-child(6) {
+    /* Email */
+    width: 28%;
+    min-width: 200px;
+}
+
+.enrolled-participants th:nth-child(7) {
+    /* Completed */
+    width: 14%;
+}
+
+.enrolled-participants th:nth-child(8) {
+    /* Earned */
+    width: 10%;
+}
+
+/* Add text overflow handling for all cells */
+.enrolled-participants td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 8px;
+}
+
+/* Invited Participants table */
+.invited-participants {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.invited-participants th:nth-child(1) {
+    /* Invited */
+    min-width: 120px;
+}
+
+.invited-participants th:nth-child(2) {
+    /* Cohort */
+    min-width: 100px;
+}
+
+.invited-participants th:nth-child(3) {
+    /* Year */
+    min-width: 80px;
+}
+
+.invited-participants th:nth-child(4),
+/* First */
+.invited-participants th:nth-child(5) {
+    /* Last */
+    min-width: 120px;
+}
+
+.invited-participants th:nth-child(6) {
+    /* Email */
+    min-width: 200px;
+}
+
+/* Common styles for all data tables */
+.enrollment-summary,
+.enrolled-participants,
+.invited-participants {
+    margin: 0;
+}
+
+/* Base styles for all table headers */
+.enrollment-summary th,
+.enrolled-participants th,
+.invited-participants th {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    background-color: #f5f6fa;
+    font-weight: bold;
+    font-size: 1.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Base styles for all table cells */
+.enrollment-summary td,
+.enrolled-participants td,
+.invited-participants td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Visibility control for tbody */
+tbody:not(.visible) {
+    display: none;
+}
+
+tbody.visible {
+    display: table-row-group;
+}
+
+/* Default table body to hidden */
+.table-responsive tbody {
+    display: none;
+}
+
+/* Class to make tbody visible (presumably toggled by JS) */
+.table-responsive tbody.visible {
+    display: table-row-group;
+    /* Or appropriate display value for tbody */
+}
+
+/* Center align all table header text */
+.table-responsive th {
+    text-align: center;
+    /* Optional: Add vertical-align if needed */
+    /* vertical-align: middle; */
+}
+
+/* --- Global Toggle Control --- */
+#global-toggle-controls {
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 15px 20px;
+    /* Revert right padding */
+    margin-bottom: 25px;
+    font-size: 1.25rem;
+    text-align: center;
+    position: relative;
+}
+
+#global-toggle-controls p {
+    margin: 0;
+    line-height: 1.6;
+    color: #333333;
+}
+
+/* --- Re-add Close Button Style --- */
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    /* Make X larger */
+    line-height: 1;
+    padding: 2px 5px;
+    cursor: pointer;
+    color: #888;
+    /* Grey color for X */
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus-visible {
+    color: #333;
+    /* Darken on hover/focus */
+    background-color: #eee;
+    /* Slight background */
+    border-radius: 3px;
+    /* Outline handled by global *:focus or add specific outline: none; if needed */
+}
+
+#toggle-all-button {
+    /* Make button an invisible container for the ::after element */
+    background-color: transparent;
+    color: transparent;
+    font-size: 0;
+    /* Hide any accidental text */
+    padding: 0;
+    border-radius: 50%;
+    /* Match the ::after shape */
+    cursor: pointer;
+    position: relative;
+    border: none;
+    width: 36px;
+    /* Double size */
+    height: 36px;
+    /* Double size */
+    vertical-align: text-bottom;
+    /* Try aligning with bottom of text */
+    margin: 0 15px 0 9px;
+    /* Adjusted margin: T=0, R=15, B=0, L=9 (Shifted left) */
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Disable the generic blue outline specifically for this button */
+#toggle-all-button:focus,
+#toggle-all-button:focus-visible,
+#toggle-all-button:hover,
+#toggle-all-button:active {
+    outline: 3px solid #F4C10C;
+    outline-offset: 2px;
+}
+
+/* Style the ::after pseudo-element as the visible button */
+#toggle-all-button::after {
+    content: "►";
+    position: absolute;
+    top: 0;
+    /* Position over the button */
+    left: 0;
+    /* Position over the button */
+    width: 100%;
+    /* Fill the button */
+    height: 100%;
+    /* Fill the button */
+    background: white;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    /* Add blue border */
+    display: flex;
+    /* Use flex to center content */
+    align-items: center;
+    justify-content: center;
+    color: #183768;
+    /* Arrow color */
+    font-size: 24px;
+    /* Double font size */
+    line-height: 1;
+    padding-left: 4px;
+    /* Double padding for right arrow */
+    transition: transform 0.2s;
+}
+
+/* ADD new hover/focus rule targeting the border of ::after */
+#toggle-all-button:hover::after,
+#toggle-all-button:focus-visible::after {
+    border-color: #F4C10C;
+    /* Change border to yellow on hover/focus */
+}
+
+/* Arrow state when expanded */
+#toggle-all-button[aria-expanded="true"]::after {
+    content: "▼";
+    padding-left: 0;
+    /* Reset padding for down arrow */
+}
+
+.sr-only,
+.skip-link {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.skip-link:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 8px 16px;
+    background: #163868;
+    color: #fff;
+    border-radius: 4px;
+    z-index: 1000;
+    outline: 2px solid #FFD700;
+    clip: auto;
+    overflow: visible;
+    display: inline-block;
+}
+
+.secondary-button.certificates-print {
+    background: #336600;
+    color: #ffffff;
+    border: 2px solid #336600;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.login-password-input {
+    margin: 1rem 0 1.5rem 0;
+    width: 100%;
+    max-width: 300px;
+    height: 45px;
+}
+
+/* Admin page message display positioning to match login page */
+body.status-page .container.status-container #message-display {
+    margin-top: 3.5em;
+}

@@ -1,0 +1,1370 @@
+{
+    "admin_passwords": {
+        "csu": "$2y$12$O5LbXTGb0s9Q5VXwYDvKjuMjoUDPn6ZpNT4.zTK9S.uXfJAVvqQpO",
+        "ccc": "$2y$12$JRcAf9VhRUOGhXXfGZgwguElQKybEqgEbT0L1qrn3HWbX1DT3UrV6",
+        "demo": "$2y$12$d7oJlo1E9AsKbfPntGOYdeVkkynfJlwJgyliOOKLK2w83frq03eNe"
+    },
+    "organizations": [
+        {
+            "name": "Bakersfield",
+            "password": "$2y$12$X6MwDiQyt4GoFy0rUyVWMOI/qKeKn6UgE2mp67JPBeNfW8pk.PiSG",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Chancellor's Office",
+            "password": "$2y$12$abBGN/IiMzsKgPfz/h4IkekLSQ.9BKppKfWnLkoO1LeZu4OLKWhHW",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Channel Islands",
+            "password": "$2y$12$aDb.O6rZUylpat3WRJHM7OviXL2j2EIZDD1qk/EtDayMfefcFnZIO",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Chico",
+            "password": "$2y$12$mmg5ktLJVrYNepWOTXBjouenCLNT5uIlAQ5kxgiav0QX9VjlO.fU6",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Dominguez Hills",
+            "password": "$2y$12$fY1SRhKoBFILJKYMab2TG.4.2fy20iwS1usVQJ3E98/eggO1bMpDe",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "East Bay",
+            "password": "$2y$12$Xeh8VpH/glY6Ia8m6ZZ7ZOHemCFjlOlXZihbFbQgQvAlP4eYrA04i",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Fresno",
+            "password": "$2y$12$ZOUplzv3JhbBUQ8h.UHyzu.RTGFJUAkhxG.dzv4z0o76Ei1Z3G11S",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Fullerton",
+            "password": "$2y$12$oaeYsdl3WmMLYdnaSWehc.N69mPRY2iTnJlpeMc5l6uso8N4TFMuu",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Humboldt",
+            "password": "$2y$12$IBGqd0SKHYIkPCHzrs5dpO/4Ina5mz5HJVawwIKJPSmRyHPCQ3/em",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Long Beach",
+            "password": "$2y$12$WC2zMg4pKO1PTe3.6RvYMeqRF0HRriW5H29TGucS3JzBGr.yBe.z2",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Los Angeles",
+            "password": "$2y$12$X6/27I8cqaQib5nNC7Wu.OXIzFXX6.c/BJjvUsdjERSglfJqpgXMG",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Maritime Academy",
+            "password": "$2y$12$/DyjzvPsMEeJukUI0TAvB.a2iUzNfF7kazfTH7en4Cx51hKRppZam",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Monterey Bay",
+            "password": "$2y$12$1FIZZTlJVZbeTfcLvei8JuT6Gz49wp0M5y6CJE3QGSCRyO35KXqNu",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Northridge",
+            "password": "$2y$12$EL.p151RT0DakqoZFVmOXuEgKPVZZkAoJno20Z.Y4lbtb/arnHLaa",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Pomona",
+            "password": "$2y$12$upvCZHa2n02U5eQDhxYycO.x17VMVLEs2DWRMQiv0pUGTBFtePdv6",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Sacramento",
+            "password": "$2y$12$JmXva..9UjQ8zMfsfmI82eosq.nPUJGWFYx7u.0oViWtNT3Xgm6YS",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "San Bernardino",
+            "password": "$2y$12$hxRbV5z.liPJkFh3E8Lvp.eC.fk30Kz2BgZCxiQHx1yGIpbxjQ1rq",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "San Diego",
+            "password": "$2y$12$MstgOkZp3P4DLksiCWXQpOwKFmY85GhiQx2KKoS3afJ6wujPUCtue",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "San Francisco",
+            "password": "$2y$12$fhj6oAYtcIPSzEx2dS1VUudmrmwDpcNgzcvNW7pRqEMJdNv6H3phG",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "San Jose",
+            "password": "$2y$12$LnBP.5i6vgfO1dwiLdrjluYEN.QAGbpSZnha6AqKTLOCsSNEi1CpG",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "San Luis Obispo",
+            "password": "$2y$12$4d9nVkGlxYlhVGA3Aw2X6.RyvpJvRMJeQmZNSYpmDwChWbNFBZBaq",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "San Marcos",
+            "password": "$2y$12$LgK4dBpCHqDAPjJZn/FhIe.Le.Q7cK799UNLp7M/U.aJDa8qu6kX2",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Sonoma",
+            "password": "$2y$12$jLN7/MvdDTqlZ2zRPj.50ebHC7g5GX7DErtFjOnLxPbAYhTM04S0K",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Stanislaus",
+            "password": "$2y$12$.dr.3gi.x6OJdldATuLOSuo4vJzYAwufsQA9WEL1dsO1kJacbiPuG",
+            "enterprise": "csu",
+            "is_admin": false
+        },
+        {
+            "name": "Allan Hancock College",
+            "password": "$2y$12$yNbLiYYEA2Ib7yv8Vvnj/O8OJb78hZlR.tebnh8pxqbMf9AhEmBeK",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Allan Hancock Joint Community College District",
+            "password": "$2y$12$yhar//H6R5ZA2NmKW6KAO.EAvJWmivDGiFXCWCdFhTJ4kMZg1MHFW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "American River College",
+            "password": "$2y$12$JQd5GyieXeiHHLdxyx4lZ.3mfaRfoE.4HZnkzsp2.gDNC9XkUHADS",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Antelope Valley College",
+            "password": "$2y$12$q3vzZI/5tia4lYPraJ0kouav.n22TbLt/iYolk6Q44dlb.0QRyhtG",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Antelope Valley Community College District",
+            "password": "$2y$12$mM58E1yTOu4vCWfvEyb24..tiwIjB6/rLNLDMa1MXgCS4F5Mn0uXe",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Bakersfield College",
+            "password": "$2y$12$fHFbgC0/.UpSEPtUGej.7utsNh4Q5duE0WjBJAZC.eF5rs6sQvUDK",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Barstow College",
+            "password": "$2y$12$2c78tPyrVu3jzuxMJZHPieSd8XKXyobJtJ9zK8QP5QuFUsOGbV2nW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Barstow Community College District",
+            "password": "$2y$12$J.DEB9BabcB9vO3r/3GCx.HrbqcvrRCJfBjmAErTHgGjGbbWlH7dO",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Berkeley City College",
+            "password": "$2y$12$bS2AkieR2GFV9T3zcPC02Oc7l6SNnmb22axxqE5TC6GSvCUngxR9q",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Butte College",
+            "password": "$2y$12$adETZKPKVMQFNE4dgDYoMODJRN.OCW5Nr8fg34FSOLcstvc036dA2",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Butte-Glenn Community College District",
+            "password": "$2y$12$UmpHKxwUm1eNL5rgBNmyFOaRCBx9pTWocK5457A5kO3masny8meXu",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "CCCCO",
+            "password": "$2y$12$ZQ0DGSURA/KQO5osXJDoEelNbBFl3KSKVabnncTdSCbQJZVuMed/G",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "CCCTechCenter",
+            "password": "$2y$12$W8dCcuXnbZtHWtGwb/Z/L.m9QjqK7Bjdexn2CYKsD0qGpSD2HU2s2",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "CCCTechConnect",
+            "password": "$2y$12$0FD6gJMkaAJHhZKHow6qBOd4ErW9vuLjA0Xi26aERhawsvIhb9gDq",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "CVC-OEI",
+            "password": "$2y$12$/QAvy2Q85LcfLU0PKBnahOvv21TQbeYOQxqzSbJv/L0BTtW.uRd5K",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Cabrillo College",
+            "password": "$2y$12$94IH0yvAi6RpnC/tpHoN/uF88yv/jyT268IKlw/dChAlum1Rk6xnS",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Cabrillo Community College District",
+            "password": "$2y$12$z0hfYvDDThayFTHYBce4p.MzulyafQb1uTCZ0H4gbfKBWtiQWPx7q",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Calbright College",
+            "password": "$2y$12$Sg/6vmpE9bF8r5TDwBJUuuxR8xYabrSP7fTXcMga7rDnuydZGwxhq",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "California Community College League team",
+            "password": "$2y$12$8s/aJ.vjFYVrof03C4NXb.ZZcYGBFrjbHfM9Lkhxi2LRiJIj13.Ba",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Canada College",
+            "password": "$2y$12$QKsuiLt12fqhW7w3Uuij2.A5ib49LIXtcX9NQTB.a1fpxEwyvjQjq",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Cerritos College",
+            "password": "$2y$12$LwuQttwRmHF4sCCKCp53zeyQCDPyielKt2LRlPVgbegCtjnU8.alG",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Cerritos Community College District",
+            "password": "$2y$12$mrfcPFCkg56W4SxXCNVOFeURK8h794U8fzzvg4JO8giCR1sTP6a2S",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Cerro Coso College",
+            "password": "$2y$12$4LkR9BHYMvWte9C2t/x1beibCAOcEOkVU6GFOZ8MJLaLVI5xYGHAG",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Chabot College",
+            "password": "$2y$12$RnhZHfjcyDfHHVzV7Z.wBONRMv4q1kAU/cFiMvPQH.khrKbXsk3s6",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Chabot-Las Positas Community College District",
+            "password": "$2y$12$uVXQZL6LQmaJKQeoh8jfZeGN7QwAc4ow00/z3Evoa8/5J682xosiu",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Chaffey College",
+            "password": "$2y$12$Llzikz3LDwFshoZcNcT4BuM3tIDIM5GArNnDh7GzlevvYd6M.2dzy",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Chaffey Community College District",
+            "password": "$2y$12$dYUtXvO/3t9PqRdkwLp/i.rRm6gj2VH/dsGB5.g0l7QvbkE4EQMj2",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Citrus College",
+            "password": "$2y$12$nMAhx//I83uYJ.Hw5xJHKOWSS3JC8g1wK5GnnX7ulC10rFgfMwF2i",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Citrus Community College District",
+            "password": "$2y$12$Ft8Yp25de9qbLbffT7PPT.lD15tD3J3cwgUQoPoViPDTgzhTCv5.C",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "City College of San Francisco",
+            "password": "$2y$12$B4IfagmQ6QRiJPeOw7Uyeu6KzQxay.00jFzG5aUUZPry7lT7R63NG",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Clovis Community College",
+            "password": "$2y$12$EbbvV8lMw.4hISbPPRHlD.K9kU3w/TV.gT4vQX2dtjVQU5SjNiomS",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Coast Community College District",
+            "password": "$2y$12$PzxRdQY9eEmEUh8/.ZflJeDI2MLu32vVLNpZJRhCbgKDWb/epU0VK",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Coastline Community College",
+            "password": "$2y$12$qDTWs0iSl0meJyuabdLZseqcTHc7KcY0M2wKYfTunqrT7BXnvUmFK",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "College of Alameda",
+            "password": "$2y$12$.gy/6ECx2230YXw9G0O4O.MJZ/z0vTNMEJALfTUW.i87eZql7YPVW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "College of Marin",
+            "password": "$2y$12$A2C3pjPGC1JuzxtLoNRwBuhx4omXRS85dpfHMpyaO69QzplEwlF8W",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "College of San Mateo",
+            "password": "$2y$12$gDqJGGKcYZHn4JhAd..xeO6DH185D0cVe.CX17e8LXuH6PO7JksjW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "College of the Canyons",
+            "password": "$2y$12$o6KTTrtcLXL8xcrkBWkANe/4I4tEE1EiocSpSOhLITFQyW6lZPuUu",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "College of the Desert",
+            "password": "$2y$12$dl.I7ImLeEofvTHEUyhgrufl.10Fu3GhMufbfbY7ZClLGJuyv0GQS",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "College of the Redwoods",
+            "password": "$2y$12$4tPVtW1gL4wpNbOyEJaarenYTQtyv4eg8gYizmJYYrC5ZaP.p49NC",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "College of the Sequoias",
+            "password": "$2y$12$xNTVijcYIaR4/VuoSWRWlezlzm9b4pBjfDANyBQ4T45FCc8jDmfPC",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "College of the Siskiyous",
+            "password": "$2y$12$RFHiUNh29QzbY2RjzKICzes4TkedFfdJ8cUb2kb7DfNV6HzCIBQDy",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Columbia College",
+            "password": "$2y$12$RjDZ2Az3u1h5BcVOXK45Ze.JDwwsAmKgIeIssw0SKyq9Q6/6E3tiu",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Compton College",
+            "password": "$2y$12$YG6D/T.Z7j0jFnBhKDVv5O2fna30fYGboOTVaqleIxJEnJ6.970K.",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Compton Community College District",
+            "password": "$2y$12$vbQ2rKoziPjLlesmPF3f.et7bseskxgku5aGitOc.Sl4UWVEd.cu.",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Contra Costa College",
+            "password": "$2y$12$V7wPsKmlFJOeRfdc8GBoMOi8dg3KeL7MYypj3iWXfL/b3jrd4xMD.",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Contra Costa Community College District",
+            "password": "$2y$12$0iUTDsnESfm2ADWkY4rU0uo8TweVxPNFvbGoOqV6rOyzlxWU7kAE6",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Copper Mountain College",
+            "password": "$2y$12$ZZ2xb/UwF5e7Ky7oSmzkr.nq4YGzB.YA/jObHud4/85bjiOAkV4O2",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Copper Mountain Community College District",
+            "password": "$2y$12$h.tTGz2w3WlfcVfFdob.V.mEes3RYwLmcCN065BKx5qcJhPeCQ3j6",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Cosumnes River College",
+            "password": "$2y$12$2K0upwOog771LlBXwmh69eqRvqKA8Dgm8WuXidTqNtz09t4jMLOmm",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Crafton Hills College",
+            "password": "$2y$12$0.1oPNs9nvX2jCjje6VhXOZ4blmrU9nqOh99/TzWwnrygovZunZAG",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Cuesta College",
+            "password": "$2y$12$JHO3Cn6tetP5Y/aJ8o4ZVOfLtevjJDpcsyyoKch6McsjKyF/0V16G",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Cuyamaca College",
+            "password": "$2y$12$Y/oxvc8yWSOYudRJ1kHgWu8aGcCbycw8McL1GdD6l54XF.qDpvIgO",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Cypress College",
+            "password": "$2y$12$qiRv8GAo3RROcBjM3GdI1OPh.UD31bQw0jfLH.tl/CSt4kQWhtvpu",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "De Anza College",
+            "password": "$2y$12$18AtJ0uZ0CebiMHUbvSHaOVnPb/kE.47j7Nc9MnrIuxhtkgKBTu22",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Desert Community College District",
+            "password": "$2y$12$t25Zf8MyhiWKWMA0tlPYz.HVgiKyswM42.y5vDXxSct4CKAsZFgci",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Diablo Valley College",
+            "password": "$2y$12$TaHWCbzUQUnUDpPXz6DReOMaFqAPYgrKGSPTK06TShISoRQnfU.UW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "East Los Angeles College",
+            "password": "$2y$12$HEkirCdI9FhTnuW6yAyFn.fri8zOfTTwEYe5zvUtX1gbF38.WWyF.",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "El Camino College",
+            "password": "$2y$12$vuiBfJGf63gJVi/iLUgsVOYciF48eNVUKXb5mkuo30Q/tI40vG5CO",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "El Camino Community College District",
+            "password": "$2y$12$gQk/vUvyogwp9IpLnKH4eeLnJq1JgJeUH.hDG5qU3ZZs8e.3cYUdi",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Evergreen Valley College",
+            "password": "$2y$12$ly83i.9tGH3TKAnUFYVYkuvZgGdJ0IfqE1AMmmrRIGkYj1m9a5IZO",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Feather River College",
+            "password": "$2y$12$ljgvfE.gp.J5Zpuhxv4DEO/HBg2EJYDPNgEZLs9Y2uxLgaV01Dx1q",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Feather River Community College District",
+            "password": "$2y$12$egfqo7f69oBSXzZmYyYc5.qb9TWGkG4RzSsMUHIngdJgyW.T7cL6u",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Folsom Lake College",
+            "password": "$2y$12$BrjHKfKF6ZPwmCIRCkEDlOj3.zY0jd6k7srGpSnRrS494AwzS8lOa",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Foothill College",
+            "password": "$2y$12$QG8cETrEpwv0HJxxdboKY.D1i3ayaHUdtlAKyuNsTNwbGP4pl0LGK",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Foothill-De Anza Community College District",
+            "password": "$2y$12$/3dFC104nvDKl8wG.vhBkuMpEpa5PTIv47kyAY.sG4oBOqJvdRW.2",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Fresno City College",
+            "password": "$2y$12$DhJJzrleZX37LFKu6Ka2eu8ktxehoQ1.MPS7TA0e9w/hqcD4/AF3q",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Fullerton College",
+            "password": "$2y$12$vIgq6dJA5pvFYgh/FUehQuWHKqOvPQKLM3bBg/.pqERSy3AXpsIxS",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Gavilan College",
+            "password": "$2y$12$okeYuUGztGG/z8aZh4Jw1.yNb5uHJpGA.fUL5UWoofhlAo37SWe92",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Gavilan Community College District",
+            "password": "$2y$12$iPrMbmk8Axiq143SKRY5zuRPaMwYfxepT7borx4mnKIOR79Wa7tLy",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Glendale Community College",
+            "password": "$2y$12$U3/lq.EW38lqc9xqfdf5Xu8yzQzX59xhdnCsKNr.r.iJg9skCcifq",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Glendale Community College District",
+            "password": "$2y$12$7Kd8LhM/c6BzuqRa0eO4j.d2BUmRySsYNdpthEG0AL2ZeeZKdjemm",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Golden West College",
+            "password": "$2y$12$/Sf5HZfBx0AITjjb2G0k2OqXiW6CvbQV.kocF9iZhVo1yfkozuTkq",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Grossmont College",
+            "password": "$2y$12$eDgR36JWQWheR.rpKsxC4OLOOMe589YR0p5.vAu582jI8i/G5CMqS",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Grossmont-Cuyamaca Community College District",
+            "password": "$2y$12$V/J6k/fDblWS2I2MSxQsSesX3ftk9h70x1Nxw8MCmVro1GQukL5My",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Hartnell College",
+            "password": "$2y$12$4a.nqpA8bdEqoSjE7vTwOO5tGe0Y.zdhIJdsWoaf4HX5FOvCykD3a",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Hartnell Joint Community College District",
+            "password": "$2y$12$/KW6ven0VPLtjyse3l38YuATeNqJDsq/EUng7DqNlZ68tBYW0HlEC",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Imperial Valley College",
+            "password": "$2y$12$tvMsWHs7YDbIwuesv103auMds4/SVCa4kAeaC2S8r8QbdcGO5nRTy",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Imperial Valley Community College District",
+            "password": "$2y$12$Sm3Mj5lFS4VJKE9xEWnCaeWgNEi21LNV02GcCjbY2tq8i4CLT9eqy",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Irvine Valley College",
+            "password": "$2y$12$mWRaSdYGWkth6GdxxL0uIev5goMXzTZQmnoMUp8573JxL.lsKZLO.",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Kern Community College District",
+            "password": "$2y$12$8RUBFjjJtvhoAPVdTy6JAO2BSG49Xe8dEDGH7nqGPKCentCUTlPSq",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Lake Tahoe Community College",
+            "password": "$2y$12$g/cRSA01kVm/pta.vrWX/uBUNdsI3BL14sUjFcmMX9XiemfvkIcmm",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Lake Tahoe Community College District",
+            "password": "$2y$12$vtqEoMZRp9MtBycZhUkPB.Khnj7U2RZCyT9HokQtEMXshFtDfYDLq",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Laney College",
+            "password": "$2y$12$OXjXBmqj7UekptUE9nLR4Of7.5Q7Y3ACqI5suAYZeoG/nFOOnNa4O",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Las Positas College",
+            "password": "$2y$12$cmo6ftR/iaCCTY3Sr.QU/OT3TTdPy2l2SorOJK/M/ypp/4dVugU4a",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Lassen College",
+            "password": "$2y$12$QQYIuzRh.MevIc3sRHgX3uQEoNJ6Fpo9DyssX3rHrPgrO.3BlirFK",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Lassen Community College District",
+            "password": "$2y$12$Xk0j6zurFDfhSastMNbez.2ltFPYz87LnTHwYIe8dDyson08uqO1e",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Long Beach City College",
+            "password": "$2y$12$SFCcbVsQfrQuG/eyrgH8s.9vp.4sd9ua1f2RkDWFDMWILmk3H.kZe",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Long Beach Community College District",
+            "password": "$2y$12$UvL7pI008gBPUgcOpKiTcecrFyKmTjiyqXa4tF1DNfx1CAOpLavEm",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Los Angeles City College",
+            "password": "$2y$12$krfXgbp7371eNzLswbGogOb1uojbf16zkuMSri4qDFg1CTu9uR7rS",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Los Angeles Community College District",
+            "password": "$2y$12$ryi44PYYOI8UP63iEp6EseHrGsOf.UEldL5bGq2iL62IaOmojgjuK",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Los Angeles Harbor College",
+            "password": "$2y$12$exu7aT2/488lZ1TnL8tPSOc1xPWGxwZsPV6fpnh4JaMrD0k0rgsJC",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Los Angeles Mission College",
+            "password": "$2y$12$2vZuegH1u5EqTz7G.ygmnuCRoaU.igGhGn6FcuEv004T0WJobq1mW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Los Angeles Pierce College",
+            "password": "$2y$12$FvG8THkSCiKgZMKcnUHyK.WMt/9cb0zE9yyNshr.gThZu/v2MBqPK",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Los Angeles Southwest College",
+            "password": "$2y$12$tKQHUIP4WCpDLkhlmxXY0OftW/BC2XifZc7.cXL3KQliia8zGxx.C",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Los Angeles Trade-Tech College",
+            "password": "$2y$12$hQhbUSI6o9ojuR4RiexvHeUhRJ/eRafbbQtq8yRiBGo2IMvfEQXWW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Los Angeles Valley College",
+            "password": "$2y$12$hReq0BxJ8.70h.eREkisi.1oPtQlEVlAaVGlpsDXF3.7Hsnp1nVPe",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Los Medanos College",
+            "password": "$2y$12$Xv4pc.WKAdHI7jJxD2RH.urmrhubIYtmoJnJtuVdOX/Qq0aKGppSC",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Los Rios Community College District",
+            "password": "$2y$12$Uhm3HB1TlvyytyNvUqMZwulnGPsWhrGScrJpsE5dl9oruiscYEQ3a",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Madera Community College",
+            "password": "$2y$12$RI4UoS9EIMzO5SVWixjvwOijcsmmJySSBp7ziNoBbL0/wQ.7iChl2",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Marin Community College District",
+            "password": "$2y$12$EdcJmbeGaA6XDNC.chG16eyCP6EWe.wUE3xgemPBq7lADC2rTFd4G",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Mendocino College",
+            "password": "$2y$12$5N7Ds08NIGCS8xtaBddNfuJX2LPTeWEcDLxL098zlB3.WkVmRuS92",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Mendocino-Lake Community College District",
+            "password": "$2y$12$TLnzi1jeKzB99TGu3EJJ4.PluaTuZneHszlvnL2gGgklRg6ZfVhZ.",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Merced College",
+            "password": "$2y$12$TsLe0yzHuzel1kGDWMWL0OkUGLeX7fdlv/ANZhdxaEqVA5ZxYMkLW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Merced Community College District",
+            "password": "$2y$12$zI8QJDXyZG6JBcWTX5a7iOd.IHvuU.DEexnmxKgE/SWIZ89ADypAa",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Merritt College",
+            "password": "$2y$12$4km3RlVm9rtqSHmD4bLSZO1ZtrBUgONwPuTJTjVNlrL6hHvtlY0Y2",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "MiraCosta College",
+            "password": "$2y$12$AaUIlix6HsKeCb2nukIokOhsgFT.bngWMWV49DY7WIm50jBJVXLk6",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Miracosta Community College District",
+            "password": "$2y$12$kjXsiaXJ0oHG0Tvkpfy9O.kSsRRRD5AJXwS9Baj7XJjqbVuHSNdKS",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Mission College",
+            "password": "$2y$12$OKYzJTi9LvDJ26o447Cq9u0z86l1WhEaDxvCIE6qV3Qj9v2LHwlMW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Modesto Junior College",
+            "password": "$2y$12$F5GmunERNX4figfRRUUmYuHcXkGF4WcK9wKPg0JfONzUZryEwUEDW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Monterey Peninsula College",
+            "password": "$2y$12$6sa38A35edkC3wSaTIE3/OHW4iS7S2zEcN10SJe95ftesmljE2qZa",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Monterey Peninsula Community College District",
+            "password": "$2y$12$1Qs4E3pTDG4GDAy5aCSNGeBB7oFbnEm/bLarXdAUw9Kf2MgdyYh4a",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Moorpark College",
+            "password": "$2y$12$Y7TfGqqzz7OjLeXd1kf/NOY/QuCBAZ4eXCfsneXDlD07kbJ1P7P4G",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Moreno Valley College",
+            "password": "$2y$12$sP6VBJ9oPAe.XjU2KWCBberZlENih09gAS/tCcUy8T/SSfK9fphjm",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Mt. San Antonio College",
+            "password": "$2y$12$e5bKRuyzfxkUErrO3Zx4OevZkoVruloxE.g19oJpPuDav82x200tC",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Mt. San Antonio Community College District",
+            "password": "$2y$12$zKVzUYIrfxGtM8eoYeSB4.znKxV8j4HCNZhl6T23R2yFzQTxav1Te",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Mt. San Jacinto College",
+            "password": "$2y$12$Om8M3zUZVniTiVjTS0hjdOLkKLnr9vsDySc7oytv5QGX.SdmHiH0q",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Mt. San Jacinto Community College District",
+            "password": "$2y$12$DGR4qZwDm0CpjcSttTbHs.P/NdzpwocsVBQB2td2uLejwxEEs5rf6",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Napa Valley College",
+            "password": "$2y$12$tW2eWpBwLYTGbd9RTu8LYueyQnIQFUjPkz8XQTjDBzVdgC66mZX0G",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Napa Valley Community College District",
+            "password": "$2y$12$08EnkwMiXDbmCNq7nuwSmet2YGfzBVgHbkGt1TjkShY3oOoMrddgG",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Norco College",
+            "password": "$2y$12$KtORCe.tMEzY0jzwsRs6.eoUFZ1w63iDrNPNnhm/dJnrQutBGCjkG",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "North Orange Continuing Education",
+            "password": "$2y$12$Poa.31rXrhfpKzVOxTL4B.gzJ/CPzVIVoP3TGRdkucW3EE6rbBxgm",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "North Orange County Community College District",
+            "password": "$2y$12$PAm.SEOwPAr7ZV11X7f3NebfFv.tpWxAPZwCfBVFWCB0qVYgfz6oy",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Ohlone College",
+            "password": "$2y$12$oJyg.DYT9psH7qvvk9MRo.r.peKjaNIoNRhU1lIGTDkeTNg/I9Zju",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Ohlone Community College District",
+            "password": "$2y$12$bEvIkGoNi8gEpfpDTakTHu/BLP/HrP0QoJm2rESz1IM1eQLLIjB0i",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Orange Coast College",
+            "password": "$2y$12$bGRoQg4COdH2GiR.GlnCKOrPpu24X2Pt.7bR4c.oBH2lJu9w6UJnO",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Oxnard College",
+            "password": "$2y$12$.Z2Wrf4UzRqiIP4v4PZ0oO0gIRWOvmZ/lvUp4E0E0o3CLd9u4mnmu",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Palo Verde College",
+            "password": "$2y$12$GSP.EzaNiL6P9thAenzuhOnZjJsCUSCtzzACpg0KYBciaLKOtPYoO",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Palo Verde Community College District",
+            "password": "$2y$12$vUOfzZ4Gu8frbfTPq.qO9uSsI60XkNW6npHc/WQayYY/5eovKq7iu",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Palomar College",
+            "password": "$2y$12$ky5Sax6rWsRXaNAFTrleHOYBPx4.RussEVJiiUTHxxY1WKQq/GbHy",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Palomar Community College District",
+            "password": "$2y$12$6LZsV7gkUoO0VTkEeCizuuLFHHuss4MvrVzDd/Vk4Ij01fhMwn9RW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Pasadena Area Community College District",
+            "password": "$2y$12$39oAFkSPl1usRFj9DxqEyeX3PU4ju1ZCXA6t6fcpw9gngeN9/4e8e",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Pasadena City College",
+            "password": "$2y$12$M79A2UwSN2g8nmM8ue9sG.nxkJh.OfFpZc3I7Z0a2J0xT7pGVJ2zu",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Peralta Community College District",
+            "password": "$2y$12$dLUpjJ3UJcuTOaVgaxvQ8uzVLXrrsksatDVOaQSFnvyELCh1eRkm6",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Porterville College",
+            "password": "$2y$12$uQfoyG1L1eYSLeh71aI/h.hMbbVPa76rFChrf4bfhgr/lhM93f4CW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Rancho Santiago Community College District",
+            "password": "$2y$12$D/AuceTvE1iA2Yk.MByZgu3R70MN1zR0VGiY0HOqhn9MFpPPGOy1K",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Redwoods Community College District",
+            "password": "$2y$12$DvYSu4e.IGl037vdPyDhze86sbhEzqc1d3x1nJHHe6XxZTiZfeNUS",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Reedley College",
+            "password": "$2y$12$dAcCOMDKaDyg4sF/IGmqoe.EAU59Zmbon2VHgjGXEFY42O25oXeoK",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Rio Hondo College",
+            "password": "$2y$12$TTe4pwGssD5vg7NogKod4ehruwZ3WvFzJzhOf87WGN1sPqTkCKw6O",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Rio Hondo Community College District",
+            "password": "$2y$12$ZgEEsRERbQYLqKfLy3dDCO6onEp4fVBwV43kyrRd3PCVlo7v3sBAW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Riverside City College",
+            "password": "$2y$12$cZYoZ/evUQv92BSpdENHo.ip3jVim//BoPS3QnTI1oovmMBx4TKb6",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Riverside Community College District",
+            "password": "$2y$12$TEMqPRovojk2s9AYDo3Zx.kW3a0sFCB0MgDr.sEpyNGizGjBk6l2u",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Sacramento City College",
+            "password": "$2y$12$nr2vdhaGgVgw4gsSiv18uu6JC7tFUrv9Yr5mMHsihN.CRq3jfPgtG",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Saddleback College",
+            "password": "$2y$12$f499c0CikeNjuscbigW/gulq3E3vvRA2z3G4XWM0LhiJFMs7zVM0S",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Bernardino Community College District",
+            "password": "$2y$12$v6PbS2D13tFqoutHH1yY0O6aBKPw4s9qKMHsnQoG3Qpq03Shhp77e",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Bernardino Valley College",
+            "password": "$2y$12$byoSEpr0ja.T8T/4n6y23OsH26MjEQyDhOdUoSyGAuUNLGFtXGAui",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Diego City College",
+            "password": "$2y$12$syZ4gxzQx9UE9lyKwjFgBeexSm3pdiXFfZZbTcweRVAiiIZfS7iFK",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Diego College of Continuing Education",
+            "password": "$2y$12$hDma.AWcHSS2CASHKtBg/.mtiLpsbgCiFnYtRsFhWY/IHT2am6h/S",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Diego Community College District",
+            "password": "$2y$12$GLEqMy2w4h.5RbDElcP2XeUEYPP.BpNnQgGLNaFMwSwgOkBA4tm7W",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Diego Mesa College",
+            "password": "$2y$12$7W/dUxiLyBtLed0twB9O2uym4apWEGV6ZJ5INhUmUazxsdJZltFZ2",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Diego Miramar College",
+            "password": "$2y$12$errbX2HV0CdMVB5RIp0w4eCOLntqrh3QDSxbXZXP.rJy8Q2GkqZBO",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Francisco Community College District",
+            "password": "$2y$12$orRmv8dY7RzYf.vvHilgXOtu468ZGKA1LSBQ/1QLpRi2IJsh7.47C",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Joaquin Delta College",
+            "password": "$2y$12$6oqGzniwMx6HjIogEg3zdO1l0DWfP3hNnapDQiei01FEmJSDvA7dm",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Joaquin Delta Community College District",
+            "password": "$2y$12$3Te9p/V2QPcJGseBp8EYHOXKgLFpfQ8pLMq.mfUqbP1gRdWvLrDJC",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Jose City College",
+            "password": "$2y$12$VY9csZQJaTZrO7x0HhKl5O3BkkPK9/tUfDtGf9njU.Ep3RFWKVomG",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Jose-Evergreen Community College District",
+            "password": "$2y$12$749S2ryeImGeSOovfQQSjOnwnGeY9Pq26bNjzStGW.g2QrCq7rbem",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Luis Obispo County Community College District",
+            "password": "$2y$12$srObp6MqYXeLWXa9rxU3b.YnQNGif15mRqkcguT/laaZdvShsK2l.",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "San Mateo County Community College District",
+            "password": "$2y$12$q4Gwg0yPA1j4FUfXjn39Y.t9wc40L2WGdtklJ6sY9SvWnueo57uA6",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Santa Ana College",
+            "password": "$2y$12$M0.mciykPc5q03ZpNf8CU.FwlHIxHl1qUPdLmL8bItTywPBtC.ZM.",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Santa Barbara City College",
+            "password": "$2y$12$7xDVXTxTYvk219rd4F5LwOzJqgcIf6Mmu6NfJ9pE3AiwfDBIgitPW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Santa Barbara Community College District",
+            "password": "$2y$12$FF2JzV03Eoyho7E0sawhkO1TkzL/H1Al1RmMgxlQXKt1wUO2vtu.S",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Santa Clarita Community College District",
+            "password": "$2y$12$KjX1lruT6KYYcSJ4/zynhOSJm9rK5QAN9BiL.Xl0j2ojlpFIgC2Ri",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Santa Monica College",
+            "password": "$2y$12$SZxpnyHvOilT74vtNg7MROXAItFFVdTceuPaATlXNuzyXWp5PulTO",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Santa Monica Community College District",
+            "password": "$2y$12$miLaIHst09ukDDyfj3N90Oed37giD4Vaq3KbvKVNM6wHXSUHobnlS",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Santa Rosa Junior College",
+            "password": "$2y$12$1iUONWI955F636mRhs1tTuLmV6uHGo296UUYsKpFKR5VqQwLctHOK",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Santiago Canyon College",
+            "password": "$2y$12$NEvqVrqON4vp39DqMeJPCeZ1lhoS8vIG0V5k2lQDEcLF5cjqZ7RcC",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Sequoias Community College District",
+            "password": "$2y$12$od755iohePk7JsBrb5RNBef9RIOW1x4DAarroUdiSpnQBPU5rzP.q",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Shasta College",
+            "password": "$2y$12$ec9hSJ2LGQsqKqUeFPQ/d./uUYH/hryZyYZJWfa5ufeWVoMr3/w96",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Shasta-Tehama-Trinity Joint Community College District",
+            "password": "$2y$12$xXTTc8azLlqOY2MZrVXiROqldPOSxK33QdCx41YaLI49Fpa0F4qi6",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Sierra College",
+            "password": "$2y$12$4WAav/9UT/HuzqIX6lklouS2iSO1KltQLC8yBNNttLXWlZMIuTu0e",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Sierra Joint Community College District",
+            "password": "$2y$12$lSEt16nEjFQQFWViMx18XetqrF.0jXUY7duKNiCQImkw/DfBexpym",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Siskiyou Joint Community College District",
+            "password": "$2y$12$77Wbvz0MDGnzM5/9Nh7y3eiiiHY5hCrgi9gV7QWJcV2hcGGqUXCLi",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Skyline College",
+            "password": "$2y$12$ksdicY9j8UTQqQBajbR3AOup54Dk3AonYfRbZc.TRXkYn89vwzxSu",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Solano Community College",
+            "password": "$2y$12$L2Nt9ccl45w8r1Ta.2cF/e2U1A0MrMlsZAMAb2eO0u0Smsrz1NFVa",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Solano Community College District",
+            "password": "$2y$12$hzXBSKFe5itaXbKcT3XLTOwZcJcj/oAb5Xw5xYAcZyBrdtiLgsflm",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Sonoma County Junior College District",
+            "password": "$2y$12$moJT4/VwWL4xl4Z.L1lZ/eS.muXbBHoIBWpyAOk7iJEJ/ONjrE4Xe",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "South Orange County Community College District",
+            "password": "$2y$12$XzC4lQM2iu.AUe9yXA0okOG58YUgpDFphOyiNY66XQswcDiHlAuGy",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Southwestern College",
+            "password": "$2y$12$DrBTkp3NFGLoHVklJ9io1eYbwLNC/wy2m0KtNHgYahQORDgyvwbXO",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Southwestern Community College District",
+            "password": "$2y$12$XG1.l/Go5USdeh6iR3yF2.wdyQL/ghH86o0JDSrolCOxr9cfT8Jsi",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "State Center Community College District",
+            "password": "$2y$12$PR5F4OuF6aX61maVtLizNeNt0ac91oOY6.4P13FIu6RkXy4szHlIy",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Taft College",
+            "password": "$2y$12$eMEo/kNtsEgYWlvkblSY9O2BSX5Fz/CeBNzQwOwanN2xq3zhlCnXO",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Ventura College",
+            "password": "$2y$12$bznssV37GxLM2eYmXRoXkefLeomvTbV8lGtq8A3d9lbw3AkAL2TXe",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Ventura County Community College District",
+            "password": "$2y$12$ngj9RbC1.AouyeE6KynKruqO41qCFgYfOVZ2TqKzj2rIteafL.GIm",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Victor Valley College",
+            "password": "$2y$12$2pdRGLa/8CKh6Uaat0SqGuGioJOiHHETv26TP/JVoBdNSR0JpF3Gi",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Victor Valley Community College District",
+            "password": "$2y$12$v9j63Vblpt1r6KHIWClM0OraGv5ra3G2ZWSmxAUpDUvyLcKCzyDw2",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "West Hills College Coalinga",
+            "password": "$2y$12$CSgWyoqMi98k75nXrDsXoOB02USAaROYjUaWdsYlLffxuxgujoPh6",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "West Hills College Lemoore",
+            "password": "$2y$12$qRosOxStJ2TY1C8gzHXICeb8hyqGlcFF04SZ8yIeeJJzPtbqqiCc6",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "West Hills Community College District",
+            "password": "$2y$12$U5Oy.2cfzDURJR69v4JGyunRJ79iv9gibiY/Sfe6dQFzE.moQ6NQC",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "West Kern Community College District",
+            "password": "$2y$12$kbyYHMiUomKoApc9YBUk5.PuUt4q/u1GBamFR9OmSv./WGAeRcjny",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "West Los Angeles College",
+            "password": "$2y$12$LiIpOJGj9H5oxdt3ZRsnwui1ychRpUw1gcs2iCVG3sHB04EdslOqC",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "West Valley College",
+            "password": "$2y$12$U8jPnxyZZQjUGfb8u2m3r.44Eg/9D66VSpzXKowIGx.ayQ8DCv3B2",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "West Valley-Mission Community College District",
+            "password": "$2y$12$vkPnhKQ.nPijWzL8KMCGaeJyymBaZju015GkA084tYAAE1IE2CnEW",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Woodland Community College",
+            "password": "$2y$12$GIYB6vMH./pokHwVUaHQ7uDWRV15Y.KMtp85BTJ7eRog0vAlPzDf.",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Yosemite Community College District",
+            "password": "$2y$12$lBmg6poUO2Yal.uY6gA1DOJcGMrRiR9/GrJ62I29kfC/846gDy9Ge",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Yuba College",
+            "password": "$2y$12$VjDIimk0qdqfK9okIJyeReQzrTvFsUIJiqG6vWQ//V1rKMxjw/mlK",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Yuba Community College District",
+            "password": "$2y$12$g.9g6t35M12m4ESOJwK8Hu7dawz.zXceVYtzmxMlFqyPTnf7pYwnG",
+            "enterprise": "ccc",
+            "is_admin": false
+        },
+        {
+            "name": "Organization #1",
+            "password": "$2y$12$wsr4v7wOoSgF4eRFRQ7eveSX1gmVxIqgmc6o5xtbAE0rNfGKw0yVC",
+            "enterprise": "demo",
+            "is_admin": false
+        },
+        {
+            "name": "Organization #2",
+            "password": "$2y$12$iRPdv6D46B4UBLURfhcv3uFX4RIDsYx3Y2/w9oUv6YYA92aWXuFOe",
+            "enterprise": "demo",
+            "is_admin": false
+        },
+        {
+            "name": "Organization #3",
+            "password": "$2y$12$NJHqExF458JVM0YWqOoWmuB6nUmNw2vzrQfwfAiFQu4flNgkCEDoG",
+            "enterprise": "demo",
+            "is_admin": false
+        },
+        {
+            "name": "Organization #4",
+            "password": "$2y$12$2hBNDWT.YRgp88szPTxVj.YDZsy4ex20Y9rJ6y6uCHuac0d95T3F6",
+            "enterprise": "demo",
+            "is_admin": false
+        },
+        {
+            "name": "Organization #5",
+            "password": "$2y$12$UKVH00XYthk24oZIhuMTbuIiI8RjubbSQg0gqnV.iglOJszs7XfoW",
+            "enterprise": "demo",
+            "is_admin": false
+        },
+        {
+            "name": "Organization #6",
+            "password": "$2y$12$BTjICqm6Wg/78KEWNBWzzO.Z7l3Q3VvmwQOrO5BkgjAHLqLVBx9Bi",
+            "enterprise": "demo",
+            "is_admin": false
+        }
+    ],
+    "metadata": {
+        "last_updated": "2025-07-03",
+        "total_organizations": 225,
+        "enterprises": [
+            "super",
+            "csu",
+            "ccc",
+            "demo"
+        ],
+        "version": "1.0"
+    }
+}

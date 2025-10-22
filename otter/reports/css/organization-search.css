@@ -1,0 +1,164 @@
+/* organization-search.css
+   Styles for the organization search widget. */
+
+.organization-search-widget {
+    padding: 1rem 1.5rem;
+}
+.organization-search-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.organization-search-input-container {
+    width: 400px;
+    min-width: 400px;
+    max-width: 400px;
+    margin-right: 5px;
+    flex: 1 1 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    /* Constrain datalist dropdown to visible area */
+    position: relative;
+    max-height: 100vh;
+    overflow: visible;
+}
+.organization-search-label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+.organization-search-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.organization-search-input:focus {
+    outline: 2px solid var(--focus-color);
+    border-color: var(--focus-color);
+}
+
+
+
+/* Ensure the input container doesn't cause overflow */
+.organization-search-input-container:focus-within {
+    z-index: 1000;
+}
+
+.organization-search-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.organization-search-find {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.organization-search-clear {
+    background: #fff;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.organization-search-clear:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.organization-dashboard-btn {
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.organization-search-button:hover {
+    background: var(--accent-color);
+}
+
+.organization-search-button:focus {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+}
+
+/* Add or update styles for enabled Filter and Dashboard buttons */
+.primary-button.organization-search-find:enabled,
+.primary-button.organization-dashboard-btn:enabled {
+  font-weight: bold;
+  background-color: #336600;
+  color: #fff;
+  border: none;
+}
+
+
+.organization-search-find:disabled, .organization-dashboard-btn:disabled, .organization-search-clear:disabled, .organization-search-print:disabled {
+    font-weight: bold;
+    background: #ffffff !important;
+    color: #333333 !important;
+    border: 2px solid var(--primary-color) !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+/* Data display controls disabled state */
+input[name="organization-data-display"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+input[name="organization-data-display"]:disabled + label {
+    opacity: 0.6;
+    cursor: not-allowed;
+    color: #666;
+}
+
+/* Data display message styles */
+#organization-data-display-message {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+#organization-data-display-message.info-message {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #bbdefb;
+}
+
+#organization-data-display-message.warning-message {
+    background-color: #fff3e0;
+    color: #f57c00;
+    border: 1px solid #ffcc02;
+}
+
+#organization-data-display-message.error-message {
+    background-color: #ffebee;
+    color: #d32f2f;
+    border: 1px solid #ffcdd2;
+}
+
+#organization-data-display-message.success-message {
+    background-color: #e8f5e8;
+    color: #388e3c;
+    border: 1px solid #c8e6c9;
+}
+

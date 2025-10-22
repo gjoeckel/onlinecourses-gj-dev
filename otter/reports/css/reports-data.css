@@ -1,0 +1,279 @@
+/* reports-data.css
+   Styles for systemwide, organization, and district tables. */
+
+:root {
+    --primary-color: #183768;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --text-color: #333;
+    --background-color: #f5f6fa;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --border-color: #dcdde1;
+    --hover-color: #ffd700;
+    --focus-color: #F4C10C;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 2rem;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    position: relative;
+}
+
+.table-responsive.systemwide-data {
+    overflow-x: auto;
+    position: relative;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.table-responsive table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.table-responsive caption {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    padding: 12px;
+    text-align: center;
+    border-radius: 4px 4px 0 0;
+    user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+}
+
+.table-toggle-button {
+    /* Make button an invisible container */
+    background-color: transparent;
+    color: transparent;
+    font-size: 0;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    /* Position within caption */
+    right: 30px;
+    /* Match old arrow position */
+    top: 50%;
+    /* Match old arrow position */
+    transform: translateY(-50%);
+    /* Match old arrow position */
+    border: none;
+    width: 27px;
+    /* Match old arrow size */
+    height: 27px;
+    /* Match old arrow size */
+    vertical-align: middle;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Disable the generic blue outline */
+.table-toggle-button:focus,
+.table-toggle-button:focus-visible,
+.table-toggle-button:hover,
+.table-toggle-button:active {
+    outline: none;
+}
+
+/* Visual arrow using pseudo-element */
+.table-toggle-button::after {
+    content: "►";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 16px;
+    line-height: 1;
+    padding-left: 2px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.table-toggle-button:focus-visible::after,
+.table-toggle-button:hover::after,
+.table-toggle-button:active::after {
+    border-color: var(--focus-color);
+}
+
+.table-toggle-button[aria-expanded="true"]::after {
+    content: "▼";
+    padding-left: 0;
+}
+
+.table-responsive tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-responsive tr:hover {
+    background-color: #f5f5f5;
+}
+
+.table-responsive th {
+    background-color: #f5f6fa;
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.table-responsive td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Systemwide table column widths */
+.systemwide-data th:nth-child(1), .systemwide-data td:nth-child(1) { width: 20%; }
+.systemwide-data th:nth-child(2), .systemwide-data td:nth-child(2) { width: 20%; }
+.systemwide-data th:nth-child(3), .systemwide-data td:nth-child(3) { width: 20%; }
+.systemwide-data th:nth-child(4), .systemwide-data td:nth-child(4) { width: 20%; }
+.systemwide-data th:nth-child(5), .systemwide-data td:nth-child(5) { width: 20%; }
+
+/* Organization table column widths */
+.organization-data th:nth-child(1), .organization-data td:nth-child(1) { width: 40%; }
+.organization-data th:nth-child(2), .organization-data td:nth-child(2) { width: 20%; }
+.organization-data th:nth-child(3), .organization-data td:nth-child(3) { width: 20%; }
+.organization-data th:nth-child(4), .organization-data td:nth-child(4) { width: 20%; }
+
+/* District table column widths */
+.district-data th:nth-child(1), .district-data td:nth-child(1) { width: 40%; }
+.district-data th:nth-child(2), .district-data td:nth-child(2) { width: 20%; }
+.district-data th:nth-child(3), .district-data td:nth-child(3) { width: 20%; }
+.district-data th:nth-child(4), .district-data td:nth-child(4) { width: 20%; }
+
+.organization-data td:nth-child(1) { text-align: right; padding-right: 20px; }
+.district-data td:nth-child(1) { text-align: right; padding-right: 20px; }
+
+.systemwide-data, .organization-data, .district-data {
+    /* Add any specific table styles here if needed */
+}
+
+#certificate-data th:nth-child(1),
+#certificate-data td:nth-child(1) { width: 8%; }
+#certificate-data th:nth-child(2),
+#certificate-data td:nth-child(2) { width: 5%; }
+#certificate-data th:nth-child(3),
+#certificate-data td:nth-child(3) { width: 10%; }
+#certificate-data th:nth-child(4),
+#certificate-data td:nth-child(4) { width: 12%; }
+#certificate-data th:nth-child(5),
+#certificate-data td:nth-child(5) { width: 31%; }
+#certificate-data th:nth-child(6),
+#certificate-data td:nth-child(6) { width: 24%; }
+#certificate-data th:nth-child(7),
+#certificate-data td:nth-child(7) { width: 10%; }
+
+#certificate-data td:nth-child(3), /* First */
+#certificate-data td:nth-child(4), /* Last */
+#certificate-data td:nth-child(5), /* Email */
+#certificate-data td:nth-child(6)  /* Organization */
+{
+    text-align: left;
+}
+
+#certificate-data td {
+    font-size: 0.85rem;
+}
+
+/* Registrants table column widths */
+#registrants-data th:nth-child(1),
+#registrants-data td:nth-child(1) { width: 8%; }
+#registrants-data th:nth-child(2),
+#registrants-data td:nth-child(2) { width: 5%; }
+#registrants-data th:nth-child(3),
+#registrants-data td:nth-child(3) { width: 10%; }
+#registrants-data th:nth-child(4),
+#registrants-data td:nth-child(4) { width: 12%; }
+#registrants-data th:nth-child(5),
+#registrants-data td:nth-child(5) { width: 31%; }
+#registrants-data th:nth-child(6),
+#registrants-data td:nth-child(6) { width: 24%; }
+#registrants-data th:nth-child(7),
+#registrants-data td:nth-child(7) { width: 10%; }
+
+#registrants-data td:nth-child(3), /* First */
+#registrants-data td:nth-child(4), /* Last */
+#registrants-data td:nth-child(5), /* Email */
+#registrants-data td:nth-child(6)  /* Organization */
+{
+    text-align: left;
+}
+
+#registrants-data td {
+    font-size: 0.85rem;
+}
+
+/* Enrollees table column widths */
+#enrollees-data th:nth-child(1),
+#enrollees-data td:nth-child(1) { width: 8%; }
+#enrollees-data th:nth-child(2),
+#enrollees-data td:nth-child(2) { width: 5%; }
+#enrollees-data th:nth-child(3),
+#enrollees-data td:nth-child(3) { width: 10%; }
+#enrollees-data th:nth-child(4),
+#enrollees-data td:nth-child(4) { width: 12%; }
+#enrollees-data th:nth-child(5),
+#enrollees-data td:nth-child(5) { width: 31%; }
+#enrollees-data th:nth-child(6),
+#enrollees-data td:nth-child(6) { width: 24%; }
+#enrollees-data th:nth-child(7),
+#enrollees-data td:nth-child(7) { width: 10%; }
+
+#enrollees-data td:nth-child(3), /* First */
+#enrollees-data td:nth-child(4), /* Last */
+#enrollees-data td:nth-child(5), /* Email */
+#enrollees-data td:nth-child(6)  /* Organization */
+{
+    text-align: left;
+}
+
+#enrollees-data td {
+    font-size: 0.85rem;
+}
+
+
+
+.secondary-button.organization-search-print,
+.secondary-button.district-search-print,
+.secondary-button.certificates-print,
+#print-certificates-list,
+#print-registrants-report,
+#print-enrollees-report {
+    background: #336600;
+    color: #ffffff;
+    border: 2px solid #336600;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+.groups-data td:first-child {
+  text-align: right;
+}
+.groups-data th {
+  text-align: center;
+}
+
+

@@ -1,0 +1,50 @@
+<?php
+ini_set('display_errors', '1');
+error_reporting(E_ALL);
+
+include 'includes/db.php';
+
+include 'onlinecourses_common.php';
+
+$db = new db($dbhost, $dbuser, $dbpass, $dbname);
+
+$registrations = $db->query('SELECT * FROM registrations ORDER BY id')->fetchAll();
+
+echo("<p>".count($registrations)." registrations found.</p>");
+?>
+<table>
+	<thead>
+	  <tr>
+		<th>ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Email</th>
+		<th>Cohort</th>
+		<th>College</th>
+		<th>Role</th>
+		<th>Created</th>
+		<th>Actions</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <?php foreach ($registrations as $registration): ?>
+	  <tr>
+		<td><?php echo($registration['id']); ?></td>
+		<td><?php echo(htmlspecialchars($registration['first_name'])); ?></td>
+		<td><?php echo(htmlspecialchars($registration['last_name'])); ?></td>
+		<td><?php echo(htmlspecialchars($registration['email'])); ?></td>
+		<td><?php echo($registration['cohort']." - 20".$registration['year']); ?></td>
+		<td><?php echo(htmlspecialchars($registration['college'])); ?></td>
+		<td><?php echo(htmlspecialchars($registration['role'])); ?></td>
+		<td><?php echo(date('M d, Y', strtotime($registration['created_at']))); ?></td>
+		<td>
+			<a href="edit?id=<?php echo $registration['id']; ?>">Edit</a>
+		</td>
+	  </tr>
+	  <?php endforeach; ?>
+	</tbody>
+  </table>
+
+<?
+$db->close();
+?>

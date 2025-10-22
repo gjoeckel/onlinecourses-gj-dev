@@ -1,0 +1,186 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chico Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" type="image/svg+xml" href="lib/otter.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="config/config.js"></script>
+        <style>
+    .dashboard-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.5);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .dashboard-overlay .message-display {
+        padding: 0.75rem;
+        border-radius: 4px;
+        font-weight: bold;
+        min-height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: #e3f2fd;
+        color: #1976d2;
+        border: 1px solid #2196f3;
+        font-size: 1.1em;
+    }
+    </style>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Hide overlay after 3 seconds
+        setTimeout(function() {
+            const overlay = document.getElementById('dashboard-overlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+        }, 3000);
+    });
+    </script>
+    
+</head>
+<body>
+<div id="dashboard-overlay" class="dashboard-overlay">
+    <div class="message-display" role="status" aria-live="polite">
+        Data retrieval in progress...
+    </div>
+</div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="dashboard-header">
+        <div class="header-center">
+            <h1>Chico Dashboard</h1>
+            <p class="last-updated">Last Updated: 07-09-25 at 12:37 PM</p>        </div>
+    </header>
+    <main id="main-content">
+                    <div id="global-toggle-controls">
+                <button type="button" id="dismiss-info-button" class="close-button" aria-label="Hide master toggle switch">&times;</button>
+                <p>Use this button
+                    <button type="button" id="toggle-all-button" aria-expanded="false" aria-label="Show or hide data rows on all tables."></button> 
+                to show/hide the data rows on <strong>all</strong> tables. Use the buttons on each of the four tables to show/hide its data rows.</p>
+            </div>
+            <!-- Enrollment Summary -->
+            <section>
+                <div class="table-responsive">
+                    <table class="enrollment-summary" id="enrollment-summary">
+                        <caption>
+                            Enrollment Summary
+                            <button type="button" class="table-toggle-button" aria-expanded="false" aria-label="Show or hide enrollment summary data rows."></button>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Cohort</th>
+                                <th scope="col">Year</th>
+                                <th scope="col">Enrollments</th>
+                                <th scope="col">Completed</th>
+                                <th scope="col">Certificates</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                                                                <tr>
+                                        <td>07</td>
+                                        <td>24</td>
+                                        <td>1</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                                                                    </tbody>
+                    </table>
+                </div>
+            </section>
+                        <!-- Enrolled Participants -->
+            <section>
+                <div class="table-responsive">
+                    <table class="enrolled-participants" id="enrolled-participants">
+                        <caption>
+                            Enrolled Participants | <span class="caption-count">1</span>
+                            <button type="button" class="table-toggle-button" aria-expanded="false" aria-label="Show or hide enrolled participants data rows."></button>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Days to Close</th>
+                                <th scope="col">Cohort</th>
+                                <th scope="col">Year</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Completed</th>
+                                <th scope="col">Earned</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                                                                <tr>
+                                        <td></td>
+                                        <td>07</td>
+                                        <td>24</td>
+                                        <td>Stephanie</td>
+                                        <td>Mclaughlin</td>
+                                        <td>smclaughlin@csuchico.edu</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                                                                    </tbody>
+                    </table>
+                </div>
+            </section>
+            <!-- Invited Participants -->
+            <section>
+                <div class="table-responsive">
+                    <table class="invited-participants" id="invited-participants">
+                        <caption>
+                            Invited Participants | <span class="caption-count">0</span>
+                            <button type="button" class="table-toggle-button" aria-expanded="false" aria-label="Show or hide invited participants data rows."></button>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Invited</th>
+                                <th scope="col">Cohort</th>
+                                <th scope="col">Year</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                            <tr><td colspan="6">No invited participants data available</td></tr>
+                                                    </tbody>
+                    </table>
+                </div>
+            </section>
+            <!-- New Section Placeholder -->
+            <section>
+                <div class="table-responsive">
+                    <table class="certificates-earned" id="certificates-earned">
+                        <caption>
+                            Certificates Earned | <span class="caption-count">0</span>
+                            <button type="button" class="table-toggle-button" aria-expanded="false" aria-label="Show or hide new section data rows."></button>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Cohort</th>
+                                <th scope="col">Year</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                            <tr><td colspan="5">No certificates earned data available</td></tr>
+                                                    </tbody>
+                    </table>
+                </div>
+            </section>
+            </main>
+    <script src="lib/table-interaction.js"></script>
+</body>
+</html> 
