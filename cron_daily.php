@@ -1,6 +1,10 @@
 <?php
 function get_credentials_from_config_file() {
-    $config_path = '/var/websites/webaim/master_includes/onlinecourses_common.php';
+    // Check local development first, then production fallback
+    $config_path = '/Users/a00288946/cursor-global/projects/cursor-otter-dev/master_includes/onlinecourses_common.php';
+    if (!file_exists($config_path)) {
+        $config_path = '/var/websites/webaim/master_includes/onlinecourses_common.php';
+    }
     $credentials = [
         'dbhost' => null, 'dbuser' => null, 'dbpass' => null, 'dbname' => null,
         'token' => null, 'url' => null
@@ -116,9 +120,9 @@ $errorCount = 0;
 foreach ($recentUsers as $user) {
     // Use the correctly aliased canvas_course_id for the API call
     $courseId = $user['canvas_course_id'];
-    
+
     error_log("Processing user: {$user['email']} (Status: {$user['status']})");
-    
+
     // 1. Check submitter status
     if ($user['status'] === 'submitter') {
         // Use the enrollments API to check the user's status in the course
@@ -132,23 +136,23 @@ foreach ($recentUsers as $user) {
             'Content-Type: application/json',
             'Authorization: Bearer ' . $accessToken
         ]);
-        
+
         $result = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        
+
         if ($httpCode === 200) {
             $enrollments = json_decode($result, true);
-            
+
             if (!empty($enrollments)) {
                 $enrollment = $enrollments[0];
                 if (isset($enrollment['enrollment_state']) && ($enrollment['enrollment_state'] === 'active' || $enrollment['enrollment_state'] === 'completed')) {
-                    $db->update('registrations', 
+                    $db->update('registrations',
                         [
                             'status' => 'active',
                             'updated_at' => date('Y-m-d H:i:s')
-                        ], 
-                        'id = ?', 
+                        ],
+                        'id = ?',
                         [$user['id']]
                     );
                     error_log("Updated user {$user['email']} from submitter to active");
@@ -164,7 +168,7 @@ foreach ($recentUsers as $user) {
             $errorCount++;
         }
     }
-    
+
     // 2. Check active status for ToU assignment completion
     if ($user['status'] === 'active' && !empty($user['tou_quiz_id'])) {
         $endpoint = "{$apiUrl}/courses/{$courseId}/assignments/{$user['tou_quiz_id']}/submissions/{$user['canvas_user_id']}";
@@ -177,20 +181,20 @@ foreach ($recentUsers as $user) {
             'Content-Type: application/json',
             'Authorization: Bearer ' . $accessToken
         ]);
-        
+
         $result = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        
+
         if ($httpCode === 200) {
             $submission = json_decode($result, true);
             if (isset($submission['score']) && $submission['score'] >= 1) {
-                $db->update('registrations', 
+                $db->update('registrations',
                     [
                         'status' => 'enrollee',
                         'updated_at' => date('Y-m-d H:i:s')
-                    ], 
-                    'id = ?', 
+                    ],
+                    'id = ?',
                     [$user['id']]
                 );
                 error_log("Updated user {$user['email']} from active to enrollee (ToU completed)");
@@ -205,7 +209,7 @@ foreach ($recentUsers as $user) {
     } elseif ($user['status'] === 'active') {
         error_log("ToU assignment check skipped for user {$user['email']} (tou_quiz_id not configured)");
     }
-    
+
     // 3. Check enrollee status for Exam 4 completion
     if ($user['status'] === 'enrollee' && !empty($user['exam_4_id'])) {
         $endpoint = "{$apiUrl}/courses/{$courseId}/assignments/{$user['exam_4_id']}/submissions/{$user['canvas_user_id']}";
@@ -218,20 +222,20 @@ foreach ($recentUsers as $user) {
             'Content-Type: application/json',
             'Authorization: Bearer ' . $accessToken
         ]);
-        
+
         $result = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        
+
         if ($httpCode === 200) {
             $submission = json_decode($result, true);
             if (isset($submission['score']) && $submission['score'] >= 1) {
-                $db->update('registrations', 
+                $db->update('registrations',
                     [
                         'status' => 'completer',
                         'updated_at' => date('Y-m-d H:i:s')
-                    ], 
-                    'id = ?', 
+                    ],
+                    'id = ?',
                     [$user['id']]
                 );
                 error_log("Updated user {$user['email']} from enrollee to completer");
@@ -244,13 +248,13 @@ foreach ($recentUsers as $user) {
             $errorCount++;
         }
     }
-    
+
     // 4. Check completer status for certificate eligibility
     if ($user['status'] === 'completer') {
         $totalScore = 0;
         $examScores = [];
         $allSubmitted = true;
-        
+
         // Check all quizzes and exams
         $assignments = [
             'overview_of_document_accessibility_id', 'images_id', 'hyperlinks_id',
@@ -261,10 +265,10 @@ foreach ($recentUsers as $user) {
             'introduction_to_optimizing_pdfs_id', 'checking_accessibility_id',
             'reading_order_tool_id', 'content_order_and_tags_order_id', 'exam_4_id'
         ];
-        
+
         foreach ($assignments as $assignmentId) {
             if (empty($user[$assignmentId])) continue;
-            
+
             $endpoint = "{$apiUrl}/courses/{$courseId}/assignments/{$user[$assignmentId]}/submissions/{$user['canvas_user_id']}";
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $endpoint);
@@ -275,11 +279,11 @@ foreach ($recentUsers as $user) {
                 'Content-Type: application/json',
                 'Authorization: Bearer ' . $accessToken
             ]);
-            
+
             $result = curl_exec($ch);
             $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             curl_close($ch);
-            
+
             if ($httpCode === 200) {
                 $submission = json_decode($result, true);
                 if (isset($submission['score'])) {
@@ -296,22 +300,22 @@ foreach ($recentUsers as $user) {
                 break;
             }
         }
-        
+
         if ($allSubmitted && $totalScore >= 93 && count($examScores) === 4 && min($examScores) >= 8) {
-            $db->update('registrations', 
+            $db->update('registrations',
                 [
-                    'status' => 'earner', 
+                    'status' => 'earner',
                     'earnerdate' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s')
-                ], 
-                'id = ?', 
+                ],
+                'id = ?',
                 [$user['id']]
             );
             error_log("Updated user {$user['email']} from completer to earner");
             $updatedCount++;
         }
     }
-    
+
     // 5. Check earner status for review cohort acceptance
     if ($user['status'] === 'earner') {
         $endpoint = "{$apiUrl}/courses/{$courseId}/enrollments?user_id={$user['canvas_user_id']}";
@@ -324,23 +328,23 @@ foreach ($recentUsers as $user) {
             'Content-Type: application/json',
             'Authorization: Bearer ' . $accessToken
         ]);
-        
+
         $result = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        
+
         if ($httpCode === 200) {
             $enrollments = json_decode($result, true);
-            
+
             if (!empty($enrollments)) {
                 $enrollment = $enrollments[0];
                 if (isset($enrollment['enrollment_state']) && ($enrollment['enrollment_state'] === 'active' || $enrollment['enrollment_state'] === 'completed')) {
-                    $db->update('registrations', 
+                    $db->update('registrations',
                         [
                             'status' => 'review',
                             'updated_at' => date('Y-m-d H:i:s')
-                        ], 
-                        'id = ?', 
+                        ],
+                        'id = ?',
                         [$user['id']]
                     );
                     error_log("Updated user {$user['email']} from earner to review");
@@ -362,11 +366,11 @@ if (file_exists('quiz_score_tracker.php')) {
     require_once 'quiz_score_tracker.php';
     $tracker = new QuizScoreTracker();
     $quizResults = $tracker->processAllQuizUpdates();
-    
+
     // Log quiz tracking results
     error_log("Daily cron: Quiz tracking completed - {$quizResults['processed']} processed, {$quizResults['errors']} errors");
 }
 
 // REMOVED: Course import and points update (moved to weekly cron)
 error_log("Daily cron: Course import skipped (moved to weekly cron for performance)");
-?> 
+?>

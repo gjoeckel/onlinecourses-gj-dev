@@ -1,0 +1,311 @@
+[23-Oct-2025 00:21:23 UTC] Reports API Debug - Detected enterprise_code: demo
+[23-Oct-2025 00:21:23 UTC] Reports API Debug - Detected enterprise_code: demo
+[23-Oct-2025 00:21:23 UTC] Reports API Debug - Detected enterprise_code: demo
+[23-Oct-2025 00:30:05 UTC] Reports API Debug - Detected enterprise_code: FALSE
+[23-Oct-2025 00:30:05 UTC] Reports API Debug - Invalid enterprise_code: FALSE
+[23-Oct-2025 14:06:26 UTC] Reports API Debug - Detected enterprise_code: ccc
+[23-Oct-2025 14:06:26 UTC] Reports API Debug - Detected enterprise_code: ccc
+[23-Oct-2025 14:06:26 UTC] Reports API Debug - Detected enterprise_code: ccc
+[23-Oct-2025 14:06:28 UTC] Database files not found
+[23-Oct-2025 14:06:28 UTC] Final enterprise_code: ccc
+[23-Oct-2025 14:06:28 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /Users/a00288946/Desktop/onlinecourses/otter/reports/enrollments_data.php:80
+Stack trace:
+#0 /Users/a00288946/Desktop/onlinecourses/otter/reports/enrollees.php(26): require()
+#1 {main}
+  thrown in /Users/a00288946/Desktop/onlinecourses/otter/reports/enrollments_data.php on line 80
+[23-Oct-2025 14:13:48 UTC] Reports API Debug - Detected enterprise_code: ccc
+[23-Oct-2025 14:13:48 UTC] Reports API Debug - Detected enterprise_code: ccc
+[23-Oct-2025 14:13:48 UTC] Reports API Debug - Detected enterprise_code: ccc
+[23-Oct-2025 14:25:15 UTC] Reports API Debug - Detected enterprise_code: ccc
+[23-Oct-2025 14:25:15 UTC] Reports API Debug - Detected enterprise_code: ccc
+[23-Oct-2025 14:25:15 UTC] Reports API Debug - Detected enterprise_code: ccc
+[23-Oct-2025 14:26:40 UTC] Reports API Debug - Detected enterprise_code: FALSE
+[23-Oct-2025 14:26:40 UTC] Reports API Debug - Invalid enterprise_code: FALSE
+[23-Oct-2025 14:26:46 UTC] Reports API Debug - Detected enterprise_code: FALSE
+[23-Oct-2025 14:26:46 UTC] Reports API Debug - Invalid enterprise_code: FALSE
+[23-Oct-2025 14:27:29 UTC] Reports API Debug - Detected enterprise_code: FALSE
+[23-Oct-2025 14:27:29 UTC] Reports API Debug - Invalid enterprise_code: FALSE
+[23-Oct-2025 14:33:42 UTC] Reports API Debug - Detected enterprise_code: FALSE
+[23-Oct-2025 14:33:42 UTC] Reports API Debug - Invalid enterprise_code: FALSE
+[23-Oct-2025 14:41:50 UTC] Reports API Debug - Detected enterprise_code: FALSE
+[23-Oct-2025 14:41:50 UTC] Reports API Debug - Invalid enterprise_code: FALSE
+[23-Oct-2025 14:42:12 UTC] Reports API Debug - Detected enterprise_code: demo
+[23-Oct-2025 14:42:12 UTC] Reports API Debug - Enterprise not found: DEMO
+[23-Oct-2025 15:24:57 UTC] Reports API Debug - Detected enterprise_code: ccc
+[23-Oct-2025 15:24:57 UTC] Reports API Debug - Enterprise: CCC, ID: 1
+[23-Oct-2025 15:24:57 UTC] Reports API Debug - CCC organization query found 5833 registrations
+[23-Oct-2025 15:24:57 UTC] Reports API Debug - Detected enterprise_code: ccc
+[23-Oct-2025 15:24:58 UTC] Reports API Debug - Enterprise: CCC, ID: 1
+[23-Oct-2025 15:24:58 UTC] Reports API Debug - CCC organization query found 5833 registrations
+[23-Oct-2025 15:24:58 UTC] Reports API Debug - Found 195 organizations for enterprise ccc (ID: 1)
+[23-Oct-2025 15:24:58 UTC] Reports API Debug - Organizations: ["Allan Hancock College","Allan Hancock Joint Community College District","American River College","Antelope Valley College","Antelope Valley Community College District","Bakersfield College","Barstow College","Barstow Community College District","Berkeley City College","Butte College","Butte-Glenn Community College District","Cabrillo College","Cabrillo Community College District","Calbright College","California Community College League team","Canada College","CCCCO","CCCTechCenter","CCCTechConnect","Cerritos College","Cerritos Community College District","Cerro Coso College","Chabot College","Chabot-Las Positas Community College District","Chaffey College","Chaffey Community College District","Citrus College","Citrus Community College District","City College of San Francisco","Clovis Community College","Coast Community College District","Coastline Community College","College of Alameda","College of Marin","College of San Mateo","College of the Canyons","College of the Desert","College of the Redwoods","College of the Sequoias","College of the Siskiyous","Columbia College","Compton College","Compton Community College District","Contra Costa College","Contra Costa Community College District","Copper Mountain College","Copper Mountain Community College District","Cosumnes River College","Crafton Hills College","Cuesta College","Cuyamaca College","CVC-OEI","Cypress College","De Anza College","Desert Community College District","Diablo Valley College","East Los Angeles College","El Camino College","El Camino Community College District","Evergreen Valley College","Feather River College","Feather River Community College District","Folsom Lake College","Foothill College","Foothill-De Anza Community College District","Fresno City College","Fullerton College","Gavilan College","Gavilan Community College District","Glendale Community College","Glendale Community College District","Golden West College","Grossmont College","Grossmont-Cuyamaca Community College District","Hartnell College","Hartnell Joint Community College District","Imperial Valley College","Imperial Valley Community College District","Irvine Valley College","Kern Community College District","Lake Tahoe Community College","Lake Tahoe Community College District","Laney College","Las Positas College","Lassen College","Lassen Community College District","Long Beach City College","Long Beach Community College District","Los Angeles City College","Los Angeles Community College District","Los Angeles Harbor College","Los Angeles Mission College","Los Angeles Pierce College","Los Angeles Southwest College","Los Angeles Trade-Tech College","Los Angeles Valley College","Los Medanos College","Los Rios Community College District","Madera Community College","Marin Community College District","Mendocino College","Mendocino-Lake Community College District","Merced College","Merced Community College District","Merritt College","MiraCosta College","Miracosta Community College District","Mission College","Modesto Junior College","Monterey Peninsula College","Monterey Peninsula Community College District","Moorpark College","Moreno Valley College","Mt. San Antonio College","Mt. San Antonio Community College District","Mt. San Jacinto College","Mt. San Jacinto Community College District","Napa Valley College","Napa Valley Community College District","Norco College","North Orange Continuing Education","North Orange County Community College District","Ohlone College","Ohlone Community College District","Orange Coast College","Oxnard College","Palo Verde College","Palo Verde Community College District","Palomar College","Palomar Community College District","Pasadena Area Community College District","Pasadena City College","Peralta Community College District","Porterville College","Rancho Santiago Community College District","Redwoods Community College District","Reedley College","Rio Hondo College","Rio Hondo Community College District","Riverside City College","Riverside Community College District","Sacramento City College","Saddleback College","San Bernardino Community College District","San Bernardino Valley College","San Diego City College","San Diego College of Continuing Education","San Diego Community College District","San Diego Mesa College","San Diego Miramar College","San Francisco Community College District","San Joaquin Delta College","San Joaquin Delta Community College District","San Jose City College","San Jose-Evergreen Community College District","San Luis Obispo County Community College District","San Mateo County Community College District","Santa Ana College","Santa Barbara City College","Santa Barbara Community College District","Santa Clarita Community College District","Santa Monica College","Santa Monica Community College District","Santa Rosa Junior College","Santiago Canyon College","Sequoias Community College District","Shasta College","Shasta-Tehama-Trinity Joint Community College District","Sierra College","Sierra Joint Community College District","Siskiyou Joint Community College District","Skyline College","Solano Community College","Solano Community College District","Sonoma County Junior College District","South Orange County Community College District","Southwestern College","Southwestern Community College District","State Center Community College District","Taft College","Ventura College","Ventura County Community College District","Victor Valley College","Victor Valley Community College District","West Hills College Coalinga","West Hills College Lemoore","West Hills Community College District","West Kern Community College District","West Los Angeles College","West Valley College","West Valley-Mission Community College District","Woodland Community College","Yosemite Community College District","Yuba College","Yuba Community College District"]
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Allan Hancock College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Allan Hancock Joint Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Allan Hancock Joint Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=American River College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Antelope Valley College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Antelope Valley Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Antelope Valley Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Bakersfield College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Barstow College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Barstow Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Barstow Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Berkeley City College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Butte College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Butte-Glenn Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Butte-Glenn Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Cabrillo College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Cabrillo Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Cabrillo Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Calbright College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=California Community College League team, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Canada College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=CCCCO, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=CCCTechCenter, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=CCCTechConnect, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Cerritos College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Cerritos Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Cerritos Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Cerro Coso College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Chabot College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Chabot-Las Positas Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Chabot-Las Positas Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Chaffey College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Chaffey Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Chaffey Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Citrus College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Citrus Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Citrus Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=City College of San Francisco, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Clovis Community College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Coast Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Coast Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Coastline Community College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=College of Alameda, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=College of Marin, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=College of San Mateo, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=College of the Canyons, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=College of the Desert, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=College of the Redwoods, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=College of the Sequoias, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=College of the Siskiyous, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Columbia College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Compton College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Compton Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Compton Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Contra Costa College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Contra Costa Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Contra Costa Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Copper Mountain College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Copper Mountain Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Copper Mountain Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Cosumnes River College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Crafton Hills College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Cuesta College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Cuyamaca College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=CVC-OEI, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Cypress College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=De Anza College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Desert Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Desert Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Diablo Valley College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=East Los Angeles College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=El Camino College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=El Camino Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: El Camino Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Evergreen Valley College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Feather River College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Feather River Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Feather River Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Folsom Lake College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Foothill College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Foothill-De Anza Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Foothill-De Anza Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Fresno City College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Fullerton College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Gavilan College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Gavilan Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Gavilan Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Glendale Community College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Glendale Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Glendale Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Golden West College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Grossmont College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Grossmont-Cuyamaca Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Grossmont-Cuyamaca Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Hartnell College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Hartnell Joint Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Hartnell Joint Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Imperial Valley College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Imperial Valley Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Imperial Valley Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Irvine Valley College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Kern Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Kern Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Lake Tahoe Community College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Lake Tahoe Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Lake Tahoe Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Laney College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Las Positas College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Lassen College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Lassen Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Lassen Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Long Beach City College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Long Beach Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Long Beach Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Los Angeles City College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Los Angeles Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Los Angeles Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Los Angeles Harbor College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Los Angeles Mission College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Los Angeles Pierce College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Los Angeles Southwest College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Los Angeles Trade-Tech College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Los Angeles Valley College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Los Medanos College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Los Rios Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Los Rios Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Madera Community College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Marin Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Marin Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Mendocino College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Mendocino-Lake Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Mendocino-Lake Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Merced College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Merced Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Merced Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Merritt College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=MiraCosta College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Miracosta Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Miracosta Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Mission College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Modesto Junior College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Monterey Peninsula College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Monterey Peninsula Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Monterey Peninsula Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Moorpark College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Moreno Valley College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Mt. San Antonio College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Mt. San Antonio Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Mt. San Antonio Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Mt. San Jacinto College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Mt. San Jacinto Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Mt. San Jacinto Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Napa Valley College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Napa Valley Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Napa Valley Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Norco College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=North Orange Continuing Education, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=North Orange County Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: North Orange County Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Ohlone College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Ohlone Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Ohlone Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Orange Coast College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Oxnard College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Palo Verde College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Palo Verde Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Palo Verde Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Palomar College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Palomar Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Palomar Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Pasadena Area Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Pasadena Area Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Pasadena City College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Peralta Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Peralta Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Porterville College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Rancho Santiago Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Rancho Santiago Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Redwoods Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Redwoods Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Reedley College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Rio Hondo College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Rio Hondo Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Rio Hondo Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Riverside City College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Riverside Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Riverside Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Sacramento City College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Saddleback College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Bernardino Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: San Bernardino Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Bernardino Valley College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Diego City College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Diego College of Continuing Education, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Diego Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: San Diego Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Diego Mesa College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Diego Miramar College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Francisco Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: San Francisco Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Joaquin Delta College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Joaquin Delta Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: San Joaquin Delta Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Jose City College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Jose-Evergreen Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: San Jose-Evergreen Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Luis Obispo County Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: San Luis Obispo County Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=San Mateo County Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: San Mateo County Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Santa Ana College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Santa Barbara City College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Santa Barbara Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Santa Barbara Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Santa Clarita Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Santa Clarita Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Santa Monica College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Santa Monica Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Santa Monica Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Santa Rosa Junior College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Santiago Canyon College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Sequoias Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Sequoias Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Shasta College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Shasta-Tehama-Trinity Joint Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Shasta-Tehama-Trinity Joint Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Sierra College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Sierra Joint Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Sierra Joint Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Siskiyou Joint Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Siskiyou Joint Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Skyline College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Solano Community College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Solano Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Solano Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Sonoma County Junior College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Sonoma County Junior College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=South Orange County Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: South Orange County Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Southwestern College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Southwestern Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Southwestern Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=State Center Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: State Center Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Taft College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Ventura College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Ventura County Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Ventura County Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Victor Valley College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Victor Valley Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Victor Valley Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=West Hills College Coalinga, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=West Hills College Lemoore, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=West Hills Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: West Hills Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=West Kern Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: West Kern Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=West Los Angeles College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=West Valley College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=West Valley-Mission Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: West Valley-Mission Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Woodland Community College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Yosemite Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Yosemite Community College District
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Yuba College, contains District=NO
+[23-Oct-2025 15:24:58 UTC] Filter check: enterprise_code=ccc, orgName=Yuba Community College District, contains District=YES
+[23-Oct-2025 15:24:58 UTC] Skipping district: Yuba Community College District
+[23-Oct-2025 15:24:58 UTC] Reports API Debug - Detected enterprise_code: ccc
+[23-Oct-2025 15:24:59 UTC] Reports API Debug - Enterprise: CCC, ID: 1
+[23-Oct-2025 15:24:59 UTC] Reports API Debug - CCC organization query found 5833 registrations
