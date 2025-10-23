@@ -1,3 +1,6 @@
 [23-Oct-2025 00:17:04 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/a00288946/Desktop/onlinecourses/otter/dashboard.php on line 401
 [23-Oct-2025 15:25:23 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/a00288946/Desktop/onlinecourses/otter/dashboard.php on line 401
 [23-Oct-2025 15:27:57 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/a00288946/Desktop/onlinecourses/otter/dashboard.php on line 401
+[23-Oct-2025 16:41:04 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/a00288946/Desktop/onlinecourses/otter/dashboard.php on line 401
+[23-Oct-2025 16:45:02 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/a00288946/Desktop/onlinecourses/otter/dashboard.php on line 401
+[23-Oct-2025 16:51:14 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/a00288946/Desktop/onlinecourses/otter/dashboard.php on line 401
