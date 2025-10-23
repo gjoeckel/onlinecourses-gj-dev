@@ -1,0 +1,18 @@
+[23-Oct-2025 00:17:58 UTC] PHP Fatal error:  Uncaught Exception: Canvas configuration error: Master includes file not found: /var/websites/webaim/master_includes/onlinecourses_common.php in /Users/a00288946/Desktop/onlinecourses/otter/lib/canvas_api.php:19
+Stack trace:
+#0 /Users/a00288946/Desktop/onlinecourses/otter/lib/canvas_data_service.php(10): CanvasAPI->__construct()
+#1 /Users/a00288946/Desktop/onlinecourses/otter/lib/enterprise_data_service.php(15): CanvasDataService->__construct()
+#2 /Users/a00288946/Desktop/onlinecourses/otter/lib/unified_refresh_service.php(17): EnterpriseDataService->__construct()
+#3 /Users/a00288946/Desktop/onlinecourses/otter/lib/unified_refresh_service.php(26): UnifiedRefreshService->__construct()
+#4 /Users/a00288946/Desktop/onlinecourses/otter/admin/index.php(56): UnifiedRefreshService::getInstance()
+#5 {main}
+  thrown in /Users/a00288946/Desktop/onlinecourses/otter/lib/canvas_api.php on line 19
+[23-Oct-2025 00:18:14 UTC] PHP Fatal error:  Uncaught Exception: Canvas configuration error: Master includes file not found: /var/websites/webaim/master_includes/onlinecourses_common.php in /Users/a00288946/Desktop/onlinecourses/otter/lib/canvas_api.php:19
+Stack trace:
+#0 /Users/a00288946/Desktop/onlinecourses/otter/lib/canvas_data_service.php(10): CanvasAPI->__construct()
+#1 /Users/a00288946/Desktop/onlinecourses/otter/lib/enterprise_data_service.php(15): CanvasDataService->__construct()
+#2 /Users/a00288946/Desktop/onlinecourses/otter/lib/unified_refresh_service.php(17): EnterpriseDataService->__construct()
+#3 /Users/a00288946/Desktop/onlinecourses/otter/lib/unified_refresh_service.php(26): UnifiedRefreshService->__construct()
+#4 /Users/a00288946/Desktop/onlinecourses/otter/admin/index.php(56): UnifiedRefreshService::getInstance()
+#5 {main}
+  thrown in /Users/a00288946/Desktop/onlinecourses/otter/lib/canvas_api.php on line 19

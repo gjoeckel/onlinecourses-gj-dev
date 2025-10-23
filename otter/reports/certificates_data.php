@@ -31,13 +31,21 @@ $end = $_GET['end_date'] ?? '';
 $validRange = is_valid_mmddyy($start) && is_valid_mmddyy($end);
 
 // Initialize database connection using the same method as reports_api.php
-$master_includes_path = '/var/websites/webaim/master_includes/onlinecourses_common.php';
-$db_file_path = '/var/websites/webaim/htdocs/onlinecourses/includes/db.php';
+// Check local development first, then production fallback
+$master_includes_path = '/Users/a00288946/cursor-global/projects/cursor-otter-dev/master_includes/onlinecourses_common.php';
+$db_file_path = __DIR__ . '/../../includes/db.php';
+
+// Try local development paths first
+if (!file_exists($master_includes_path)) {
+    // Fallback to production paths
+    $master_includes_path = '/var/websites/webaim/master_includes/onlinecourses_common.php';
+    $db_file_path = '/var/websites/webaim/htdocs/onlinecourses/includes/db.php';
+}
 
 if (file_exists($master_includes_path) && file_exists($db_file_path)) {
     require_once $master_includes_path;
     require_once $db_file_path;
-    
+
     try {
         $db = new db($dbhost, $dbuser, $dbpass, $dbname);
     } catch (Exception $e) {
@@ -88,29 +96,29 @@ if ($enterpriseId) {
         // For CCC, try organization name first since most data is there
         $orgName = strtoupper($enterprise_code);
         $db->query("
-            SELECT r.*, r.organization as org_name 
-            FROM registrations r 
+            SELECT r.*, r.organization as org_name
+            FROM registrations r
             WHERE r.organization = ? AND r.deletion_status = 'active'
             ORDER BY r.created_at DESC
         ", $orgName);
         $allRegistrations = $db->fetchAll();
-        
+
         // Filter for certificate earners (certificate = 1 OR status = 'earner')
         $registrantsData = array_filter($allRegistrations, function($row) {
             return ($row['certificate'] == 1) || ($row['status'] === 'earner');
         });
-        
+
         // If no data found by organization name, try by enterprise_id as fallback
         if (empty($registrantsData)) {
             $db->query("
-                SELECT r.*, o.name as org_name 
-                FROM registrations r 
-                LEFT JOIN organizations o ON r.organization_id = o.id 
+                SELECT r.*, o.name as org_name
+                FROM registrations r
+                LEFT JOIN organizations o ON r.organization_id = o.id
                 WHERE r.enterprise_id = ? AND r.deletion_status = 'active'
                 ORDER BY r.created_at DESC
             ", $enterpriseId);
             $allRegistrations = $db->fetchAll();
-            
+
             // Filter for certificate earners
             $registrantsData = array_filter($allRegistrations, function($row) {
                 return ($row['certificate'] == 1) || ($row['status'] === 'earner');
@@ -119,30 +127,30 @@ if ($enterpriseId) {
     } else {
         // For other enterprises, try enterprise_id first
         $db->query("
-            SELECT r.*, o.name as org_name 
-            FROM registrations r 
-            LEFT JOIN organizations o ON r.organization_id = o.id 
+            SELECT r.*, o.name as org_name
+            FROM registrations r
+            LEFT JOIN organizations o ON r.organization_id = o.id
             WHERE r.enterprise_id = ? AND r.deletion_status = 'active'
             ORDER BY r.created_at DESC
         ", $enterpriseId);
         $allRegistrations = $db->fetchAll();
-        
+
         // Filter for certificate earners (certificate = 1 OR status = 'earner')
         $registrantsData = array_filter($allRegistrations, function($row) {
             return ($row['certificate'] == 1) || ($row['status'] === 'earner');
         });
-        
+
         // If no data found by enterprise_id, try by organization name
         if (empty($registrantsData)) {
             $orgName = strtoupper($enterprise_code);
             $db->query("
-                SELECT r.*, r.organization as org_name 
-                FROM registrations r 
+                SELECT r.*, r.organization as org_name
+                FROM registrations r
                 WHERE r.organization = ? AND r.deletion_status = 'active'
                 ORDER BY r.created_at DESC
             ", $orgName);
             $allRegistrations = $db->fetchAll();
-            
+
             // Filter for certificate earners
             $registrantsData = array_filter($allRegistrations, function($row) {
                 return ($row['certificate'] == 1) || ($row['status'] === 'earner');
@@ -176,7 +184,7 @@ if (count($registrantsData) > 0) {
         $name_parts = explode(' ', $row['name'], 2);
         $first_name = $name_parts[0] ?? '';
         $last_name = $name_parts[1] ?? '';
-        
+
         $filtered[] = [
             $row['id'] ?? '',                    // 0
             $row['status'] ?? '',                // 1

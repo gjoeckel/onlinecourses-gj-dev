@@ -44,7 +44,7 @@ $updatedCount = 0;
 
 foreach ($courses as $course) {
     echo "<h4>Course: {$course['course_title']} (Canvas ID: {$course['course_id']})</h4>";
-    
+
     // Call Canvas API to get assignments
     $endpoint = "{$apiUrl}/courses/{$course['course_id']}/assignments";
     $ch = curl_init();
@@ -56,33 +56,33 @@ foreach ($courses as $course) {
         'Content-Type: application/json',
         'Authorization: Bearer ' . $accessToken
     ]);
-    
+
     $result = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
-    
+
     if ($httpCode === 200) {
         $assignments = json_decode($result, true);
-        
+
         // Look for Terms of Use assignment
         $touAssignment = null;
         foreach ($assignments as $assignment) {
-            if (stripos($assignment['name'], 'terms of use') !== false || 
+            if (stripos($assignment['name'], 'terms of use') !== false ||
                 stripos($assignment['name'], 'terms') !== false && stripos($assignment['name'], 'use') !== false) {
                 $touAssignment = $assignment;
                 break;
             }
         }
-        
+
         if ($touAssignment) {
             $foundCount++;
             echo "<p>✅ Found Terms of Use assignment: <strong>{$touAssignment['name']}</strong> (ID: {$touAssignment['id']})</p>";
-            
+
             // Update database
             try {
-                $db->update('courses', 
-                    ['tou_quiz_id' => $touAssignment['id']], 
-                    'id = ?', 
+                $db->update('courses',
+                    ['tou_quiz_id' => $touAssignment['id']],
+                    'id = ?',
                     [$course['id']]
                 );
                 $updatedCount++;
@@ -104,7 +104,7 @@ foreach ($courses as $course) {
             echo "<p>Error: " . htmlspecialchars($result) . "</p>";
         }
     }
-    
+
     echo "<hr>";
 }
 
@@ -133,7 +133,11 @@ echo "<p>Now that the assignment IDs are set, the cron job should be able to che
 echo "<p>Test by running: <code>php cron_daily_optimized.php</code></p>";
 
 function get_credentials_from_config_file() {
-    $config_path = '/var/websites/webaim/master_includes/onlinecourses_common.php';
+    // Check local development first, then production fallback
+    $config_path = '/Users/a00288946/cursor-global/projects/cursor-otter-dev/master_includes/onlinecourses_common.php';
+    if (!file_exists($config_path)) {
+        $config_path = '/var/websites/webaim/master_includes/onlinecourses_common.php';
+    }
     $credentials = [
         'dbhost' => null, 'dbuser' => null, 'dbpass' => null, 'dbname' => null,
         'token' => null, 'url' => null
@@ -162,4 +166,4 @@ function get_credentials_from_config_file() {
 
     return $credentials;
 }
-?> 
+?>
